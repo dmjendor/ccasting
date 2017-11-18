@@ -1,0 +1,8 @@
+<div class="row" ng-show="charInfo.race.name">
+	<div class="col-xs-1">
+		<button class="btn btn-success btn-sm" ng-click="getRace()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+	</div>
+	<div class="col-xs-10">
+		<strong>Race:</strong> <span ng-attr-title="{{charInfo.race.desc}}">{{charInfo.race.name}}</span>
+	</div>
+</div>		

@@ -1,0 +1,8 @@
+<div class="row" ng-show="charInfo.culture.level">
+	<div class="col-xs-1">
+		<button class="btn btn-success btn-sm" ng-click="getCulture()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+	</div>
+	<div class="col-xs-10">
+		<strong>Culture Level:</strong> <span ng-attr-title="{{charInfo.culture.desc}}">{{charInfo.culture.level}}</span>
+	</div>
+</div>
