@@ -64,46 +64,9 @@ function droll($roll){
 	return array("roll"=>$rN, "mod"=>$sMod, "final"=>$finalRoll);
 }
 
-function jobMod($culture) {
-	$sArray = array('1' => "Primitive",'2' => "Nomad",'3' => "Barbarian",'4' => "Civilized",'5' => "Civilized-Decadent");
-	$kArray = array( "0" => "420a","1" => "420a","2" => "421a","3" => "422a","4" => "423a","5" => "423a","6" => "423a","7" => "423a");
-	$roll = droll("1d6");
-	$sVal =  array_search($culture,$sArray);
 
-	switch ($roll["roll"]){
-		case 1:
-			$table = $kArray[$sVal];
-			break;
-		case 2:
-			$table = $kArray[$sVal];
-			break;
-		case 3:
-			$table = $kArray[$sVal];
-			break;
-		case 4:
-			$tVal = $sVal-1;
-			$table = $kArray[$tVal];
-			break;
-		case 5:
-			$tVal = $sVal-1;
-			$table = $kArray[$tVal];
-			break;
-		case 6:
-			$tVal = $sVal+1;
-			$table = $kArray[$tVal];
-			break;
-		}
-	return $table;
-}
 
-function jobSelect($culture,$mod = 0) {
-	$sArray = array('1' => "Primitive",'2' => "Nomad",'3' => "Barbarian",'4' => "Civilized",'5' => "Civilized-Decadent");
-	$kArray = array( "0" => "420a","1" => "420a","2" => "421a","3" => "422a","4" => "423a","5" => "423a","6" => "423a","7" => "423a");
-	$sVal =  array_search($culture,$sArray);
-	$tVal = $sVal + $mod;
-	$table = $kArray[$tVal];
-	return $table;
-}
+
 
 function getAge($cat){
 	switch($GLOBALS['raceName']){
@@ -139,9 +102,8 @@ function getAge($cat){
 }
 
 function loveCheck() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	}
+
+
 	global $loveCurse;
 	if($loveCurse == 1){
 		t545();
@@ -214,9 +176,8 @@ function tableFilter($tab){
 }
 
 function charSex(){
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	}
+
+
 	$sRoll = droll("1d6");
         if($sRoll["roll"] <= 3){ echo "Sex: Male<br />"; } else {  echo "Sex: Female<br />"; }
 }

@@ -18,7 +18,9 @@
 		$table = $_POST['table'];
 		if($table != "") {
 			if(!empty($_POST['useChar'])){ $useChar = TRUE; } else { $useChar = FALSE; }
-			$return =  call_user_func($table);
+//			$return =  call_user_func($table);
+			$funcName = $table;
+			$return = $funcName($_POST['d1']);
 		}
 	}
  

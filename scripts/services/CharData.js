@@ -25,11 +25,27 @@ window.angular.module('castingApp.services.CharData', [])
 				desc: '',
 				roll: 0
 			},
-			parents: {
+			parent: {
 				level: '',
 				desc: '',
 				roll: 0,
-				title: ''
+				title: '',
+				landTitles: '',
+				landHoldings: '',
+				landSize: 0,
+				headHousehold: {
+					name: '',
+					desc: '',
+					roll: 0,
+					jobs: []
+				}
+				parent1: {
+					jobs: []
+				},
+				parent2: {
+					jobs: []
+				}
+				noteWorthy: []
 			}
 		};
 

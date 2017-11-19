@@ -1,0 +1,24 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">Parents & NPCs</div>
+	<div class="panel-body">
+		<parent-status></parent-status>
+		<parent-title></parent-title>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<b>Parents:</b> {{charInfo.parents.details}}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<b>Noteworthy Items for Parents:</b>
+				<ul class='list-group'>
+					<li class="list-group-item" ng-repeat="item in noteworthyList">{{item.name}}</li>
+				</ul>
+			</div>
+		</div>
+
+
+	</div>
+</div>

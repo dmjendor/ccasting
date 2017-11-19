@@ -1,8 +1,7 @@
 <?php 
 function t419a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','419a');
 	if($result["roll"]>=7){
 		$job = jobSelect($social);
@@ -17,163 +16,141 @@ function t419a() {
 	}
 }
 function t419b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','419b');
-	masterFunction($result);
+	return $result;
 }
 function t419b1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','419b1');
-	masterFunction($result);
+	return $result;
 }
 function t420() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','420');
-	masterFunction($result);
+	return $result;
 }
 function t420a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','420a');
-	masterFunction($result);
+	return $result;
 }
 function t420b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','420b');
-	masterFunction($result);
+	return $result;
 }
 function t421a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','421a');
-	masterFunction($result);
+	return $result;
 }
 function t421b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','421b');
-	masterFunction($result);
+	return $result;
 }
 function t422a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','422a');
-	masterFunction($result);
+	return $result;
 }
 function t422b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','422b');
-	masterFunction($result);
+	return $result;
 }
 function t423a($solmod = null) { 
 	if($solmod = null){$solmod=$SolMod;} else {$solmod = 0;};
 	$result = roll('1','10','423a',$solmod);
-	masterFunction($result);
+	return $result;
 }
 function t423b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','423b');
-	masterFunction($result);
+	return $result;
 }
 function t423b1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','423b1');
-	masterFunction($result);
+	return $result;
 }
 function t423b2() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','423b2');
-	masterFunction($result);
+	return $result;
 }
 function t423b3() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','423b3');
-	masterFunction($result);
+	return $result;
 }
 function t423b4() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','423b4');
-	masterFunction($result);
+	return $result;
 }
 function t423c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','423c');
-	masterFunction($result);
+	return $result;
 }
 function t423c1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','423c1');
-	masterFunction($result);
+	return $result;
 }
 function t423c1a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','423c1a');
-	masterFunction($result);
+	return $result;
 }
 function t423c1b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','3','423c1b');
-	masterFunction($result);
+	return $result;
 }
 function t423d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','423d');
-	masterFunction($result);
+	return $result;
 }
 function t423d1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','423d1');
-	masterFunction($result);
+	return $result;
 }
 function t423e() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','423e');
-	masterFunction($result);
+	return $result;
 }
 function t423e1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','423e1');
-	masterFunction($result);
+	return $result;
 }
 function t424(){
 	$craft = droll("1d3");
@@ -193,59 +170,52 @@ function t424(){
 	}
 }
 function t424a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','424a');
-	masterFunction($result);
+	return $result;
 }
 
 function t424b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','424b');
-	masterFunction($result);
+	return $result;
 }
 function t424c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','424c');
-	masterFunction($result);
+	return $result;
 }
 function t425($solmod = null) { 
 	if($solmod = null){$solmod=$SolMod;};
 	$result = roll('1','20','425',$solmod);
-	masterFunction($result);
+	return $result;
 }
 function t426a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','426a');
-	masterFunction($result);
+	return $result;
 }
 function t426a1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','426a1');
-	masterFunction($result);
+	return $result;
 }
 function t426a2() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','426a2');
-	masterFunction($result);
+	return $result;
 }
 function t426b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','426b');
-	masterFunction($result);
+	return $result;
 }
 function t427(){
 	echo "<br />Degree of interest: ";
@@ -257,30 +227,26 @@ function t427(){
 	echo "<br />";
 }
 function t427a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','427a');
-	masterFunction($result);
+	return $result;
 }
 function t427a1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','427a1');
-	masterFunction($result);
+	return $result;
 }
 function t427a2() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','427a2');
-	masterFunction($result);
+	return $result;
 }
 function t427b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$hLevel = 0;
 	switch($GLOBALS['cLevel']){
 		case "Primitive":
@@ -334,10 +300,9 @@ function t427b() {
 	echo $hLevel." ranks";
 }
 function t427c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','427c');
-	masterFunction($result);
+	return $result;
 }
 ?>

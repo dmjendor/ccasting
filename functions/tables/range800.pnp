@@ -89,14 +89,14 @@ function t865() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','865');
-	masterFunction($result);
+	return $result;
 }
 function t866() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','10','866');
-	masterFunction($result);
+	return $result;
 	t865();
 	t867();
 }
@@ -105,7 +105,7 @@ function t867() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','867');
-	masterFunction($result);
+	return $result;
 }
 function t868() {
 	if($GLOBALS['debug'] == 1){
@@ -115,7 +115,7 @@ function t868() {
 	global $loveCurse;
 	if($result['roll'] == 3){ $loveCurse = 1; }
 	echo "<span class='text-danger'>";
-	masterFunction($result);
+	return $result;
 	echo "</span>";
 }
 function t869a() {
@@ -123,21 +123,21 @@ function t869a() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','869a');
-	masterFunction($result);
+	return $result;
 }
 function t869a1() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','6','869a1');
-	masterFunction($result);
+	return $result;
 }
 function t869b() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','6','869b');
-	masterFunction($result);
+	return $result;
 }
 function t870($id = 0) { 
 	if($id == 0) {
@@ -145,28 +145,28 @@ function t870($id = 0) {
 	} else {
 		$result = roll('1','20','870',0,$id);
 	}
-	masterFunction($result);
+	return $result;
 }
 function t870a() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','8','870a');
-	masterFunction($result);
+	return $result;
 }
 function t870b() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','6','870b');
-	masterFunction($result);
+	return $result;
 }
 function t871a() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','871a');
-	masterFunction($result);
+	return $result;
 	t871b();
 }
 function t871b() {
@@ -174,7 +174,7 @@ function t871b() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','871b');
-	masterFunction($result);
+	return $result;
 	t871c();
 }
 function t871c() {
@@ -182,28 +182,28 @@ function t871c() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','871c');
-	masterFunction($result);
+	return $result;
 }
 function t872() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','100','872');
-	masterFunction($result);
+	return $result;
 }
 function t873() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','873');
-	masterFunction($result);
+	return $result;
 }
 function t874() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','874');
-	masterFunction($result);
+	return $result;
 	if($result['roll'] == 4){
 		$cR1 = droll('1d100');
 		if($cR1['roll'] >= 60){
@@ -221,7 +221,7 @@ function t874a() {
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','4','874a');
-	masterFunction($result);
+	return $result;
 }
 function t875() {
 	$GLOBALS['cSentence'] = 0;
@@ -232,7 +232,7 @@ function t875() {
 	$vSoc = t103();
 	$GLOBALS['vicSoc'] = $vSoc["result"]["level"];
 	echo "Victim was from the ".$GLOBALS['vicSoc']." social class.<br /> The crime was "; 
-	masterFunction($result);
+	return $result;
 	echo "<br />";
 	if($result["roll"] == 1){
 		$cR = droll("1d2");
@@ -287,7 +287,7 @@ function t875() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 	
-	masterFunction($result);
+	return $result;
 }
 function t875a() {
 	if($GLOBALS['debug'] == 1){
@@ -316,7 +316,7 @@ function t875a() {
 		echo $cR['roll']." years of imprisonment.";
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
-	masterFunction($result);
+	return $result;
 }
 function t875b() {
 	if($GLOBALS['debug'] == 1){
@@ -331,7 +331,7 @@ function t875b() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t875c() {
 	if($GLOBALS['debug'] == 1){
@@ -356,7 +356,7 @@ function t875c() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t875d() {
 	if($GLOBALS['debug'] == 1){
@@ -373,56 +373,56 @@ function t875d() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t876() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','20','876');
-	masterFunction($result);
+	return $result;
 }
 function t876a() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','6','876a');
-	masterFunction($result);
+	return $result;
 }
 function t876b() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','8','876b');
-	masterFunction($result);
+	return $result;
 }
 function t876c() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','6','876c');
-	masterFunction($result);
+	return $result;
 }
 function t876d() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','10','876d');
-	masterFunction($result);
+	return $result;
 }
 function t876e() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','8','876e');
-	masterFunction($result);
+	return $result;
 }
 function t876f() {
 	if($GLOBALS['debug'] == 1){
 		echo "<span class='label label-warning'>".__FUNCTION__."</span>";
 	} 
 	$result = roll('1','10','876f');
-	masterFunction($result);
+	return $result;
 }
 
 function t877($id = 0) { 
@@ -481,7 +481,7 @@ function t877a($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877b($id = 0) { 
 	if($id != 0 ) {
@@ -489,7 +489,7 @@ function t877b($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877c($id = 0) { 
 	if($id != 0 ) {
@@ -497,7 +497,7 @@ function t877c($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877d($id = 0) { 
 	if($id != 0 ) {
@@ -505,6 +505,6 @@ function t877d($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 ?>

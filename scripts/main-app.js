@@ -63,7 +63,11 @@ window.angular.module('castingApp.controllers', [
 
 window.angular.module('castingApp.components', [
   'castingApp.components.race',
-  'castingApp.components.culture'
+  'castingApp.components.culture',
+  'castingApp.components.parent',
+  'castingApp.components.parent.status',
+  'castingApp.components.parent.title'
+
 //  'castingApp.components.bioModal_ctrl',
 ], null);
 

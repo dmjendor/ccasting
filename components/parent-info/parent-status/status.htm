@@ -1,0 +1,8 @@
+<div class="row" ng-show="charInfo.parents.level">
+	<div class="col-xs-1">
+		<button class="btn btn-success btn-sm" ng-click="getPStatus(charInfo.cuMod)"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+	</div>
+	<div class="col-xs-10">
+		<span class="label label-primary">({{charInfo.parents.roll}})</span><b>Social Status (of parents): </b> <span ng-attr-title="{{charInfo.parents.level}}">{{charInfo.parents.level}}</span>
+	</div>
+</div>

@@ -72,25 +72,13 @@
             <div class="panel-body">
 				<race-info></race-info>	
 				<culture-info></culture-info>
-				<parents-status></parents-status>
-				<div class="row" ng-show="charInfo.parents.level">
-					<div class="col-xs-1">
-						<button class="btn btn-success btn-sm" ng-click="getPStatus(charInfo.cuMod)"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
-					</div>
-					<div class="col-xs-10">
-						<span class="label label-primary">({{charInfo.parents.roll}})</span><b>Social Status (of parents): </b> <span ng-attr-title="{{charInfo.parents.level}}">{{charInfo.parents.level}}</span>
-					</div>
-				</div>
+
 				<div class="row" ng-show="charInfo.survival">
 					<div class="col-xs-offset-1 col-xs-10">
 						<b>Survival: </b> <span ng-attr-title="{{charInfo.survival}}">{{charInfo.survival}} of survival skill</span>
 					</div>
 				</div>
-				<div class="row" ng-show="charInfo.parents.title">
-					<div class="col-xs-offset-1 col-xs-10">
-						<b>Title (of parent): </b> {{charInfo.parents.title}}
-					</div>
-				</div>
+				
 				<?php 
 
 				$legitRoll = rand(1,20);
@@ -138,17 +126,7 @@
 			</div>
 
 		</div>
-       <div class="panel panel-primary">
-            <div class="panel-heading">Parents & NPCs</div>
-            <div class="panel-body">
-
-                <?php
-				$parents = t114a($cLevel);
-				echo "<br><b>Noteworthy Items for Parents:</b> ";
-                $pNoteworthy = t114b();
-                ?>
-            </div>
-        </div>
+		<parent-info></parent-info>
         <div class="panel panel-primary">
             <div class="panel-heading">Significant Events of Childhood</div>
             <div class="panel-body">
@@ -282,13 +260,13 @@
 <div class="navbar navbar-default navbar-fixed-top">
 	<ul class="nav nav-pills">
 		<li class="active">Age: <span class="badge">{{charInfo.age}}</span></li>
-		<li>CuMod:  <span class="badge">{{charInfo.cuMod}}</span></li>
-		<li>SolMod  <span class="badge">{{charInfo.solMod}}</span></li>
-		<li>LegitMod  <span class="badge">{{charInfo.legitMod}}</span></li>
-		<li>BiMod  <span class="badge">{{charInfo.biMod}}</span></li>
-		<li>TiMod  <span class="badge">{{charInfo.tiMod}}</span></li>
-		<li>Imprisoned  <span class="badge">{{charInfo.imprisoned}} years</span></li>
-		<li>Enslaved  <span class="badge">{{charInfo.enslaved}} years</span></li>
+		<li ng-show='charInfo.debug'>CuMod:  <span class="badge">{{charInfo.cuMod}}</span></li>
+		<li ng-show='charInfo.debug'>SolMod  <span class="badge">{{charInfo.solMod}}</span></li>
+		<li ng-show='charInfo.debug'>LegitMod  <span class="badge">{{charInfo.legitMod}}</span></li>
+		<li ng-show='charInfo.debug'>BiMod  <span class="badge">{{charInfo.biMod}}</span></li>
+		<li ng-show='charInfo.debug'>TiMod  <span class="badge">{{charInfo.tiMod}}</span></li>
+		<li ng-show='charInfo.imprisoned'>Imprisoned  <span class="badge">{{charInfo.imprisoned}} years</span></li>
+		<li ng-show='charInfo.enslaved'>Enslaved  <span class="badge">{{charInfo.enslaved}} years</span></li>
 	</ul>
 </div>
 <script type="text/javascript" src="scripts/main-app.js"></script>
@@ -301,6 +279,9 @@
 
 <script type="text/javascript" src="components/race-info/race.js"></script>
 <script type="text/javascript" src="components/culture-info/culture.js"></script>
+<script type="text/javascript" src="components/parent-info/parent.js"></script>
+<script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
+<script type="text/javascript" src="components/parent-info/parent-title/title.js"></script>
 
 </body>
 <?php $pdo = null; ?>

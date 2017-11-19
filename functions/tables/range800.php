@@ -1,8 +1,7 @@
 <?php 
 function t863() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','863');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -13,9 +12,8 @@ function t863() {
 }
 
 function t863a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','863a');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -25,9 +23,8 @@ function t863a() {
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t863b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','863b');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -37,9 +34,8 @@ function t863b() {
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t863c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','863c');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -49,9 +45,8 @@ function t863c() {
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t863d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','863d');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -61,9 +56,8 @@ function t863d() {
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t863e() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','863e');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -73,9 +67,8 @@ function t863e() {
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t864() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','864');
 	if($result["result"]["tbl"] != ""){
 		if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
@@ -85,59 +78,52 @@ function t864() {
 	if($result['result']['descrip'] !=""){ echo "<span class='titled' title='".$result['result']['descrip']."'>".$result['result']['name']."</span> "; } else { echo "<span>".$result['result']['name']."</span> "; }
 }
 function t865() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','865');
-	masterFunction($result);
+	return $result;
 }
 function t866() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','866');
-	masterFunction($result);
+	return $result;
 	t865();
 	t867();
 }
 function t867() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','867');
-	masterFunction($result);
+	return $result;
 }
 function t868() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','868');
 	global $loveCurse;
 	if($result['roll'] == 3){ $loveCurse = 1; }
 	echo "<span class='text-danger'>";
-	masterFunction($result);
+	return $result;
 	echo "</span>";
 }
 function t869a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','869a');
-	masterFunction($result);
+	return $result;
 }
 function t869a1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','869a1');
-	masterFunction($result);
+	return $result;
 }
 function t869b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','869b');
-	masterFunction($result);
+	return $result;
 }
 function t870($id = 0) { 
 	if($id == 0) {
@@ -145,65 +131,57 @@ function t870($id = 0) {
 	} else {
 		$result = roll('1','20','870',0,$id);
 	}
-	masterFunction($result);
+	return $result;
 }
 function t870a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','870a');
-	masterFunction($result);
+	return $result;
 }
 function t870b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','870b');
-	masterFunction($result);
+	return $result;
 }
 function t871a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','871a');
-	masterFunction($result);
+	return $result;
 	t871b();
 }
 function t871b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','871b');
-	masterFunction($result);
+	return $result;
 	t871c();
 }
 function t871c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','871c');
-	masterFunction($result);
+	return $result;
 }
 function t872() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','100','872');
-	masterFunction($result);
+	return $result;
 }
 function t873() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','873');
-	masterFunction($result);
+	return $result;
 }
 function t874() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','874');
-	masterFunction($result);
+	return $result;
 	if($result['roll'] == 4){
 		$cR1 = droll('1d100');
 		if($cR1['roll'] >= 60){
@@ -217,22 +195,20 @@ function t874() {
 	}
 }
 function t874a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','874a');
-	masterFunction($result);
+	return $result;
 }
 function t875() {
 	$GLOBALS['cSentence'] = 0;
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','875');
 	$vSoc = t103();
 	$GLOBALS['vicSoc'] = $vSoc["result"]["level"];
 	echo "Victim was from the ".$GLOBALS['vicSoc']." social class.<br /> The crime was "; 
-	masterFunction($result);
+	return $result;
 	echo "<br />";
 	if($result["roll"] == 1){
 		$cR = droll("1d2");
@@ -287,12 +263,11 @@ function t875() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 	
-	masterFunction($result);
+	return $result;
 }
 function t875a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','875a');
 	if($result["roll"] == 2){ 
 		if($GLOBALS['vicSoc']=="Noble"){ $cR = droll("1d20+20"); echo "NPCs are put to death."; } else { $cR = droll("2d10");} 
@@ -316,12 +291,11 @@ function t875a() {
 		echo $cR['roll']." years of imprisonment.";
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
-	masterFunction($result);
+	return $result;
 }
 function t875b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','875b');
 	if($result["roll"] == 3){ $cR = droll("2d8"); }
 	if($result["roll"] == 7 OR $result["roll"] == 8){ $cR = droll("1d10"); }
@@ -331,12 +305,11 @@ function t875b() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t875c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','875c');
 	if($result["roll"] == 1 OR $result["roll"] == 3){ $cR = droll("2d4"); }
 	if($result["roll"] == 2){ $cR = droll("1d6"); }
@@ -356,12 +329,11 @@ function t875c() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t875d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','875d');
 	if($result["roll"] == 2){ $cR = droll("1d6");}
 	if($result["roll"] == 1 OR $result["roll"] == 2){	echo "Character is pilloried, placed on public display in the stocks for a week.<br /> Subtract 1d4 from Charisma attribute."; }
@@ -373,56 +345,49 @@ function t875d() {
 		$GLOBALS['cSentence'] += $cR['roll'];
 	}
 
-	masterFunction($result);
+	return $result;
 }
 function t876() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','876');
-	masterFunction($result);
+	return $result;
 }
 function t876a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','876a');
-	masterFunction($result);
+	return $result;
 }
 function t876b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','876b');
-	masterFunction($result);
+	return $result;
 }
 function t876c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','876c');
-	masterFunction($result);
+	return $result;
 }
 function t876d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','876d');
-	masterFunction($result);
+	return $result;
 }
 function t876e() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','876e');
-	masterFunction($result);
+	return $result;
 }
 function t876f() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','876f');
-	masterFunction($result);
+	return $result;
 }
 
 function t877($id = 0) { 
@@ -481,7 +446,7 @@ function t877a($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877b($id = 0) { 
 	if($id != 0 ) {
@@ -489,7 +454,7 @@ function t877b($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877c($id = 0) { 
 	if($id != 0 ) {
@@ -497,7 +462,7 @@ function t877c($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 function t877d($id = 0) { 
 	if($id != 0 ) {
@@ -505,6 +470,6 @@ function t877d($id = 0) {
 	} else {
 		$result = roll('1','10','877a');	
 	}
-	masterFunction($result);
+	return $result;
 }
 ?>

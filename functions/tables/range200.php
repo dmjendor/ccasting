@@ -55,157 +55,142 @@ function t215($solmod=null) {
 		}	else { $rolMod = $solmod + 2; }
 			$result = roll('1','20','215',$rolMod);
 	}
-	masterFunction($result);
+	return $result;
 }
 function t215a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	global $LSide, $DSide, $NSide, $RSide;
 	$result = roll('1','10','215a');
     	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t215b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','215b');
-	masterFunction($result);
+	return $result;
 }
 function t215c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','215c');
-	masterFunction($result);
+	return $result;
 }
 function t215d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','215d');
-	masterFunction($result);
+	return $result;
 }
 function t215e() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','215e');
-	masterFunction($result);
+	return $result;
 }
 function t216a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','216a');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t216b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','20','216b');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t216b1() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','216b1');
     $GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t216b2() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','216b2');
     $GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217($solmod = null) { 
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	if($solmod = null){$solmod=$SolMod;};
 	$result = roll('2','40','217',$solmod);
 	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','8','217a');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','3','217b');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','3','217c');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217d() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','4','217d');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 function t217e() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','6','217e');
    	$GLOBALS['LSide'] += $result["result"]["L"];
 	$GLOBALS['DSide'] += $result["result"]["D"];
 	$GLOBALS['NSide'] += $result["result"]["N"];
 	$GLOBALS['RSide'] += $result["result"]["R"];
-	masterFunction($result);
+	return $result;
 }
 ?>

@@ -9,28 +9,19 @@ function t978($tid) {
 			echo ", but is not.";
 		}
 	}
-	masterFunction($result);
+	return $result;
 }
 function t978a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
 	$result = roll('1','4','978a');
-	masterFunction($result);
+	return $result;
 }
-function t978b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+function t978b() { 
 	$result = roll('1','6','978b');
-	masterFunction($result);
+	return $result;
 }
 function t978c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
 	$result = roll('1','6','978c');
-	masterFunction($result);
+	return $result;
 }
 
 ?>

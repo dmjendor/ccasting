@@ -1,31 +1,31 @@
 <?php 
 function t750() {
 	$result = roll('1','20','750');
-	masterFunction($result);
+	return $result;
 }
 function t751() {
 	$result = roll('1','20','751');
-	masterFunction($result);
+	return $result;
 }
 function t752() {
 	$result = roll('1','20','752');
-	masterFunction($result);
+	return $result;
 }
 function t753() {
 	$result = roll('1','20','753');
-	masterFunction($result);
+	return $result;
 }
 function t754($id=0) { 
 	if($id != 0){ $result = roll('1','20','754',0,$id); } else { $result = roll('1','20','754');  }
-	masterFunction($result);
+	return $result;
 }
 function t755() {
 	$result = roll('1','20','755');
-	masterFunction($result);
+	return $result;
 }
 function t756() {
 	$result = roll('1','20','756');
-	masterFunction($result);
+	return $result;
 }
 function t757(){
 	charSex();
@@ -34,11 +34,11 @@ function t757(){
 }
 function t757a() {
 	$result = roll('1','20','757a');
-	masterFunction($result);
+	return $result;
 }
 function t757b() {
 	$result = roll('1','20','757b');
-	masterFunction($result);
+	return $result;
 }
 
 function t758a($cLevel){
@@ -90,9 +90,8 @@ function t759() {
 	return $result;
 }
 function t760() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$cR1 = droll("1d20");
 	if($cR1["roll"]>=15){
 		echo "Abilities unknown to character";
@@ -100,22 +99,20 @@ function t760() {
 	$cR2 = droll("1d3");
 	for($i = 0; $i <= $cR2["roll"]; $i++){
 		$result = roll('1','20','760');
-		masterFunction($result);
+		return $result;
 	}
 }
 
 function t760a() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	}
+
+
 	$result = roll('1','10','760a');
-	masterFunction($result);
+	return $result;
 }
 
 function t761() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	t761a();
 	t102out();
 	t103out();
@@ -124,9 +121,8 @@ function t761() {
 	t761c();
 }
 function t761a($tid="") {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	if(!empty($tid)){
 		$result = roll('1','10','761a',$tid);
 	} else {
@@ -142,27 +138,24 @@ function t761a($tid="") {
 			t761a();
 		}
 	}
-	masterFunction($result);
+	return $result;
 }
 function t761b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','761b');
-	masterFunction($result);
+	return $result;
 }
 
 function t761c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','761c');
-	masterFunction($result);
+	return $result;
 }
 function t762() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	t762a();
 	t102out();
 	t103out();
@@ -171,9 +164,8 @@ function t762() {
 	t762c();
 }
 function t762a($tid = "") {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	if(!empty($tid)){
 		$result = roll('1','10','762a',$tid);
 	} else {
@@ -188,20 +180,18 @@ function t762a($tid = "") {
 			$result = roll('1','10','762a',0,$pGod["roll"]);
 		}
 	}
-	masterFunction($result);
+	return $result;
 }
 function t762b() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','762b');
-	masterFunction($result);
+	return $result;
 }
 function t762c() {
-	if($GLOBALS['debug'] == 1){
-		showFunction(__FUNCTION__);
-	} 
+
+ 
 	$result = roll('1','10','762c');
-	masterFunction($result);
+	return $result;
 }
 ?>
