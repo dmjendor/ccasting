@@ -20,7 +20,13 @@
 			if(!empty($_POST['useChar'])){ $useChar = TRUE; } else { $useChar = FALSE; }
 //			$return =  call_user_func($table);
 			$funcName = $table;
-			$return = $funcName($_POST['d1']);
+			if(isset($_POST['d2'])){
+				$return = $funcName($_POST['d1'],$_POST['d2']);
+			} elseif(isset($_POST['d1'])){
+				$return = $funcName($_POST['d1']);
+			} else {
+				$return = $funcName();
+			}
 		}
 	}
  

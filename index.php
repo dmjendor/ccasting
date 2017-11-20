@@ -82,46 +82,46 @@
 				<?php 
 
 				$legitRoll = rand(1,20);
-                if(($legitRoll+$CuMod)>19 OR $legitRoll == 20){
-					echo "<br /><span class='text-danger'><b>Character is Illegitimate:</b></span> ";
-					$LegitMod = rand(1,4);
-					$legitReason = t105($CuMod);
-					echo $legitReason['result']['descrip'];
-                }
-                echo "<br/>";
-                echo "<b>Family:</b> ";
-				$family = t106($CuMod);
-                if($family['roll']>=21 AND $family['roll']<=24){
-					$SolMod = "-1";
-					$social['result']['level'] = "Poor";
-                }
-				echo $family['result']['descrip'];
-                echo "<br/>";
-                $siblings = t107(20);
-                $sibNum = $siblings['result']['name'];
-                echo $sibNum." siblings";
-                if($illSib > 0){
-					echo " and ".$illSib." illegitimate siblings."; 
-                }
-                echo "<br/>";
-                if($sibNum !== 0){
-					$birthOrder = t108();
-					echo $birthOrder['result']['descrip'];
-                }
-                $tob = droll("1d12");
-                $pth = ordinal_suffix($tob["roll"]);
-                $tobh = droll("1d12");
-                $tobm = droll("1d60");
-                $tobmp = sprintf("%02s", $tobm['roll']);
-                $tobAPm = droll("1d2");
-                if($tobAPm["roll"] == "1"){ $apm = "AM"; } else { $apm = "PM"; }
-                echo "<br />Born in the ".$tob["roll"].$pth." month, at ".$tobh["roll"].":".$tobmp." ".$apm."<br />";
-                echo "<b>Birth Place:</b> ";
-                $birthPlace = t110($LegitMod);
-                if($GLOBALS['set111']==true){
-					echo "<br /><b>Unusual Birth Circumstances:</b> ";
-					t112($BiMod);
-                }
+// if(($legitRoll+$CuMod)>19 OR $legitRoll == 20){
+//     echo "<br /><span class='text-danger'><b>Character is Illegitimate:</b></span> ";
+// $LegitMod = rand(1,4);
+// $legitReason = t105($CuMod);
+// echo $legitReason['result']['descrip'];
+// }
+// echo "<br/>";
+// echo "<b>Family:</b> ";
+// $family = t106($CuMod);
+// if($family['roll']>=21 AND $family['roll']<=24){
+//     $SolMod = "-1";
+// $social['result']['level'] = "Poor";
+// }
+// echo $family['result']['descrip'];
+// echo "<br/>";
+// $siblings = t107(20);
+// $sibNum = $siblings['result']['name'];
+// echo $sibNum." siblings";
+// if($illSib > 0){
+//     echo " and ".$illSib." illegitimate siblings.";
+// }
+// echo "<br/>";
+// if($sibNum !== 0){
+//     $birthOrder = t108();
+// echo $birthOrder['result']['descrip'];
+// }
+// $tob = droll("1d12");
+// $pth = ordinal_suffix($tob["roll"]);
+// $tobh = droll("1d12");
+// $tobm = droll("1d60");
+// $tobmp = sprintf("%02s", $tobm['roll']);
+// $tobAPm = droll("1d2");
+// if($tobAPm["roll"] == "1"){ $apm = "AM"; } else { $apm = "PM"; }
+// echo "<br />Born in the ".$tob["roll"].$pth." month, at ".$tobh["roll"].":".$tobmp." ".$apm."<br />";
+// echo "<b>Birth Place:</b> ";
+// $birthPlace = t110($LegitMod);
+// if($GLOBALS['set111']==true){
+//     echo "<br /><b>Unusual Birth Circumstances:</b> ";
+// t112($BiMod);
+// }
 				?>
 			</div>
 
@@ -131,32 +131,28 @@
             <div class="panel-heading">Significant Events of Childhood</div>
             <div class="panel-body">
 				<?php
-
-                $childR = droll("1d3");
-				$ages = array();
-				$ageArray = array();
-
-                echo "<ul class='list-group'>";
-
-                for($i=0;$i <= $childR['final']; $i++){
-	                array_push($ageArray,getAge('child'));
-				}
-
-				foreach ($ageArray as $age) {    
-					$ages[] = $age['final'];
-				}
-				asort($ages);
-
-				foreach ($ages as $age){
-	                echo "<li class='list-group-item'><b class='text-primary'>Age ".$age.": </b>";
-                    t215();
-				}
-
-				
-				echo "</ul>";
-
-
-                
+					//$childR = droll("1d3");
+					// $ages = array();
+					// $ageArray = array();
+					//
+					// echo "<ul class='list-group'>";
+					//
+					// for($i=0;$i <= $childR['final']; $i++){
+					//     array_push($ageArray,getAge('child'));
+					// }
+					//
+					// foreach ($ageArray as $age) {
+					//     $ages[] = $age['final'];
+					// }
+					// asort($ages);
+					//
+					// foreach ($ages as $age){
+					//     echo "<li class='list-group-item'><b class='text-primary'>Age ".$age.": </b>";
+					// t215();
+					// }
+					//
+					//
+					// echo "</ul>";               
                 ?>
             </div>
 
@@ -164,43 +160,38 @@
 				<div class="panel-heading">Significant Events of Adolescence</div>
 				<div class="panel-body">
 				<?php
-                $adolesR = droll("1d3");
-				$ages2 = array();
-				$age2Array = array();
-                echo "<ul>";
-                for($i=0;$i <= $adolesR['final']; $i++){
-	                array_push($age2Array,getAge('child'));
-				}
-
-				foreach ($age2Array as $age) {    
-					$ages2[] = $age['final'];
-				}
-				asort($ages2);
-
-				foreach ($ages2 as $age2){
-	                echo "<li class='list-group-item'><b class='text-primary'>Age ".$age2.": </b>";
-                    t215();
-				}
-
-				echo "</ul>";
-			?>
+					// $adolesR = droll("1d3");
+					// $ages2 = array();
+					// $age2Array = array();
+					// echo "<ul>";
+					// for($i=0;$i <= $adolesR['final']; $i++){
+					//     array_push($age2Array,getAge('child'));
+					// }
+					//
+					// foreach ($age2Array as $age) {
+					//     $ages2[] = $age['final'];
+					// }
+					// asort($ages2);
+					//
+					// foreach ($ages2 as $age2){
+					//     echo "<li class='list-group-item'><b class='text-primary'>Age ".$age2.": </b>";
+					// t215();
+					// }
+					//
+					// echo "</ul>";
+				?>
 				</div>
 			</div>
-			<?php 
-			    if($mRank > 0){
-			?>
-			<div class="panel panel-primary">
+			<div class="panel panel-primary" ng-if="charInfo.military.rank">
 				<div class="panel-heading">Your Military Service</div>
 				<div class="panel-body">
 
-            <?php 
-                $muster = musterOut($mRank);
-            ?>
+				<?php 
+					//$muster = musterOut($mRank);
+				?>
 				</div>
 			</div>
-			<?php
-			}
-			?>
+
 				
         </div>
     </div>
@@ -252,9 +243,19 @@
 		</div>
 	  </div>
 	</form>
-
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Object Info</div>
+				<div class="panel-body">
+					<pre>@{{ charInfo | json}}</pre>
+				</div>
+			</div>
+		</div>
+	</div>
         <div id="results"></div>
     </div>
+
 </div>
 
 <div class="navbar navbar-default navbar-fixed-top">

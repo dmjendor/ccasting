@@ -40,8 +40,8 @@ window.angular.module('castingApp.components.parent.title', [])
 								var tData = response.data.result;
 								$scope.charInfo.parent.landTitles = tData.LandTitles;
 								$scope.charInfo.parent.landHoldings = tData.LandHoldings;
-								$scope.charInfo.parent.landSize = dRoll(tData.Size);
-								$scope.charInfo.tiMod = dRoll(tData.TiMod);
+								$scope.charInfo.parent.landSize = ShdFnc.dRoll(tData.Size);
+								$scope.charInfo.tiMod = ShdFnc.dRoll(tData.TiMod);
 
 							});
 

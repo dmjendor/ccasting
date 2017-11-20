@@ -38,14 +38,17 @@ window.angular.module('castingApp.services.CharData', [])
 					desc: '',
 					roll: 0,
 					jobs: []
-				}
+				},
 				parent1: {
 					jobs: []
 				},
 				parent2: {
 					jobs: []
-				}
+				},
 				noteWorthy: []
+			},
+			military: {
+				rank: ''
 			}
 		};
 
