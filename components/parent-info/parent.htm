@@ -5,16 +5,44 @@
 		<parent-title></parent-title>
 		
 		<div class="row">
-			<div class="col-xs-12">
-				<b>Parents:</b> {{charInfo.parents.details}}
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+		<div class="col-xs-11">
+				<b>Parents:</b> {{charInfo.parent.desc}}
 			</div>
 		</div>
-
+		<div class="row" ng-if="charInfo.parent.headHousehold.jobs.length>0">
+			<div class="col-xs-12">
+				<ul class='list-group'>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.headHousehold.jobs">
+						<span ng-if="charInfo.parent.headHousehold.jobs.length>1&&$index==0">Primary Job:</span>
+						<span ng-if="charInfo.parent.headHousehold.jobs.length>1&&$index!=0">Secondary Job:</span>
+						{{job.name}} - {{job.desc}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row" ng-if="charInfo.parent.parent1.jobs.length>0">
+			<div class="col-xs-12">
+				<strong>Parent 1</strong>
+				<ul class='list-group'>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.parent1.jobs">{{job.name}} - {{job.desc}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row" ng-if="charInfo.parent.parent2.jobs.length>0">
+			<div class="col-xs-12">
+				<strong>Parent 2</strong>
+				<ul class='list-group'>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.parent2.jobs">{{job.name}} - {{job.desc}}</li>
+				</ul>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<b>Noteworthy Items for Parents:</b>
 				<ul class='list-group'>
-					<li class="list-group-item" ng-repeat="item in noteworthyList">{{item.name}}</li>
+					<li class="list-group-item" ng-repeat="item in noteworthy">{{item.name}}</li>
 				</ul>
 			</div>
 		</div>

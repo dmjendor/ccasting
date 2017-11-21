@@ -15,20 +15,32 @@ window.angular.module('castingApp.services.CharData', [])
 			imprisoned: 0,
 			enslaved: 0,
 			survival: '',
+			traits: {
+				lightCount: 0,
+				darkCount: 0,
+				neutralCount: 0,
+				lightSide: [],
+				darkSide: [],
+				neutral: [],
+				exotic: []
+			},
 			race: {
 				name: '',
 				desc: '',
-				roll: 0
+				roll: 0,
+				tbl: ''
 			},
 			culture: {
 				level: '',
 				desc: '',
-				roll: 0
+				roll: 0,
+				tbl: ''
 			},
 			parent: {
 				level: '',
 				desc: '',
 				roll: 0,
+				tbl: '',
 				title: '',
 				landTitles: '',
 				landHoldings: '',
@@ -37,6 +49,7 @@ window.angular.module('castingApp.services.CharData', [])
 					name: '',
 					desc: '',
 					roll: 0,
+					tbl: '',
 					jobs: []
 				},
 				parent1: {
@@ -48,8 +61,10 @@ window.angular.module('castingApp.services.CharData', [])
 				noteWorthy: []
 			},
 			military: {
-				rank: ''
+				rankNum: '',
+				name: ''
 			}
+			
 		};
 
 		return sharedData;

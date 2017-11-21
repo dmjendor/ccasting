@@ -30,11 +30,11 @@ window.angular.module('castingApp.components.parent.status', [])
 									}
 									ShdFnc.httpRequest(req).then(function(response){
 										var parentData = response.data.result;
-										$scope.charInfo.parents.level = parentData.level;
+										$scope.charInfo.parent.level = parentData.level;
 										$scope.charInfo.survival = parentData.survival;
 										$scope.charInfo.solMod = parentData.solmod;
-										$scope.charInfo.parents.roll = response.data.roll;
-										if($scope.charInfo.parents.roll >= 50){
+										$scope.charInfo.parent.roll = response.data.roll;
+										if($scope.charInfo.parent.roll >= 50){
 											$scope.getPTitle();
 										}
 										defObj.resolve();

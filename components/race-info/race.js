@@ -32,6 +32,7 @@ window.angular.module('castingApp.components.race', [])
 										$scope.charInfo.race.name = raceData.name;
 										$scope.charInfo.race.desc = raceData.descrip;
 										$scope.charInfo.race.roll = response.data.roll;
+										$scope.charInfo.race.tbl = raceData.tbl;
 										defObj.resolve();
 									});
 								} else {

@@ -19,15 +19,15 @@
 			$debug = 1;
 		?>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery-ui.1.12.1.min.js" type="text/javascript"></script>
     
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js" integrity="sha256-Nfc6cMygZ4KL6eCnEri0iQjhvESQY3xivXAVj5XNbic=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js" integrity="sha256-6vbKDGwy9JmzGKxxeypGzCjyOmACDtgheaOQT6ZVafA=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js" integrity="sha256-tyfWW2LtJQNI+l3F0h6xDV/ij6Mfn8lwSKHWOsmEgXM=" crossorigin="anonymous"></script>
+	<script src="scripts/angular.1.6.6.min.js" type="text/javascript"></script>
+	<script src="scripts/ui-bootstrap.2.5.0.min.js" type="text/javascript"></script>
+	<script src="scripts/ui-bootstrap-tpls.2.5.0.min.js" type="text/javascript"></script>
 
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.3.3.7.min.css" rel="stylesheet" type="text/css" >
+    <link href="css/cupertino-jquery-ui.css" rel="stylesheet" type="text/css" />
 
     <link href="css/main.css" rel="stylesheet" type="text/css" />
 
