@@ -3,7 +3,7 @@ window.angular.module('castingApp.controllers.base', [])
         function($scope,$rootScope,$q,$http,CharData,ShdFnc){
             'use strict';
 
-			$scope.charInfo = CharData;
+			$scope.charInfo = CharData.Character;
 
 
 

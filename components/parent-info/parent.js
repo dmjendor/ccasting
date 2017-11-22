@@ -10,7 +10,7 @@ window.angular.module('castingApp.components.parent', [])
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, SharedFunctions) {
 
-						$scope.charInfo = CharData;
+						$scope.charInfo = CharData.Character;
 						$scope.ShdFnc = SharedFunctions
 
 						var req = {	method: 'POST', url: 'getResults.php', data: { table: '' } };
@@ -19,30 +19,7 @@ window.angular.module('castingApp.components.parent', [])
 						$scope.getParents = function(){
 							var defObj = $q.defer();
 							//clearing existing parent data for re-rolls
-							$scope.charInfo.parent = {
-								level: '',
-								desc: '',
-								roll: 0,
-								tbl: '',
-								title: '',
-								landTitles: '',
-								landHoldings: '',
-								landSize: 0,
-								headHousehold: {
-									name: '',
-									desc: '',
-									roll: 0,
-									tbl: '',
-									jobs: []
-								},
-								parent1: {
-									jobs: []
-								},
-								parent2: {
-									jobs: []
-								},
-								noteWorthy: []
-							}
+							$scope.charInfo.parent = CharData.initParent();
 							var req = {
 							 method: 'POST',
 							 url: 'getResults.php',
@@ -149,7 +126,36 @@ window.angular.module('castingApp.components.parent', [])
 							return defObj.promise;
 						}
 
+						function getMilitary(el){
 
+								switch($scope.charInfo.culture.level){
+									case 'Primitive':
+										el.tbl = '535a1';
+										break;
+									case 'Nomad':
+									case 'Barbarian':
+										el.tbl = '535a2';
+										break;
+									case 'Civilized':
+									case 'Civilized-Decadant':
+										el.tbl = '535a3';
+										break;
+									case 'Noble':
+										el.tbl = '535a4';
+										break;
+								}
+							
+							req.data.table = "t"+el.tbl;
+							
+							$scope.ShdFnc.httpRequest(req).then(function(response){
+								var occData = response.data.result;
+								el.name += ' - '+occData.name;
+								el.desc = occData.descrip;
+								el.tbl  = occData.tbl;
+								el.roll = response.data.roll;
+							});
+
+						}
 
 
 						$scope.$watch('charInfo.culture.level', function (newValue, oldValue) {
@@ -162,15 +168,19 @@ window.angular.module('castingApp.components.parent', [])
 							if((newValue!==oldValue)&&($scope.charInfo.generateFull)){
 								$scope.charInfo.parent.headHousehold.jobs.forEach(function(el){
 									if(el.tbl){
-										req.data.table = "t"+el.tbl;
-										
-										$scope.ShdFnc.httpRequest(req).then(function(response){
-											var occData = response.data.result;
-											el.name = occData.name;
-											el.desc = occData.descrip;
-											el.tbl  = occData.tbl;
-											el.roll = response.data.roll;
-										});
+										if(el.tbl === '535a'){
+											getMilitary(el);
+										} else {
+											req.data.table = "t"+el.tbl;
+											
+											$scope.ShdFnc.httpRequest(req).then(function(response){
+												var occData = response.data.result;
+												el.name = occData.name;
+												el.desc = occData.descrip;
+												el.tbl  = occData.tbl;
+												el.roll = response.data.roll;
+											});
+										}										
 									}
 								});
 							}

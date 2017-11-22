@@ -10,7 +10,7 @@ window.angular.module('castingApp.components.parent.status', [])
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, ShdFnc) {
 
-						$scope.charInfo = CharData;
+						$scope.charInfo = CharData.Character;
 
 						$scope.getPStatus = function(cuMod){
 						var defObj = $q.defer();

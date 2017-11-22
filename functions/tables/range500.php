@@ -102,6 +102,7 @@ function t533() {
 	$result = roll('1','10','533');
 	return $result;
 }
+
 function t534(){
 	t534a();
 	t534b();
@@ -151,31 +152,8 @@ function t534d() {
 	$result = roll('1','10','534d');
 	return $result;
 }
-function t535a(){
-	switch($cLevel){
-		case "Primitive":
-			t535a1();
-			break;
-		case "Nomad":
-			t535a2();
-			break;
-		case "Barbarian":
-			t535a3();
-			break;
-		case "Civilized":
-			t535a4();
-			break;
-		case "Civilized-Decadent":
-			t535a5();
-			break;
-		default:
-			t535a1();
-			break;
-	}
-}
-function t535a1() {
 
- 
+function t535a1() { 
 	$result = roll('1','20','535a1');
 	return $result;
 }
@@ -187,43 +165,38 @@ function t535a2() {
 }
 function t535a3() {
 
- 
 	$result = roll('1','20','535a3');
 	return $result;
 }
 function t535a4() {
-
- 
 	$result = roll('1','20','535a4');
 	return $result;
 }
-function t535b() {
 
- 
+function t535a5() {
+	$result = roll('1','20','535a5');
+	return $result;
+}
+function t535b() {
 	$result = roll('1','20','535b');
 	return $result;
 }
 function t535b1() {
-
- 
 	$result = roll('1','22','535b1');
 	return $result;
 }
 function t535b2() {
 
- 
 	$result = roll('1','10','535b2');
 	return $result;
 }
 function t536() {
 
- 
 	$result = roll('1','20','536');
 	return $result;
 }
 function t537() {
 
- 
 	$result = roll('1','10','537');
 	return $result;
 }
@@ -290,7 +263,6 @@ function t539() {
 
 function slaveEvents() {
 
- 
 	global $enslavement,$startingage;
 	$result = roll('1','20','539');
 	if($result["roll"] == 4){ 
@@ -335,25 +307,21 @@ function slaveEvents() {
 }
 function t539a() {
 
- 
 	$result = roll('1','8','539a');
 	return $result;
 }
 function t539b() {
 
- 
 	$result = roll('1','10','539b');
 	return $result;
 }
 function t539c() {
 
- 
 	$result = roll('1','6','539c');
 	return $result;
 }
 function t540() {
 
- 
 	$evRoll = droll("1d3");
 	for($i = 0; $i <= $evRoll["roll"]; $i++){
 		prisonEvents();
@@ -394,13 +362,11 @@ function prisonEvents(){
 }
 function t540a() {
 
- 
 	$result = roll('1','8','540a');
 	return $result;
 }
 function t540b() {
 
- 
 	$result = roll('1','4','540b');
 	return $result;
 }
@@ -419,13 +385,11 @@ function t541(){
 }
 function t541a() {
 
- 
 	$result = roll('1','10','541a');
 	return $result;
 }
 function t541b() {
 
- 
 	$result = roll('1','20','541b');
 	if($result['roll'] == 20) {
 		$cR1 = droll("1d100");
@@ -438,25 +402,21 @@ function t541b() {
 }
 function t541b1() {
 
- 
 	$result = roll('1','10','541b1');
 	return $result;
 }
 function t541b2() {
 
- 
 	$result = roll('1','6','541b2');
 	return $result;
 }
 function t541b3() {
 
- 
 	$result = roll('1','6','541b3');
 	return $result;
 }
 function t542() {
 
- 
 	$result = roll('1','20','542');
 	if($result['roll'] == 17){
 		$kids = droll("1d4");
@@ -481,19 +441,16 @@ function t542() {
 }
 function t542a() {
 
- 
 	$result = roll('1','6','542a');
 	return $result;
 }
 function t542b() {
 
- 
 	$result = roll('1','6','542b');
 	return $result;
 }
 function t543() {
 
- 
 	t543a();
 	t543b();
 	t543c();
@@ -501,7 +458,6 @@ function t543() {
 
 function t543a() {
 
- 
 	$result = roll('1','10','543a');
 	if($result["roll"] == 10){
 		$pGod = droll("1d10");
@@ -516,55 +472,46 @@ function t543a() {
 }
 function t543b() {
 
- 
 	$result = roll('1','8','543b');
 	return $result;
 }
 function t543c() {
 
- 
 	$result = roll('2','8','543c');
 	return $result;
 }
 function t544() {
 
- 
 	$result = roll('1','20','544');
 	return $result;
 }
 function t544a() {
 
- 
 	$result = roll('1','6','544a');
 	return $result;
 }
 function t544b() {
 
- 
 	$result = roll('1','3','544b');
 	return $result;
 }
 function t544c() {
 
- 
 	$result = roll('1','6','544c');
 	return $result;
 }
 function t544d() {
 
- 
 	$result = roll('1','10','544d');
 	return $result;
 }
 function t545() {
 
- 
 	$result = roll('1','20','545');
 	return $result;
 }
 function t545a() {
 
- 
 	$result = roll('1','6','545');
 	return $result;
 }
@@ -581,34 +528,29 @@ function t546(){
 }
 function t546a() {
 
- 
 	$result = roll('1','8','546a');
 	echo "<br />Inheritance: ";
 	return $result;
 }
 function t546a1() {
 
- 
 	echo "<br />Condition: ";
 	$result = roll('1','4','546a1');
 	return $result;
 }
 function t546b() {
 
- 
 	$result = roll('1','20','546b');
 	echo "<br />Event: ";
 	return $result;
 }
 function t546b1() {
 
- 
 	$result = roll('1','4','546b1');
 	return $result;
 }
 function t546b2() {
 
- 
 	$result = roll('1','4','546b2');
 	return $result;
 }

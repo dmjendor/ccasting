@@ -8,10 +8,43 @@
 			<div class="col-xs-1">
 				<button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
 			</div>
-		<div class="col-xs-11">
-				<b>Parents:</b> {{charInfo.parent.desc}}
+			<div class="col-xs-11">
+				<b>Parents:</b>
 			</div>
 		</div>
+		<div class="row" ng-if="charInfo.parent.landTitles">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getLandTitles()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-11">
+				<b>Land Titles:</b> {{charInfo.parent.landTitles}}
+			</div>
+		</div>
+		<div class="row" ng-if="charInfo.parent.landHoldings">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getLandHoldings()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-11">
+				<b>Land Holdings:</b> {{charInfo.parent.landHoldings}}% chance to own land
+			</div>
+		</div>
+		<div class="row" ng-if="charInfo.parent.landSize">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getSize()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-11">
+				<b>Land Size:</b> {{charInfo.parent.landSize}} sq. Miles
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-11">
+				<b>Occupation:</b> {{charInfo.parent.desc}}
+			</div>
+		</div>
+		
 		<div class="row" ng-if="charInfo.parent.headHousehold.jobs.length>0">
 			<div class="col-xs-12">
 				<ul class='list-group'>

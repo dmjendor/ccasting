@@ -10,7 +10,7 @@ window.angular.module('castingApp.components.culture', [])
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, ShdFnc) {
 
-						$scope.charInfo = CharData;
+						$scope.charInfo = CharData.Character;
 
 						$scope.getCulture = function(){
 							var defObj = $q.defer();
@@ -26,7 +26,7 @@ window.angular.module('castingApp.components.culture', [])
 								$scope.charInfo.culture.desc = cultureData.descrip;
 								$scope.charInfo.culture.roll = response.data.roll;
 								$scope.charInfo.cuMod = cultureData.cumod;
-								$scope.charInfo.native = cultureData.native;
+								$scope.charInfo.culture.native = cultureData.native;
 								defObj.resolve();
 							});
 

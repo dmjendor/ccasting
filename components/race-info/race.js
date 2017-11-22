@@ -10,7 +10,7 @@ window.angular.module('castingApp.components.race', [])
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, ShdFnc) {
 
-						$scope.charInfo = CharData;
+						$scope.charInfo = CharData.Character;
 
 						$scope.getRace = function(){
 							var defObj = $q.defer();
