@@ -20,109 +20,110 @@ window.angular.module('castingApp.components.parent', [])
 							var defObj = $q.defer();
 							//clearing existing parent data for re-rolls
 							$scope.charInfo.parent = CharData.initParent();
-							var req = {
-							 method: 'POST',
-							 url: 'getResults.php',
-							 data: { table: 't114a',d1: $scope.charInfo.culture.Level }
-							}
+							req.data.table = 't114a';
 							$scope.ShdFnc.httpRequest(req).then(function(response){
 								var parentData = response.data.result;
 								$scope.charInfo.parent.desc = parentData.descrip;
 								$scope.charInfo.parent.name = parentData.name;
 								$scope.charInfo.parent.roll = response.data.roll;
 								$scope.charInfo.parent.tbl = parentData.tbl;
-								switch (response.data.roll){
-									case 13:
-									case 14:
+								getJob().then(function(){
+									defObj.resolve();
+								});
+							});
+
+							return defObj.promise;
+						}
+
+						function getJob(){
+							var defObj = $q.defer();
+							req.data.table = '';
+							switch ($scope.charInfo.parent.roll){
+								case 13:
+								case 14:
+									$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
+										req.data.table = "t"+tbl;
+										$scope.ShdFnc.httpRequest(req).then(function(response){
+											var occData = response.data.result;
+											$scope.charInfo.parent.jobs.head.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+
+											$scope.ShdFnc.getJob($scope.charInfo.culture.level,parseInt($scope.charInfo.solMod-1)).then(function(tbl2){
+												req2.data.table = "t"+tbl2;
+
+												$scope.ShdFnc.httpRequest(req2).then(function(response){
+													var occData2 = response.data.result;
+													$scope.charInfo.parent.jobs.head.push({name:occData2.name,desc: occData2.descrip,tbl:occData2.tbl,roll:response.data.roll});	
+													defObj.resolve();}
+												);
+											});
+										});
+									});
+									break;
+									case 15:
+									case 16:
+										$scope.ShdFnc.getModJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
+											req.data.table = "t"+tbl;
+											$scope.ShdFnc.httpRequest(req).then(function(response){
+												var occData = response.data.result;
+												$scope.charInfo.parent.jobs.parent2.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+											});
+										});
+										break;
+									case 17:
+									case 18:
 										$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
 											req.data.table = "t"+tbl;
 											$scope.ShdFnc.httpRequest(req).then(function(response){
 												var occData = response.data.result;
-												$scope.charInfo.parent.headHousehold.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+												$scope.charInfo.parent.jobs.parent1.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
 
-												$scope.ShdFnc.getJob($scope.charInfo.culture.level,parseInt($scope.charInfo.solMod-1)).then(function(tbl2){
+												$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl2){
 													req2.data.table = "t"+tbl2;
 
 													$scope.ShdFnc.httpRequest(req2).then(function(response){
 														var occData2 = response.data.result;
-														$scope.charInfo.parent.headHousehold.jobs.push({name:occData2.name,desc: occData2.descrip,tbl:occData2.tbl,roll:response.data.roll});	
-														defObj.resolve();}
-													);
-												});
-											});
-										});
-										break;
-										case 15:
-										case 16:
-											$scope.ShdFnc.getModJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
-												req.data.table = "t"+tbl;
-												$scope.ShdFnc.httpRequest(req).then(function(response){
-													var occData = response.data.result;
-													$scope.charInfo.parent.headHousehold.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
-												});
-											});
-											break;
-										case 17:
-										case 18:
-											$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
-												req.data.table = "t"+tbl;
-												$scope.ShdFnc.httpRequest(req).then(function(response){
-													var occData = response.data.result;
-													$scope.charInfo.parent.parent1.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
-
-													$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl2){
-														req2.data.table = "t"+tbl2;
-
-														$scope.ShdFnc.httpRequest(req2).then(function(response){
-															var occData2 = response.data.result;
-															$scope.charInfo.parent.parent2.jobs.push({name:occData2.name,desc: occData2.descrip,tbl:occData2.tbl,roll:response.data.roll});	
-															defObj.resolve();
-														});
+														$scope.charInfo.parent.jobs.parent2.push({name:occData2.name,desc: occData2.descrip,tbl:occData2.tbl,roll:response.data.roll});	
+														defObj.resolve();
 													});
 												});
 											});
+										});
 
-											break;
-
-										case 19:
-											req.data.table = "t757a";
-											$scope.ShdFnc.httpRequest(req).then(function(response){
-												var occData = response.data.result;
-												$scope.charInfo.parent.headHousehold.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
-												defObj.resolve();
-											});
-											
-											break;
-										case 20:
-											req.data.table = "t978";
-											req.data.d1 = 3;
-												//$result["tResult"][0]["table"]
-												//$resultA = call_user_func($tvar,$result['tResult'][0]['tid']);
-											$scope.ShdFnc.httpRequest(req).then(function(response){
-												var occData = response.data.result;
-												$scope.charInfo.parent.headHousehold.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
-												defObj.resolve();
-											});
-											break;
-										default:
-											$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
-												req.data.table = "t"+tbl;
-												
-												$scope.ShdFnc.httpRequest(req).then(function(response){
-													var occData = response.data.result;
-													$scope.charInfo.parent.headHousehold.jobs.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
-													defObj.resolve();
-												});
-											});
-											
 										break;
+
+									case 19:
+										req.data.table = "t757a";
+										$scope.ShdFnc.httpRequest(req).then(function(response){
+											var occData = response.data.result;
+											$scope.charInfo.parent.jobs.head.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+											defObj.resolve();
+										});
+										
+										break;
+									case 20:
+										req.data.table = "t978";
+										req.data.d1 = 3;
+											//$result["tResult"][0]["table"]
+											//$resultA = call_user_func($tvar,$result['tResult'][0]['tid']);
+										$scope.ShdFnc.httpRequest(req).then(function(response){
+											var occData = response.data.result;
+											$scope.charInfo.parent.jobs.head.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+											defObj.resolve();
+										});
+										break;
+									default:
+										$scope.ShdFnc.getJob($scope.charInfo.culture.level,$scope.charInfo.solMod).then(function(tbl){
+											req.data.table = "t"+tbl;
+											
+											$scope.ShdFnc.httpRequest(req).then(function(response){
+												var occData = response.data.result;
+												$scope.charInfo.parent.jobs.head.push({name:occData.name,desc: occData.descrip,tbl:occData.tbl,roll:response.data.roll});
+												defObj.resolve();
+											});
+										});
+										
+									break;
 								}
-
-
-
-								
-							});
-
 							return defObj.promise;
 						}
 
@@ -164,9 +165,9 @@ window.angular.module('castingApp.components.parent', [])
 							}
 						});
 
-						$scope.$watch('charInfo.parent.headHousehold.jobs', function (newValue, oldValue) {
+						$scope.$watch('charInfo.parent.jobs.head', function (newValue, oldValue) {
 							if((newValue!==oldValue)&&($scope.charInfo.generateFull)){
-								$scope.charInfo.parent.headHousehold.jobs.forEach(function(el){
+								$scope.charInfo.parent.jobs.head.forEach(function(el){
 									if(el.tbl){
 										if(el.tbl === '535a'){
 											getMilitary(el);
@@ -186,9 +187,9 @@ window.angular.module('castingApp.components.parent', [])
 							}
 						},true);
 
-						$scope.$watch('charInfo.parent.parent1.jobs', function (newValue, oldValue) {
+						$scope.$watch('charInfo.parent.jobs.parent1', function (newValue, oldValue) {
 							if((newValue!==oldValue)&&($scope.charInfo.generateFull)){
-								$scope.charInfo.parent.parent1.jobs.forEach(function(el){
+								$scope.charInfo.parent.jobs.parent1.forEach(function(el){
 									if(el.tbl){
 										req.data.table = "t"+el.tbl;
 										
@@ -204,9 +205,9 @@ window.angular.module('castingApp.components.parent', [])
 							}
 						},true);
 
-						$scope.$watch('charInfo.parent.parent2.jobs', function (newValue, oldValue) {
+						$scope.$watch('charInfo.parent.jobs.parent2', function (newValue, oldValue) {
 							if((newValue!==oldValue)&&($scope.charInfo.generateFull)){
-								$scope.charInfo.parent.parent2.jobs.forEach(function(el){
+								$scope.charInfo.parent.jobs.parent2.forEach(function(el){
 									if(el.tbl){
 										req.data.table = "t"+el.tbl;
 

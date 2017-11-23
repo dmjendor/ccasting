@@ -1,12 +1,12 @@
 'use strict';
-window.angular.module('castingApp.components.race', [])
-        .directive('raceInfo', [
+window.angular.module('castingApp.components.parent.note', [])
+        .directive('parentNotes', [
             function () {
                 return{
                     restrict: 'E',
                     scope: true,
                     replace: true,
-                    templateUrl: 'components/race-info/race.htm',
+                    templateUrl: 'components/parent-info/parent-notes/notes.htm',
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, ShdFnc) {
 

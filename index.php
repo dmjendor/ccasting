@@ -72,22 +72,13 @@
             <div class="panel-body">
 				<race-info></race-info>	
 				<culture-info></culture-info>
+				<survival-info></survival-info>
+				<legitimacy-info></legitimacy-info>
 
-				<div class="row" ng-show="charInfo.survival">
-					<div class="col-xs-offset-1 col-xs-10">
-						<b>Survival: </b> <span ng-attr-title="{{charInfo.survival}}">{{charInfo.survival}} of survival skill</span>
-					</div>
-				</div>
-				
+
 				<?php 
 
-				$legitRoll = rand(1,20);
-// if(($legitRoll+$CuMod)>19 OR $legitRoll == 20){
-//     echo "<br /><span class='text-danger'><b>Character is Illegitimate:</b></span> ";
-// $LegitMod = rand(1,4);
-// $legitReason = t105($CuMod);
-// echo $legitReason['result']['descrip'];
-// }
+				
 // echo "<br/>";
 // echo "<b>Family:</b> ";
 // $family = t106($CuMod);
@@ -280,6 +271,8 @@
 
 <script type="text/javascript" src="components/race-info/race.js"></script>
 <script type="text/javascript" src="components/culture-info/culture.js"></script>
+<script type="text/javascript" src="components/survival-info/survival.js"></script>
+<script type="text/javascript" src="components/legitimacy-info/legitimacy.js"></script>
 <script type="text/javascript" src="components/parent-info/parent.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-title/title.js"></script>

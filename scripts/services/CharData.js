@@ -14,7 +14,14 @@ window.angular.module('castingApp.services.CharData', [])
 			tiMod: 0,
 			imprisoned: 0,
 			enslaved: 0,
-			survival: '',
+			survival: null,
+			legitimacy: {
+				name: null,
+				desc: null,
+				roll: 0,
+				tbl: null,
+				lRoll: 0
+			},
 			traits: {
 				lightCount: 0,
 				darkCount: 0,
@@ -25,24 +32,27 @@ window.angular.module('castingApp.services.CharData', [])
 				exotic: []
 			},
 			race: {
-				name: '',
-				desc: '',
+				name: null,
+				desc: null,
 				roll: 0,
-				tbl: ''
+				tbl: null
 			},
 			culture: {
-				native: '',
-				level: '',
-				desc: '',
+				native: null,
+				level: null,
+				desc: null,
 				roll: 0,
-				tbl: ''
+				tbl: null
 			},
 			parent: {
-				level: '',
-				desc: '',
+				status : {
+					level: null,
+					roll: 0
+				},
+				desc: null,
 				roll: 0,
-				tbl: '',
-				title: '',
+				tbl: null,
+				title: null,
 				land: {
 					titleCount: 0,
 					titles: [],
@@ -50,25 +60,41 @@ window.angular.module('castingApp.services.CharData', [])
 					holdResult: 0,
 					size: 0
 				},
-				headHousehold: {
-					name: '',
-					desc: '',
-					roll: 0,
-					tbl: '',
-					jobs: []
+				jobs: {
+					head: [],
+					parent1: [],
+					parent2: []
 				},
-				parent1: {
-					jobs: []
-				},
-				parent2: {
-					jobs: []
+				military: {
+					rank: {
+						name: null,
+						number: 0,
+						roll: 0	
+					},
+					serviceOf: {
+						name: null,
+						number: 0,
+						roll: 0
+					},
+					events: []
 				},
 				noteWorthy: []
 			},
 			military: {
-				rankNum: '',
-				name: ''
-			}
+					rank: {
+						name: null,
+						number: 0,
+						roll: 0	
+					},
+					skills: {
+					},
+					serviceOf: {
+						name: null,
+						number: 0,
+						roll: 0
+					},
+					events: []
+				}
 			
 		};
 
@@ -85,7 +111,14 @@ window.angular.module('castingApp.services.CharData', [])
 				tiMod: 0,
 				imprisoned: 0,
 				enslaved: 0,
-				survival: '',
+				survival: null,
+				legitimacy: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null,
+					lRoll: 0
+				},
 				traits: {
 					lightCount: 0,
 					darkCount: 0,
@@ -96,53 +129,48 @@ window.angular.module('castingApp.services.CharData', [])
 					exotic: []
 				},
 				race: {
-					name: '',
-					desc: '',
+					name: null,
+					desc: null,
 					roll: 0,
-					tbl: ''
+					tbl: null
 				},
 				culture: {
-					native: '',
-					level: '',
-					desc: '',
+					native: null,
+					level: null,
+					desc: null,
 					roll: 0,
-					tbl: ''
+					tbl: null
 				},
 				parent: {
-					level: '',
-					desc: '',
+					status : {
+						level: null,
+						roll: 0
+					},
+					desc: null,
 					roll: 0,
-					tbl: '',
-					title: '',
+					tbl: null,
+					title: null,
 					land: {
 						titleCount: 0,
 						titles: [],
 						holdPct: 0,
 						holdResult: 0,
-						sizeDice: '',
+						sizeDice: null,
 						size: 0
 					},
-					headHousehold: {
-						name: '',
-						desc: '',
-						roll: 0,
-						tbl: '',
-						jobs: []
-					},
-					parent1: {
-						jobs: []
-					},
-					parent2: {
-						jobs: []
+					jobs: {
+						head: [],
+						parent1: [],
+						parent2: []
 					},
 					military: {
 						rank: {
-							name: '',
+							name: null,
 							number: 0,
 							roll: 0	
 						},
 						serviceOf: {
-							name: '',
+							name: null,
 							number: 0,
 							roll: 0
 						},
@@ -152,14 +180,14 @@ window.angular.module('castingApp.services.CharData', [])
 				},
 				military: {
 					rank: {
-						name: '',
+						name: null,
 						number: 0,
 						roll: 0	
 					},
 					skills: {
 					},
 					serviceOf: {
-						name: '',
+						name: null,
 						number: 0,
 						roll: 0
 					},
@@ -171,11 +199,14 @@ window.angular.module('castingApp.services.CharData', [])
 
 		function ClearParent(){
 			return {
-				level: '',
-				desc: '',
+				status : {
+					level: null,
+					roll: 0
+				},
+				desc: null,
 				roll: 0,
-				tbl: '',
-				title: '',
+				tbl: null,
+				title: null,
 				land: {
 					titleCnt: 0,
 					titles: [],
@@ -183,18 +214,23 @@ window.angular.module('castingApp.services.CharData', [])
 					holdResult: 0,
 					size: 0
 				},
-				headHousehold: {
-					name: '',
-					desc: '',
-					roll: 0,
-					tbl: '',
-					jobs: []
+				jobs: {
+					head: [],
+					parent1: [],
+					parent2: []
 				},
-				parent1: {
-					jobs: []
-				},
-				parent2: {
-					jobs: []
+				military: {
+					rank: {
+						name: null,
+						number: 0,
+						roll: 0	
+					},
+					serviceOf: {
+						name: null,
+						number: 0,
+						roll: 0
+					},
+					events: []
 				},
 				noteWorthy: []
 			}
@@ -202,26 +238,28 @@ window.angular.module('castingApp.services.CharData', [])
 
 		function ClearJobs(){
 			return {
-				headHousehold : {
-					name: '',
-					desc: '',
-					roll: 0,
-					tbl: '',
-					jobs: []
+				jobs: {
+					head: [],
+					parent1: [],
+					parent2: []
 				},
-				parent1 : {
-					jobs: []
-				},
-				parent2 : {
-					jobs: []
-				}
+				military: ClearMilitary()
 			}
 		}
 
 		function ClearMilitary(){
-			 return {
-				rankNum: '',
-				name: ''
+			return {
+					rank: {
+						name: null,
+						number: 0,
+						roll: 0	
+					},
+					serviceOf: {
+						name: null,
+						number: 0,
+						roll: 0
+					},
+					events: []
 			}
 		}
 
@@ -231,18 +269,27 @@ window.angular.module('castingApp.services.CharData', [])
 				titles: [],
 				holdPct: 0,
 				holdResult: 0,
-				sizeDice: '',
+				sizeDice: null,
 				size: 0
 			}
 		}
 
 		function ClearCulture(){
 			return {
-				native: '',
-				level: '',
-				desc: '',
+				native: null,
+				level: null,
+				desc: null,
 				roll: 0,
-				tbl: ''
+				tbl: null
+			}
+		}
+
+		function ClearLegitimacy(){
+			return {
+				name: null,
+				number: 0,
+				roll: 0,
+				tbl: null
 			}
 		}
 
@@ -264,6 +311,7 @@ window.angular.module('castingApp.services.CharData', [])
 			initCulture: ClearCulture,
 			initLand: ClearLand,
 			initMilitary: ClearMilitary,
+			initLegitimacy: ClearLegitimacy,
 			initJobs: ClearJobs,
 			initParent: ClearParent,
 			initAll: ClearAll

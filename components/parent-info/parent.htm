@@ -41,33 +41,33 @@
 				<button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
 			</div>
 			<div class="col-xs-11">
-				<b>Occupation:</b> {{charInfo.parent.desc}}
+				<b>Occupation:</b><span class="badge">{{charInfo.parent.roll}}</span> {{charInfo.parent.desc}}
 			</div>
 		</div>
 		
-		<div class="row" ng-if="charInfo.parent.headHousehold.jobs.length>0">
+		<div class="row" ng-if="charInfo.parent.jobs.head.length>0">
 			<div class="col-xs-12">
 				<ul class='list-group'>
-					<li class="list-group-item" ng-repeat="job in charInfo.parent.headHousehold.jobs">
-						<span ng-if="charInfo.parent.headHousehold.jobs.length>1&&$index==0">Primary Job:</span>
-						<span ng-if="charInfo.parent.headHousehold.jobs.length>1&&$index!=0">Secondary Job:</span>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.jobs.head">
+						<span ng-if="charInfo.parent.jobs.head.length>1&&$index==0">Primary Job:</span>
+						<span ng-if="charInfo.parent.jobs.head.length>1&&$index!=0">Secondary Job:</span>
 						{{job.name}} - {{job.desc}}</li>
 				</ul>
 			</div>
 		</div>
-		<div class="row" ng-if="charInfo.parent.parent1.jobs.length>0">
+		<div class="row" ng-if="charInfo.parent.jobs.parent1.length>0">
 			<div class="col-xs-12">
 				<strong>Parent 1</strong>
 				<ul class='list-group'>
-					<li class="list-group-item" ng-repeat="job in charInfo.parent.parent1.jobs">{{job.name}} - {{job.desc}}</li>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.jobs.parent1">{{job.name}} - {{job.desc}}</li>
 				</ul>
 			</div>
 		</div>
-		<div class="row" ng-if="charInfo.parent.parent2.jobs.length>0">
+		<div class="row" ng-if="charInfo.parent.jobs.parent2.length>0">
 			<div class="col-xs-12">
 				<strong>Parent 2</strong>
 				<ul class='list-group'>
-					<li class="list-group-item" ng-repeat="job in charInfo.parent.parent2.jobs">{{job.name}} - {{job.desc}}</li>
+					<li class="list-group-item" ng-repeat="job in charInfo.parent.jobs.parent2">{{job.name}} - {{job.desc}}</li>
 				</ul>
 			</div>
 		</div>
