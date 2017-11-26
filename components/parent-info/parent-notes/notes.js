@@ -1,5 +1,5 @@
 'use strict';
-window.angular.module('castingApp.components.parent.note', [])
+window.angular.module('castingApp.components.parent.notes', [])
         .directive('parentNotes', [
             function () {
                 return{

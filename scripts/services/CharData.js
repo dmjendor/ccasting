@@ -47,18 +47,18 @@ window.angular.module('castingApp.services.CharData', [])
 			parent: {
 				status : {
 					level: null,
+					name: '',
 					roll: 0
 				},
 				desc: null,
 				roll: 0,
 				tbl: null,
-				title: null,
 				land: {
 					titleCount: 0,
 					titles: [],
 					holdPct: 0,
-					holdResult: 0,
-					size: 0
+					size: 0,
+					sizeDice: null
 				},
 				jobs: {
 					head: [],
@@ -144,17 +144,16 @@ window.angular.module('castingApp.services.CharData', [])
 				parent: {
 					status : {
 						level: null,
+						name: '',
 						roll: 0
 					},
 					desc: null,
 					roll: 0,
 					tbl: null,
-					title: null,
 					land: {
 						titleCount: 0,
 						titles: [],
 						holdPct: 0,
-						holdResult: 0,
 						sizeDice: null,
 						size: 0
 					},
@@ -201,18 +200,18 @@ window.angular.module('castingApp.services.CharData', [])
 			return {
 				status : {
 					level: null,
+					name: '',
 					roll: 0
 				},
 				desc: null,
 				roll: 0,
 				tbl: null,
-				title: null,
 				land: {
-					titleCnt: 0,
+					titleCount: 0,
 					titles: [],
 					holdPct: 0,
-					holdResult: 0,
-					size: 0
+					size: 0,
+					sizeDice: null
 				},
 				jobs: {
 					head: [],
@@ -265,7 +264,7 @@ window.angular.module('castingApp.services.CharData', [])
 
 		function ClearLand(){
 			return {
-				titleCnt: 0,
+				titleCount: 0,
 				titles: [],
 				holdPct: 0,
 				holdResult: 0,

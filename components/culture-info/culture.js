@@ -8,16 +8,17 @@ window.angular.module('castingApp.components.culture', [])
                     replace: true,
                     templateUrl: 'components/culture-info/culture.htm',
                     link: function ($scope, elem, attrs) {},
-                    controller: ['$scope', '$q', 'CharData', 'SharedFunctions', function ($scope, $q, CharData, ShdFnc) {
+                    controller: ['$scope', '$q', 'CharData', 'SharedData', 'SharedFunctions', function ($scope, $q, CharData, SharedData, ShdFnc) {
 
 						$scope.charInfo = CharData.Character;
+						var daTa = SharedData.tables[0];
 
 						$scope.getCulture = function(){
 							var defObj = $q.defer();
 							var req = {
-							 method: 'POST',
-							 url: 'getResults.php',
-							 data: { table: 't102' }
+							 method: 'GET',
+							 url: 'getData.php',
+							 params: { table: '102', lowRoll: daTa.t102.lowRoll, highRoll: daTa.t102.highRoll }
 							}
 							ShdFnc.httpRequest(req).then(function(response){
 								var cultureData = response.data.result;

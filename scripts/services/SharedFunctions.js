@@ -61,9 +61,40 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 
 		function RollDice(dice) {
 
-			var dex = dice.split('d');
-			var dTop = dex[1]*dex[0];
-			return Math.floor((Math.random() * dTop) + 1)
+//			var dex = dice.split('d');
+//			var dTop = dex[1]*dex[0];
+//			return Math.floor((Math.random() * dTop) + 1)
+			const regex = /(\d*)(?:D)(\d*)([+*-])*((?:\d+|\([A-Z]*\)))*(?:\+(D\d*))?/gi;
+			var diceArr = regex.exec(dice)
+			var top = parseInt(diceArr[1])*parseInt(diceArr[2]);
+			var bottom = parseInt(diceArr[1]);
+			var mod = parseInt(diceArr[4]);
+			var finalVal = 0;
+			var roll = Math.floor(Math.random() * (top - bottom + 1)) + bottom;
+			
+			if(typeof mod === 'number'){
+				switch(diceArr[3]){
+					case '+':
+						finalVal = roll+mod;
+						break;
+					case '-':
+						finalVal = roll-mod;
+						break;
+					case '*':
+						finalVal = roll*mod;
+						break;
+					case '/':
+						finalVal = roll^mod;
+						if(roll%mod!=0){
+							finalVal += ' r'+roll%mod;
+						}
+						break;
+				}
+			} else {
+				finalVal = roll;
+			}
+			return finalVal;
+
 		}
 
 		function FunctionLoop(tNum,obj,deferred){
@@ -109,16 +140,26 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 		var sArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];
 		var kArray = ["420a","420a","421a","422a","423a", "423a","423a","423a"];
 
-		function JobSelect(culture,mod) {
+		function JobSelect(culture) {
 			var defObj = $q.defer();
+			switch(culture){
+				case 'Primitive':
+					break;
+				case 'Nomad':
+					break;
+				case 'Barbarian':
+					break;
+				case 'Civilized':
+					break;
+				case 'Civilized-Decadant':
+					break;
+				case 'Noble':
+					break;
+			}
+
+
 			array_search(culture,sArray).then(function(sVal){
-				var tVal = 0;
-				if(mod){
-					tVal = parseInt(sVal) + parseInt(mod);
-				} else {
-					tVal = parseInt(sVal);
-				}
-				defObj.resolve(kArray[tVal])
+				defObj.resolve(kArray[parseInt(sVal)])
 			});
 			return defObj.promise;
 		}

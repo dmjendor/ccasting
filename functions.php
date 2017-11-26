@@ -31,6 +31,7 @@ function roll($bot,$top,$tab,$mod = 0, $roll="-99") {
 	} else {
 		$query = "SELECT * FROM `".$tab."` WHERE `".$tab."id` = ".$roll;
 	}
+
 	$tResult = [];
 	$rollArray = [];
 

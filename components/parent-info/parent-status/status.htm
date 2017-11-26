@@ -3,6 +3,6 @@
 		<button class="btn btn-success btn-sm" ng-click="getPStatus(charInfo.cuMod)"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
 	</div>
 	<div class="col-xs-10">
-		<span class="badge" ng-show="charInfo.showRolls">{{charInfo.parent.status.roll}}</span><b>Social Status (of parents): </b> <span ng-attr-title="{{charInfo.parent.status.level}}">{{charInfo.parent.status.level}}</span>
+		<span class="badge" ng-show="charInfo.showRolls">{{charInfo.parent.status.roll}}</span><b>Social Status (of parents): </b> <span ng-attr-title="{{charInfo.parent.status.desc}}">{{charInfo.parent.status.level}}</span> <span ng-if="charInfo.parent.status.name"> - {{charInfo.parent.status.name}}</span>
 	</div>
 </div>

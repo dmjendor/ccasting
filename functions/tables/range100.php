@@ -182,7 +182,8 @@ function t113g() {
 	return $result;
 }
 
-function t114a() { 
+function t114a($culture = NULL) { 
+	if($culture == NULL){ $culture = $GLOBALS['cLevel']; }
 	$result = roll('1','20','114a');
 	return $result;
 }
