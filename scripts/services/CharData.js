@@ -304,10 +304,19 @@ window.angular.module('castingApp.services.CharData', [])
 			}
 		}
 
+		function ClearStatus(){
+			return {
+				level: null,
+				name: '',
+				roll: 0
+			}
+		}
+
 		return {
 			Character:sharedData,
 			initTraits: ClearTraits,
 			initCulture: ClearCulture,
+			initStatus: ClearStatus,
 			initLand: ClearLand,
 			initMilitary: ClearMilitary,
 			initLegitimacy: ClearLegitimacy,

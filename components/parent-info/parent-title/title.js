@@ -12,6 +12,7 @@ window.angular.module('castingApp.components.parent.title', [])
 
 						$scope.charInfo = CharData.Character;
 						var daTa = SharedData.tables[0];
+						var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 						$scope.getPTitle = function(){
 							var defObj = $q.defer();
@@ -33,7 +34,6 @@ window.angular.module('castingApp.components.parent.title', [])
 								break;
 							}
 							
-							var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 							req.params.table = tNum;
 							req.params.lowRoll = daTa['t'+tNum].lowRoll;
 							req.params.highRoll = daTa['t'+tNum].highRoll;
@@ -62,12 +62,12 @@ window.angular.module('castingApp.components.parent.title', [])
 								} else if($scope.charInfo.parent.land.holdRoll <= $scope.charInfo.parent.land.holdPct){
 									$scope.charInfo.parent.land.size = ShdFnc.dRoll(tData.Size);
 								} else {
-									$scope.charInfo.parent.land.size = 'No personal land holdings';
+									$scope.charInfo.parent.land.size = 0;
 								}
 
 								if($scope.charInfo.parent.land.titleCount>0){
-									for(var i=i;i<=$scope.charInfo.parent.land.titleCount;i++){
-										$scope.generateTitle(i);
+									for(var i=1;i<=$scope.charInfo.parent.land.titleCount;i++){
+										$scope.generateTitle(i-1);
 									};
 								}
 

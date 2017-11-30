@@ -72,24 +72,28 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			var finalVal = 0;
 			var roll = Math.floor(Math.random() * (top - bottom + 1)) + bottom;
 			
-			if(typeof mod === 'number'){
-				switch(diceArr[3]){
-					case '+':
-						finalVal = roll+mod;
-						break;
-					case '-':
-						finalVal = roll-mod;
-						break;
-					case '*':
-						finalVal = roll*mod;
-						break;
-					case '/':
-						finalVal = roll^mod;
-						if(roll%mod!=0){
-							finalVal += ' r'+roll%mod;
-						}
-						break;
-				}
+			if(diceArr[4]){
+				if(typeof mod === 'number'){
+					switch(diceArr[3]){
+						case '+':
+							finalVal = roll+mod;
+							break;
+						case '-':
+							finalVal = roll-mod;
+							break;
+						case '*':
+							finalVal = roll*mod;
+							break;
+						case '/':
+							finalVal = roll^mod;
+							if(roll%mod!=0){
+								finalVal += ' r'+roll%mod;
+							}
+							break;
+					}
+				} else {
+					finalVal = roll;
+				}			
 			} else {
 				finalVal = roll;
 			}

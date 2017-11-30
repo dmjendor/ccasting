@@ -12,41 +12,15 @@ window.angular.module('castingApp.components.parent.notes', [])
 
 						$scope.charInfo = CharData.Character;
 
-						$scope.getRace = function(){
+						$scope.getNotes = function(){
 							var defObj = $q.defer();
-							var req = {
-							 method: 'POST',
-							 url: 'getResults.php',
-							 data: { table: 't101' }
-							}
-							ShdFnc.httpRequest(req).then(function(response){
-								var raceData = response.data.result;
-								if(raceData.tbl != ''){
-									var req = {
-									 method: 'POST',
-									 url: 'getResults.php',
-									 data: { table: 't101a' }
-									}
-									ShdFnc.httpRequest(req).then(function(response){
-										var raceData = response.data.result;
-										$scope.charInfo.race.name = raceData.name;
-										$scope.charInfo.race.desc = raceData.descrip;
-										$scope.charInfo.race.roll = response.data.roll;
-										defObj.resolve();
-									});
-								} else {
-									$scope.charInfo.race.name = raceData.name;
-									$scope.charInfo.race.desc = raceData.descrip;
-									$scope.charInfo.race.roll = response.data.roll;
-									defObj.resolve();
-								}
-							});
+							defObj.resolve();
 
 							return defObj.promise;
 						}
 
 						if($scope.charInfo.generateFull){
-							$scope.getRace();
+							$scope.getNotes();
 						}
 
                      }]
