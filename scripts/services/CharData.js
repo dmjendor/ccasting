@@ -55,6 +55,7 @@ window.angular.module('castingApp.services.CharData', [])
 				tbl: null,
 				land: {
 					titleCount: 0,
+					titleDice: null,
 					titles: [],
 					holdPct: 0,
 					size: 0,
@@ -78,7 +79,11 @@ window.angular.module('castingApp.services.CharData', [])
 					},
 					events: []
 				},
-				noteWorthy: []
+				noteWorthy: [],
+				underworld: {
+					count: 0,
+					events: []
+				}
 			},
 			military: {
 					rank: {
@@ -152,6 +157,7 @@ window.angular.module('castingApp.services.CharData', [])
 					tbl: null,
 					land: {
 						titleCount: 0,
+						titleDice: null,
 						titles: [],
 						holdPct: 0,
 						sizeDice: null,
@@ -175,7 +181,11 @@ window.angular.module('castingApp.services.CharData', [])
 						},
 						events: []
 					},
-					noteWorthy: []
+					noteWorthy: [],
+					underworld: {
+						count: 0,
+						events: []
+					}
 				},
 				military: {
 					rank: {
@@ -208,6 +218,7 @@ window.angular.module('castingApp.services.CharData', [])
 				tbl: null,
 				land: {
 					titleCount: 0,
+					titleDice: null,
 					titles: [],
 					holdPct: 0,
 					size: 0,
@@ -231,7 +242,11 @@ window.angular.module('castingApp.services.CharData', [])
 					},
 					events: []
 				},
-				noteWorthy: []
+				noteWorthy: [],
+				underworld: {
+					count: 0,
+					events: []
+				}
 			}
 		}
 
@@ -265,6 +280,7 @@ window.angular.module('castingApp.services.CharData', [])
 		function ClearLand(){
 			return {
 				titleCount: 0,
+				titleDice: null,
 				titles: [],
 				holdPct: 0,
 				holdResult: 0,
@@ -312,6 +328,13 @@ window.angular.module('castingApp.services.CharData', [])
 			}
 		}
 
+		function ClearParentUnderworld(){
+			return {
+				count: 0,
+				events: []
+			}
+		}
+
 		return {
 			Character:sharedData,
 			initTraits: ClearTraits,
@@ -322,6 +345,7 @@ window.angular.module('castingApp.services.CharData', [])
 			initLegitimacy: ClearLegitimacy,
 			initJobs: ClearJobs,
 			initParent: ClearParent,
+			initParentUnderworld: ClearParentUnderworld,
 			initAll: ClearAll
 		}
 	}]);

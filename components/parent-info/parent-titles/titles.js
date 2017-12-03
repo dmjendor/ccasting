@@ -1,12 +1,12 @@
 'use strict';
-window.angular.module('castingApp.components.parent.title', [])
+window.angular.module('castingApp.components.parent.titles', [])
         .directive('parentTitle', [
             function () {
                 return{
                     restrict: 'E',
                     scope: true,
                     replace: true,
-                    templateUrl: 'components/parent-info/parent-title/title.htm',
+                    templateUrl: 'components/parent-info/parent-titles/titles.htm',
                     link: function ($scope, elem, attrs) {},
                     controller: ['$scope', '$q', 'CharData', 'SharedFunctions', 'SharedData', function ($scope, $q, CharData, ShdFnc, SharedData) {
 
@@ -41,16 +41,18 @@ window.angular.module('castingApp.components.parent.title', [])
 								var tData = response.data.result;
 								$scope.charInfo.parent.status.name = tData.name;
 								$scope.charInfo.parent.status.desc = tData.descrip;
-								var ltInt = parseInt(tData.LandTitles);
-								if((typeof ltInt) === 'number'){
-									var ltRoll = Math.floor((Math.random() *100)+1);
-									$scope.charInfo.parent.land.titleCount = ltRoll<ltInt?1:0;
-								} else if(tData.LandTitles.includes('d')) {
+								$scope.charInfo.parent.land.titleDice = tData.LandTitles;
+								var ltInt = parseInt(tData.LandTitles);								
+								if(tData.LandTitles.includes('d')) {
 									$scope.charInfo.parent.land.titleCount = ShdFnc.dRoll(tData.LandTitles);
-								} else {
-									$scope.charInfo.parent.land.titleCount = 0;
+								} else if(tData.LandTitles.includes('%')) {
+									var ltRoll = Math.floor((Math.random() *100)+1);
+									$scope.charInfo.parent.land.titleRoll = ltRoll;
+									$scope.charInfo.parent.land.titleCount = ltRoll<ltInt?1:0;
+								}else {
+									$scope.charInfo.parent.land.titleCount = ltInt>0?ltInt:0;
 								}
-								
+
 								
 								$scope.charInfo.parent.land.holdPct = parseInt(tData.LandHoldings);
 								$scope.charInfo.parent.land.holdRoll = Math.floor((Math.random() * 100) + 1);

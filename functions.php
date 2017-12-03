@@ -22,14 +22,15 @@ function showFunction($func){
 		echo "<span class='label label-warning' ng-show='char.debug'>".$func."</span>";
 }
 
-function roll($bot,$top,$tab,$mod = 0, $roll="-99") {
-	if($roll=="-99"){
+function roll($bot,$top,$tab,$mod = 0, $id="-99") {
+	if($id=="-99"){
 		$roll = rand($bot,$top);
 		$roll += $mod;
 		$query = "SELECT * FROM `".$tab."` WHERE rndb <= ".$roll." AND rndt >= ".$roll;
 
 	} else {
-		$query = "SELECT * FROM `".$tab."` WHERE `".$tab."id` = ".$roll;
+		$roll = 99;
+		$query = "SELECT * FROM `".$tab."` WHERE `".$tab."id` = ".$id;
 	}
 
 	$tResult = [];

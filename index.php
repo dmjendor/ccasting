@@ -293,7 +293,8 @@
 <script type="text/javascript" src="components/legitimacy-info/legitimacy.js"></script>
 <script type="text/javascript" src="components/parent-info/parent.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
-<script type="text/javascript" src="components/parent-info/parent-title/title.js"></script>
+<script type="text/javascript" src="components/parent-info/parent-jobs/jobs.js"></script>
+<script type="text/javascript" src="components/parent-info/parent-titles/titles.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-notes/notes.js"></script>
 
 </body>

@@ -69,7 +69,8 @@ window.angular.module('castingApp.components', [
   'castingApp.components.legitimacy',
   'castingApp.components.parent',
   'castingApp.components.parent.status',
-  'castingApp.components.parent.title',
+  'castingApp.components.parent.titles',
+  'castingApp.components.parent.jobs',
   'castingApp.components.parent.notes'
 
 //  'castingApp.components.bioModal_ctrl',

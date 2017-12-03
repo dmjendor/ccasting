@@ -15,14 +15,18 @@ window.angular.module('castingApp.components.parent.status', [])
 
 						$scope.getPStatus = function(){
 						var defObj = $q.defer();
-							var req = {	method: 'GET', url: 'getData.php', params: { table: '103' , lowRoll: daTa.t103.lowRoll, highRoll: daTa.t103.highRoll, mod: 90 } };
+							$scope.charInfo.parent.status = CharData.initStatus();
+							$scope.charInfo.parent.land = CharData.initLand();
 
+							var req = {	method: 'GET', url: 'getData.php', params: { table: '103' , lowRoll: daTa.t103.lowRoll, highRoll: daTa.t103.highRoll, mod: daTa.t103.modifier} };
+							req.params.lowRoll = 99;
+							req.params.highRoll = 100;
 							ShdFnc.httpRequest(req).then(function(response){
 								var parentData = response.data.result;
 
 								if(parentData.tbl!==''){
 									req.params.table = parentData.tbl;
-									req.params.mod = 0;
+
 									ShdFnc.httpRequest(req).then(function(response){
 										var parentData = response.data.result;
 										$scope.charInfo.parent.status.level = parentData.level;
@@ -30,7 +34,6 @@ window.angular.module('castingApp.components.parent.status', [])
 										$scope.charInfo.parent.status.desc = parentData.descrip;
 										$scope.charInfo.survival = parentData.survival;
 										$scope.charInfo.solMod = parentData.solmod;
-										$scope.charInfo.parent.status.roll = 99;
 										if($scope.charInfo.parent.status.roll > 95){
 											var EW = Math.floor((Math.random() * 100) + 1);
 											if (($scope.charInfo.tiMod+1)>=EW){

@@ -109,14 +109,18 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			var tArray = new Array();
 			var tables = tNum.split(',');
 			tables.forEach(function(el){
-			var tab = el.split(':');
-				if(tab[1]){
-					for (var i=0;i<tab[1];i++)
-					{
-						tArray.push(tab[0]);
+				if(el.includes('[')){
+					var regex = /(?:.*?)\[(.*?)\]/gi;
+					var iChk = regex.exec(el);
+					var count = 0;
+					if(iChk.includes('d')){
+						count = $scope.ShdFnc.dRoll(iChk);
+					} else {
+						count = parseInt(regex.exec(el));
 					}
-				} else {
-					tArray.push(tab[0]);
+					for (var i=0;i<count;i++){
+							tArray.push(el);
+					}
 				}
 			});
 			
@@ -141,55 +145,43 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			return deferred.promise;
 		}
 
-		var sArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];
-		var kArray = ["420a","420a","421a","422a","423a", "423a","423a","423a"];
+		var cultureArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];
+		var cultureTableArray = ["420a","420a","421a","422a","423a", "423a","423a","423a"];
 
 		function JobSelect(culture) {
 			var defObj = $q.defer();
-			switch(culture){
-				case 'Primitive':
-					break;
-				case 'Nomad':
-					break;
-				case 'Barbarian':
-					break;
-				case 'Civilized':
-					break;
-				case 'Civilized-Decadant':
-					break;
-				case 'Noble':
-					break;
-			}
-
-
-			array_search(culture,sArray).then(function(sVal){
-				defObj.resolve(kArray[parseInt(sVal)])
+			// search the culture array for the current culture level and return its index
+			array_search(culture,cultureArray).then(function(sVal){
+				//get the table value from the cultureTableArray using the index from the culture
+				defObj.resolve(cultureTableArray[parseInt(sVal)])
 			});
 			return defObj.promise;
 		}
 
 		function JobMod(culture) {
 			var defObj = $q.defer();			
-			array_search(culture,sArray).then(function(sVal){
+			array_search(culture,cultureArray).then(function(sVal){
 				var roll = RollDice("1d6");
 				var tVal = parseInt(sVal);	
 				switch (roll){
 					case 1:
 					case 2:
 					case 3:
-						defObj.resolve(kArray[tVal]);
+						defObj.resolve(cultureTableArray[tVal]);
 						break;
 					case 4:
 					case 5:
-						defObj.resolve(kArray[tVal-1]);
+						defObj.resolve(cultureTableArray[tVal-1]);
 						break;
 					case 6:
-						defObj.resolve(kArray[tVal+1]);
+						defObj.resolve(cultureTableArray[tVal+1]);
 						break;
 					}
 			});
 			return defObj.promise;
 		}
+
+
 
 		return {
 			httpRequest:HttpReq,

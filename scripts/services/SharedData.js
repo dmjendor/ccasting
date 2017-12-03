@@ -20,7 +20,7 @@ window.angular.module('castingApp.services.SharedData', [])
             },
             't103' : {
                 'lowRoll': 1,
-                'highRoll': 10,
+                'highRoll': 100,
                 'modifier': CharData.Character.cuMod
 
             },

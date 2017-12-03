@@ -5,8 +5,8 @@
 
 	$return = [];
 	
-	if(isset($_GET['mod'])&&isset($_GET['roll'])){
-		$return = roll($_GET['lowRoll'],$_GET['highRoll'],$_GET['table'],$_GET['mod'],$_GET['roll']);
+	if(isset($_GET['mod'])&&isset($_GET['id'])){
+		$return = roll($_GET['lowRoll'],$_GET['highRoll'],$_GET['table'],$_GET['mod'],$_GET['id']);
 	} else if(isset($_GET['mod'])){
 		$return = roll($_GET['lowRoll'],$_GET['highRoll'],$_GET['table'],$_GET['mod']);
 	} else {
