@@ -89,11 +89,6 @@ window.angular.module('castingApp.services.SharedData', [])
                 'highRoll': 10,
                 'modifier': null
             },
-            't113b':{
-                'lowRoll': 1,
-                'highRoll': 10,
-                'modifier': null
-            },
             't113c':{
                 'lowRoll': 1,
                 'highRoll': 10,

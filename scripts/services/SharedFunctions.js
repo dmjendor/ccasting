@@ -1,6 +1,8 @@
 window.angular.module('castingApp.services.SharedFunctions', [])
-	.factory('SharedFunctions', ['$q','$http', function($q,$http) {
+	.factory('SharedFunctions', ['$q','$http','SharedData', function($q,$http,SharedData) {
 		'use strict';
+
+		var daTa = SharedData.tables[0];
 
 		function array_search (needle, haystack, argStrict) { // eslint-disable-line camelcase
 		  var defObj = $q.defer();
@@ -119,18 +121,16 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						count = parseInt(regex.exec(el));
 					}
 					for (var i=0;i<count;i++){
-							tArray.push(el);
+						tArray.push(el);
 					}
+				} else {
+					tArray.push(el);
 				}
 			});
 			
 			tArray.forEach(function(el){
-				var req = {
-				 method: 'POST',
-				 url: 'getResults.php',
-				 data: { table: el }
-				}
-				httpRequest(req).then(function(response){
+				var req = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
+				HttpReq(req).then(function(response){
 					var data = response.data.result;
 					if (data.tbl != '') {
 						obj.push({name:data.name,desc:data.descrip,roll:response.data.roll});

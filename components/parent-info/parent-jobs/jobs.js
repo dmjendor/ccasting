@@ -25,7 +25,8 @@ window.angular.module('castingApp.components.parent.jobs', [])
 							delete req.params.id;
 							delete req2.params.id;
 							//clearing existing parent data for re-rolls
-							$scope.charInfo.parent = CharData.initParent();
+							$scope.charInfo.parent.jobs = CharData.initJobs();
+							$scope.charInfo.parent.military = CharData.initMilitary();
 							req.params.table = '114a';
 							req.params.lowRoll = daTa.t114a.lowRoll;
 							req.params.highRoll = daTa.t114a.highRoll;

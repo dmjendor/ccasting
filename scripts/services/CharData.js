@@ -79,7 +79,10 @@ window.angular.module('castingApp.services.CharData', [])
 					},
 					events: []
 				},
-				noteWorthy: [],
+				noteWorthy: {
+					count: 0,
+					items: []
+				},
 				underworld: {
 					count: 0,
 					events: []
@@ -181,7 +184,10 @@ window.angular.module('castingApp.services.CharData', [])
 						},
 						events: []
 					},
-					noteWorthy: [],
+					noteWorthy: {
+						count: 0,
+						items: []
+					},
 					underworld: {
 						count: 0,
 						events: []
@@ -252,12 +258,9 @@ window.angular.module('castingApp.services.CharData', [])
 
 		function ClearJobs(){
 			return {
-				jobs: {
 					head: [],
 					parent1: [],
 					parent2: []
-				},
-				military: ClearMilitary()
 			}
 		}
 

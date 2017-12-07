@@ -19,8 +19,7 @@ window.angular.module('castingApp.components.parent.status', [])
 							$scope.charInfo.parent.land = CharData.initLand();
 
 							var req = {	method: 'GET', url: 'getData.php', params: { table: '103' , lowRoll: daTa.t103.lowRoll, highRoll: daTa.t103.highRoll, mod: daTa.t103.modifier} };
-							req.params.lowRoll = 99;
-							req.params.highRoll = 100;
+
 							ShdFnc.httpRequest(req).then(function(response){
 								var parentData = response.data.result;
 
