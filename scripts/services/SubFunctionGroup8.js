@@ -5,180 +5,165 @@ window.angular.module('castingApp.services.SubFunctionGroup8', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Gifts & Legacies
-			class table863 {
+			var table863 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Deities
-			class table864 {
+			var table864 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Colors
-			class table865 {
+			var table865 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Birthmarks
-			class table866 {
+			var table866 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Body Locations
-			class table867 {
+			var table867 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Curses
-			class table868 {
+			var table868 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Blessings
-			class table869 {
+			var table869 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Serious Wounds
-			class table870 {
+			var table870 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Special Titles for Nobility
-			class table871 {
+			var table871 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Relations to the Ruler of the Land
-			class table872 {
+			var table872 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Psychic Abilities
-			class table873 {
+			var table873 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Physical Afflictions
-			class table874 {
+			var table874 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Crimes
-			class table875 {
+			var table875 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Unusual Skills
-			class table876 {
+			var table876 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Military Skills
-			class table877 {
+			var table877 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }

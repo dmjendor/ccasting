@@ -31,8 +31,8 @@ window.angular.module('castingApp.services.SharedData', [])
             },
             't104':{
                 'lowRoll': 1,
-                'highRoll': 10,
-                'modifier': null
+                'highRoll': 20,
+                'modifier': CharData.Character.cuMod
             },
             't105':{
                 'lowRoll': 1,
@@ -827,6 +827,11 @@ window.angular.module('castingApp.services.SharedData', [])
             't750':{
                 'lowRoll': 1,
                 'highRoll': 20,
+                'modifier': null
+            },
+            't750a':{
+                'lowRoll': 1,
+                'highRoll': 4,
                 'modifier': null
             },
             't751':{

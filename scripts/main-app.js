@@ -26,6 +26,7 @@ window.castingApp = angular.module('castingApp', [
 window.angular.module('castingApp.services', [
   'castingApp.services.CharData',
   'castingApp.services.SharedFunctions',
+  'castingApp.services.FunctionGroup',
     'castingApp.services.SubFunctionGroup1',
     'castingApp.services.SubFunctionGroup2',
     'castingApp.services.SubFunctionGroup3',

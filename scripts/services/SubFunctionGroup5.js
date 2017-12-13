@@ -5,24 +5,22 @@ window.angular.module('castingApp.services.SubFunctionGroup5', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Tragedies
-			class table528 {
+			var table528 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Something Wonderful
-			class table529 {
+			var table529 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
@@ -30,204 +28,187 @@ window.angular.module('castingApp.services.SubFunctionGroup5', [])
 
 
 			//Elven Events
-			class table530 {
+			var table530 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Dwarvish Events
-			class table531 {
+			var table531 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Halfling Events
-			class table532 {
+			var table532 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Monster Events
-			class table533 {
+			var table533 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Underworld Experience
-			class table534 {
+			var table534 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Military Experience
-			class table535 {
+			var table535 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Noncombat Duty
-			class table536 {
+			var table536 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Special Services
-			class table537 {
+			var table537 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Military Rank
-			class table538 {
+			var table538 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Enslaved
-			class table539 {
+			var table539 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Imprisoned
-			class table540 {
+			var table540 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Religious Experience
-			class table541 {
+			var table541 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Ah Love!
-			class table542 {
+			var table542 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//In the Service of
-			class table543 {
+			var table543 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Exotic Events
-			class table544 {
+			var table544 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Death Situations
-			class table545 {
+			var table545 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Death of a Parent or Guardian
-			class table546 {
+			var table546 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }

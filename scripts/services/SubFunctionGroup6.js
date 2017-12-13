@@ -5,24 +5,22 @@ window.angular.module('castingApp.services.SubFunctionGroup6', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Lightside Traits
-			class table647 {
+			var table647 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Darkside Traits
-			class table648 {
+			var table648 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
@@ -30,12 +28,11 @@ window.angular.module('castingApp.services.SubFunctionGroup6', [])
 
 
 			//Exotic Personality Features
-			class table649 {
+			var table649 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }

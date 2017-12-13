@@ -1,27 +1,39 @@
 window.angular.module('castingApp.services.SubFunctionGroup1', [])
-	.factory('SubGroup1', ['$q', function($q) {
+	.factory('SubGroup1', ['$q','$http','SharedData','SharedFunctions','CharData', function($q,$http,SharedData,SharedFunctions,CharData) {
 		'use strict';
 
+			var ShdFnc = SharedFunctions;
+			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
+			var daTa = SharedData.tables[0];
+			var charInfo = CharData.Character;
 			//Character Race
-			class table101 {
-
-				roll() {
+			var table101 = {
+			
+				roll:function() {
 					var defObj = $q.defer();
-					$http(req).then(function(response){
-							var raceData = response.data.result;
-							if(raceData.tbl != ''){
-								req.params = { table: '101a', lowRoll: daTa.t101a.lowRoll, highRoll: daTa.t101a.highRoll };
-								
-								$http(req).then(function(response){
-									defObj.resolve(response);
-								});
-							} else {
-								defObj.resolve(response);
-							}
-						});
+					req.params = { table: '101', lowRoll: daTa.t101.lowRoll, highRoll: daTa.t101.highRoll };
+					$http(req).then(function(t101){
+						if(t101.data.result.tbl != ''){
+							req.params = { table: '101a', lowRoll: daTa.t101a.lowRoll, highRoll: daTa.t101a.highRoll };
+							
+							$http(req).then(function(t101){
+								charInfo.race.name = t101.data.result.name;
+								charInfo.race.desc = t101.data.result.descrip;
+								charInfo.race.roll = t101.data.roll;
+								charInfo.race.tbl = t101.data.result.tbl;		
+								defObj.resolve();
+							});
+						} else {
+							charInfo.race.name = t101.data.result.name;
+							charInfo.race.desc = t101.data.result.descrip;
+							charInfo.race.roll = t101.data.roll;
+							charInfo.race.tbl = t101.data.result.tbl;
+							defObj.resolve();
+						}
+					});
 					return defObj.promise;
-				}
-				  // Method
+				},
+
 				build() {
 					return ;
 				}
@@ -29,156 +41,232 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 
 
 			//Cultural Background
-			class table102 {
+			var table102 = {
+				roll:function() {
+					var defObj = $q.defer();
+					req.params = { table: '102', lowRoll: daTa.t102.lowRoll, highRoll: daTa.t102.highRoll };
+					$http(req).then(function(response){
+						charInfo.culture.native = t101.data.result.native;
+						charInfo.culture.level = t101.data.result.level;
+						charInfo.culture.desc = t101.data.result.descrip;
+						charInfo.culture.roll = t101.data.roll;
+						charInfo.culture.tbl = t101.data.result.tbl;	
+					});
+					return defObj.promise;
+				},
 
-			  roll() {
-				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
-			  build() {
-				return ;
-			  }
+				build() {
+					return ;
+				}
 			}
 
 			//Social Status
-			class table103 {
+			var table103 = {
+			
+				roll:function() {
+					var defObj = $q.defer();
+					req.params = { table: '103', lowRoll: daTa.t103.lowRoll, highRoll: daTa.t103.highRoll };
+					$http(req).then(function(response){
+						defObj.resolve(response);
+					});
+					return defObj.promise;
+				},
 
-			  roll() {
-				return ;
-			  }
-			  // Method
-			  build() {
-				return ;
-			  }
+				build() {
+					return ;
+				}
 			}
 			
 			//Legitimacy of Birth
-			class table104 {
+			var table104 = {
+				
+				roll:function() {
+					var defObj = $q.defer();
+					//Roll legitimacy dice
+					charInfo.legitimacy.lRoll = (Math.floor(Math.random() * daTa.t104.highRoll)+1);
+					//If you are from a primitive culture and rolled a 20 you are automatically illegitimate
+					if((charInfo.culture.level==='Primitive')&&(charInfo.legitimacy.lRoll === 20)){
+						charInfo.legitMod = Math.floor((Math.random() * 4) + 1);
+					//Otherwise if your cuMod + your legitimacy roll are 19+ you are illegitimate
+					} else if((charInfo.cuMod+charInfo.legitimacy.lRoll)>18){
+						charInfo.legitMod = Math.floor((Math.random() * 4) + 1);
+					}
+					defObj.resolve();
+					return defObj.promise;
 
-			  roll() {
-				return ;
-			  }
-			  // Method
-			  build() {
-				return ;
-			  }
+				  },
+				  build() {
+					return false;
+				  }
 			}
 
 			//Reasons for Illegitimate Birth
-			class table105 {
+			var table105 = {
 
-			  roll() {
-				return ;
-			  }
-			  // Method
-			  build() {
-				return ;
-			  }
+			  roll:function() {
+					var defObj = $q.defer();
+					req.params = { table: '105', lowRoll: daTa.t105.lowRoll, highRoll: daTa.t105.highRoll, mod: daTa.t105.modifier };
+					$http(req).then(function(t105){
+						charInfo.legitimacy.name = t105.data.result.name;
+						charInfo.legitimacy.desc = t105.data.result.descrip;
+						charInfo.legitimacy.roll = t105.data.roll;
+						defObj.resolve();
+					});
+					return defObj.promise;
+				},
+
+				build() {
+					return ;
+				}
 			}
 
 			//The Family
-			class table106 {
+			var table106  = {
 
 			  roll() {
-				return ;
-			  }
-			  // Method
+					var defObj = $q.defer();
+					req.params = { table: '106', lowRoll: daTa.t106.lowRoll, highRoll: daTa.t106.highRoll, mod: daTa.t106.modifier };
+					$http(req).then(function(t106){
+						if(t106.data.roll === 20){
+							var guardian = Math.floor((Math.random() * 20) + 1);
+						} else {
+							charInfo.family.name = t106.data.result.name;
+							charInfo.family.desc = t106.data.result.descrip;
+							charInfo.family.roll = t106.data.roll;
+							defObj.resolve();
+						}
+
+					});
+					return defObj.promise;
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Siblings
-			class table107 {
+			var table107 = {
 
 			  roll() {
-				return ;
-			  }
-			  // Method
+					var defObj = $q.defer();
+					req.params = { table: '107', lowRoll: daTa.t107.lowRoll, highRoll: daTa.t107.highRoll, mod: daTa.t107.modifier};
+					$http(req).then(function(t107){
+						var sibCount = ShdFnc.dRoll(t107.data.result.name);
+						if(t107.data.roll!=='20'){
+							for (var i=0;i<sibCount ;i++ ){
+								var gender = (Math.floor((Math.random() * 20) + 1))<10?'Brother':'Sister';
+								charInfo.family.siblings.push({'gender':gender});
+							}
+						} else {
+							daTa.t107.modifier = sibCount;
+							table107.roll();
+						}
+						defObj.resolve();
+					});
+					return defObj.promise;
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Birth Order
-			class table108 {
+			var table108 = {
 
 			  roll() {
-				return ;
-			  }
-			  // Method
+				var defObj = $q.defer();
+				req.params = { table: '108', lowRoll: daTa.t108.lowRoll, highRoll: daTa.t108.highRoll};
+				$http(req).then(function(t108){
+					charInfo.family.birthOrder.name = t108.data.result.name;
+					charInfo.family.birthOrder.desc = t108.data.result.descrip;
+					charInfo.family.birthOrder.roll = t108.data.roll;
+					defObj.resolve();
+				});
+				return defObj.promise;
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Time of Birth
-			class table109 {
+			var table109 = {
 
 			  roll() {
-				return ;
-			  }
-			  // Method
+				var defObj = $q.defer();
+				req.params = { table: '108', lowRoll: daTa.t108.lowRoll, highRoll: daTa.t108.highRoll};
+				$http(req).then(function(t108){
+					charInfo.legitimacy.name = t105.data.result.name;
+					charInfo.legitimacy.desc = t105.data.result.descrip;
+					charInfo.legitimacy.roll = t105.data.roll;
+					defObj.resolve();
+				});
+				return defObj.promise;
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Place of Birth
-			class table110 {
+			var table110 = {
 
 			  roll() {
 				return ;
-			  }
-			  // Method
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Exotic Birth Locations
-			class table111 {
+			var table111 = {
 
 			  roll() {
 				return ;
-			  }
-			  // Method
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Unusual Births
-			class table112 {
+			var table112 = {
 
 			  roll() {
 				return ;
-			  }
-			  // Method
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Unusual Birth Circumstances
-			class table113 {
+			var table113 = {
 
 			  roll() {
 				return ;
-			  }
-			  // Method
+			  },
+
 			  build() {
 				return ;
 			  }
 			}
 
 			//Parents & NPCs
-			class table114 {
+			var table114 = {
 
 			  roll() {
 				return ;
-			  }
-			  // Method
+			  },
+
 			  build() {
 				return ;
 			  }

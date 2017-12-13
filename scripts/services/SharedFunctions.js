@@ -1,9 +1,8 @@
 window.angular.module('castingApp.services.SharedFunctions', [])
-	.factory('SharedFunctions', ['$q','$http','SharedData','SubGroup1', function($q,$http,SharedData,SubGroup1) {
+	.factory('SharedFunctions', ['$q','$http','SharedData', function($q,$http,SharedData) {
 		'use strict';
 
 		var daTa = SharedData.tables[0];
-		var sub1 = SubGroup1;
 
 		function array_search (needle, haystack, argStrict) { // eslint-disable-line camelcase
 		  var defObj = $q.defer();
@@ -189,7 +188,6 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			fLoop:FunctionLoop,
 			dRoll:RollDice,
 			getJob:JobSelect,
-			getModJob:JobMod,
-			Sub1: sub1
+			getModJob:JobMod
 		};
 	}]);

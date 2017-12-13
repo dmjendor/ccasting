@@ -15,6 +15,14 @@ window.angular.module('castingApp.services.CharData', [])
 			imprisoned: 0,
 			enslaved: 0,
 			survival: null,
+			family: {
+				name: null,
+				desc: null,
+				roll: 0,
+				tbl: null,
+				siblings: [],
+				birthOrder: {}
+			},
 			legitimacy: {
 				name: null,
 				desc: null,
@@ -120,6 +128,14 @@ window.angular.module('castingApp.services.CharData', [])
 				imprisoned: 0,
 				enslaved: 0,
 				survival: null,
+				family: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null,
+					siblings: [],
+					birthOrder: {}
+				},
 				legitimacy: {
 					name: null,
 					desc: null,
@@ -305,9 +321,10 @@ window.angular.module('castingApp.services.CharData', [])
 		function ClearLegitimacy(){
 			return {
 				name: null,
-				number: 0,
+				desc: null,
 				roll: 0,
-				tbl: null
+				tbl: null,
+				lRoll: 0
 			}
 		}
 
@@ -338,6 +355,17 @@ window.angular.module('castingApp.services.CharData', [])
 			}
 		}
 
+		function ClearFamily(){
+			return {
+				name: null,
+				desc: null,
+				roll: 0,
+				tbl: null,
+				siblings: [],
+				birthOrder: {}
+			}
+		}
+
 		return {
 			Character:sharedData,
 			initTraits: ClearTraits,
@@ -349,6 +377,7 @@ window.angular.module('castingApp.services.CharData', [])
 			initJobs: ClearJobs,
 			initParent: ClearParent,
 			initParentUnderworld: ClearParentUnderworld,
+			initFamily: ClearFamily,
 			initAll: ClearAll
 		}
 	}]);

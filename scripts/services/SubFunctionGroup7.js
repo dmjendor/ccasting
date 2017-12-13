@@ -5,156 +5,143 @@ window.angular.module('castingApp.services.SubFunctionGroup7', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Others
-			class table750 {
+			var table750 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Nonhumans
-			class table751 {
+			var table751 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Government Officials
-			class table752 {
+			var table752 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Relatives
-			class table753 {
+			var table753 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Guardians
-			class table754 {
+			var table754 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Criminals
-			class table755 {
+			var table755 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Monsters
-			class table756 {
+			var table756 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Adventurers
-			class table757 {
+			var table757 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Nobles
-			class table758 {
+			var table758 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Unusual Pets
-			class table759 {
+			var table759 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Unusual Pet Abilities
-			class table760 {
+			var table760 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Companions
-			class table761 {
+			var table761 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Rivals
-			class table762 {
+			var table762 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }

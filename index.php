@@ -284,6 +284,7 @@
 <script type="text/javascript" src="scripts/services/ResourceNotification.js"></script>
 <script type="text/javascript" src="scripts/services/SharedFunctions.js"></script>
 
+<script type="text/javascript" src="scripts/services/FunctionGroup.js"></script>
 <script type="text/javascript" src="scripts/services/SubFunctionGroup1.js"></script>
 <script type="text/javascript" src="scripts/services/SubFunctionGroup2.js"></script>
 <script type="text/javascript" src="scripts/services/SubFunctionGroup3.js"></script>

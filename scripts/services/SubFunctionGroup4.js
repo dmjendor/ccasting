@@ -5,108 +5,99 @@ window.angular.module('castingApp.services.SubFunctionGroup4', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Apprenticeships
-			class table419 {
+			var table419 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Primitive Occupations
-			class table420 {
+			var table420 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Nomad Occupations
-			class table421 {
+			var table421 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Barbarian Occupations
-			class table422 {
+			var table422 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Civilized Occupations
-			class table423 {
+			var table423 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Crafts
-			class table424 {
+			var table424 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Merchants
-			class table425 {
+			var table425 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Occupation Performance
-			class table426 {
+			var table426 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
 			}
 
 			//Hobbies
-			class table427 {
+			var table427 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }

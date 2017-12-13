@@ -5,12 +5,11 @@ window.angular.module('castingApp.services.SubFunctionGroup3', [])
 			var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
 			//Alignment and Attitude
-			class table318 {
+			var table318 = {
 
 			  roll() {
 				return (Math.floor(Math.random() * 100)+1);
-			  }
-			  // Method
+			  },
 			  build() {
 				return ;
 			  }
