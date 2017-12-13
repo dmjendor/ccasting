@@ -26,6 +26,15 @@ window.castingApp = angular.module('castingApp', [
 window.angular.module('castingApp.services', [
   'castingApp.services.CharData',
   'castingApp.services.SharedFunctions',
+    'castingApp.services.SubFunctionGroup1',
+    'castingApp.services.SubFunctionGroup2',
+    'castingApp.services.SubFunctionGroup3',
+    'castingApp.services.SubFunctionGroup4',
+    'castingApp.services.SubFunctionGroup5',
+    'castingApp.services.SubFunctionGroup6',
+    'castingApp.services.SubFunctionGroup7',
+    'castingApp.services.SubFunctionGroup8',
+    'castingApp.services.SubFunctionGroup9',
   'castingApp.services.ResourceNotification',
   'castingApp.services.SharedData'
 ], null);

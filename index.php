@@ -283,6 +283,17 @@
 <script type="text/javascript" src="scripts/services/CharData.js"></script>
 <script type="text/javascript" src="scripts/services/ResourceNotification.js"></script>
 <script type="text/javascript" src="scripts/services/SharedFunctions.js"></script>
+
+<script type="text/javascript" src="scripts/services/SubFunctionGroup1.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup2.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup3.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup4.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup5.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup6.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup7.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup8.js"></script>
+<script type="text/javascript" src="scripts/services/SubFunctionGroup9.js"></script>
+
 <script type="text/javascript" src="scripts/services/SharedData.js"></script>
 
 <script type="text/javascript" src="scripts/controllers/base-controller.js"></script>

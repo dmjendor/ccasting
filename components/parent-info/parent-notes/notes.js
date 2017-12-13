@@ -110,6 +110,8 @@ window.angular.module('castingApp.components.parent.notes', [])
 										} else if(el.includes('534')) {
 											$scope.charInfo.parent.underworld.count++;
 										} else {
+											if(el.includes('103'))
+												console.log(el)
 											req.params.table = el;
 											console.log('t'+el,daTa['t'+el])
 											req.params.lowRoll = daTa['t'+el].lowRoll;
