@@ -15,28 +15,10 @@ window.angular.module('castingApp.components.legitimacy', [])
 						$scope.getLegitimacy = function(){
 							var defObj = $q.defer();
 
-							// if there was a legit mod before, remove it.
-							$scope.charInfo.solMod -= $scope.legitMod;
 							$scope.charInfo.legitimacy = CharData.initLegitimacy();
 							
 							Master.Sub1.Table104.roll().then(function(){
-								if($scope.charInfo.legitMod){
-									//if you are illegitimate and have a positive solMod, reduce your solMod by the legitMod
-									if($scope.charInfo.solMod>0){
-										$scope.charInfo.solMod += $scope.charInfo.legitMod;
-									}
-									Master.Sub1.Table105.roll().then(function(){
-										defObj.resolve();
-									});
-								} else {
-									Master.Sub1.Table106.roll().then(function(){
-										Master.Sub1.Table107.roll().then(function(){
-											Master.Sub1.Table108.roll().then(function(){
-												defObj.resolve();
-											});
-										});
-									});
-								}
+								
 							});
 
 							

@@ -20,8 +20,35 @@ window.angular.module('castingApp.services.CharData', [])
 				desc: null,
 				roll: 0,
 				tbl: null,
-				siblings: [],
-				birthOrder: {}
+				siblings: []
+			},
+			birth: {
+				order: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null
+				},
+				time: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null	
+				},
+				place: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null	
+				},
+				events: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null,
+					list: []
+
+				}
 			},
 			legitimacy: {
 				name: null,
@@ -133,8 +160,34 @@ window.angular.module('castingApp.services.CharData', [])
 					desc: null,
 					roll: 0,
 					tbl: null,
-					siblings: [],
-					birthOrder: {}
+					siblings: []
+				},
+				birth: {
+					order: {
+						name: null,
+						desc: null,
+						roll: 0,
+						tbl: null
+					},
+					time: {
+						name: null,
+						desc: null,
+						roll: 0,
+						tbl: null	
+					},
+					place: {
+						name: null,
+						desc: null,
+						roll: 0,
+						tbl: null	
+					},
+					events: {
+						name: null,
+						desc: null,
+						roll: 0,
+						tbl: null,
+						list: []
+					}
 				},
 				legitimacy: {
 					name: null,
@@ -361,8 +414,33 @@ window.angular.module('castingApp.services.CharData', [])
 				desc: null,
 				roll: 0,
 				tbl: null,
-				siblings: [],
-				birthOrder: {}
+				siblings: []
+			}
+		}
+
+		function ClearBirth(){
+			return {
+				order: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null
+				},
+				time: null,
+				place: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null	
+				},
+				events: {
+					name: null,
+					desc: null,
+					roll: 0,
+					tbl: null,
+					list: []
+
+				}
 			}
 		}
 

@@ -6,9 +6,11 @@ window.$ = jQuery.noConflict();
 //castingApp module definition and its dependencies
 window.castingApp = angular.module('castingApp', [
 //	'ngRoute'
+	'sprintf',
 	'castingApp.services',
 	'castingApp.controllers',
-	'castingApp.components'
+	'castingApp.components',
+
 //  'castingApp.directives',
 //  'castingApp.filters',
 //  'castingApp.models'
@@ -73,15 +75,21 @@ window.angular.module('castingApp.controllers', [
 
 
 window.angular.module('castingApp.components', [
-  'castingApp.components.race',
-  'castingApp.components.culture',
-  'castingApp.components.survival',
-  'castingApp.components.legitimacy',
-  'castingApp.components.parent',
-  'castingApp.components.parent.status',
-  'castingApp.components.parent.titles',
-  'castingApp.components.parent.jobs',
-  'castingApp.components.parent.notes'
+	'castingApp.components.race',
+	'castingApp.components.culture',
+	'castingApp.components.survival',
+	'castingApp.components.legitimacy',
+	'castingApp.components.parent',
+	'castingApp.components.birth',
+	'castingApp.components.birth.time',
+	'castingApp.components.birth.place',
+	'castingApp.components.birth.order',
+	'castingApp.components.birth.events',
+
+	'castingApp.components.parent.status',
+	'castingApp.components.parent.titles',
+	'castingApp.components.parent.jobs',
+	'castingApp.components.parent.notes'
 
 //  'castingApp.components.bioModal_ctrl',
 ], null);

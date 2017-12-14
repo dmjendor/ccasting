@@ -6,113 +6,135 @@ window.angular.module('castingApp.services.SharedData', [])
             't101' : {
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.race
             },
             't101a' : {
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.race
             },
             't102' : {
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.parent.culture
             },
             't103' : {
                 'lowRoll': 1,
                 'highRoll': 100,
-                'modifier': CharData.Character.cuMod
+                'modifier': CharData.Character.cuMod,
+				'obj': CharData.Character.parent.status
 
             },
             't103a': {
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': CharData.Character.cuMod
+                'modifier': CharData.Character.cuMod,
+				'obj': CharData.Character.parent.status
             },
             't104':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': CharData.Character.cuMod
+                'modifier': CharData.Character.cuMod,
+				'obj': CharData.Character.family
             },
             't105':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': CharData.Character.cuMod
+                'modifier': CharData.Character.cuMod,
+				'obj': CharData.Character.legitimacy
             },
             't106':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': CharData.Character.cuMod
+                'modifier': CharData.Character.cuMod,
+				'obj': CharData.Character.family
             },
             't107':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.family.siblings
             },
             't108':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.order
             },
             't109':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.time
             },
             't110':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': CharData.Character.lMod
+                'modifier': CharData.Character.lMod,
+				'obj': CharData.Character.birth.place
             },
             't111':{
                 'lowRoll': 1,
                 'highRoll': 20,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.place
             },
             't112':{
                 'lowRoll': 1,
                 'highRoll': 100,
-                'modifier': CharData.Character.biMod
+                'modifier': CharData.Character.biMod,
+				'obj': CharData.Character.birth.events
             },
             't113':{
                 'lowRoll': 1,
                 'highRoll': 100,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113a':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113b':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113c':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113d':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113e':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113f':{
                 'lowRoll': 1,
                 'highRoll': 10,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't113g':{
                 'lowRoll': 1,
                 'highRoll': 100,
-                'modifier': null
+                'modifier': null,
+				'obj': CharData.Character.birth.events.list
             },
             't114a':{
                 'lowRoll': 1,

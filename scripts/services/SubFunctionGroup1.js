@@ -91,7 +91,23 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 					} else if((charInfo.cuMod+charInfo.legitimacy.lRoll)>18){
 						charInfo.legitMod = Math.floor((Math.random() * 4) + 1);
 					}
-					defObj.resolve();
+					// if there was a legit mod before, remove it.
+					charInfo.solMod -= charInfo.legitMod;
+
+					if(charInfo.legitMod){
+						//if you are illegitimate and have a positive solMod, reduce your solMod by the legitMod
+						if(charInfo.solMod>0){
+							charInfo.solMod += charInfo.legitMod;
+						}
+						table105.roll().then(function(){
+							defObj.resolve();
+						});
+					} else {
+						table106.roll().then(function(){
+							
+						});
+					}
+
 					return defObj.promise;
 
 				  },
@@ -133,7 +149,11 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 							charInfo.family.name = t106.data.result.name;
 							charInfo.family.desc = t106.data.result.descrip;
 							charInfo.family.roll = t106.data.roll;
-							defObj.resolve();
+							table107.roll().then(function(){
+								table108.roll().then(function(){
+									defObj.resolve();
+								});
+							});
 						}
 
 					});
@@ -162,7 +182,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 							daTa.t107.modifier = sibCount;
 							table107.roll();
 						}
-						defObj.resolve();
+
 					});
 					return defObj.promise;
 			  },
@@ -179,9 +199,9 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 				var defObj = $q.defer();
 				req.params = { table: '108', lowRoll: daTa.t108.lowRoll, highRoll: daTa.t108.highRoll};
 				$http(req).then(function(t108){
-					charInfo.family.birthOrder.name = t108.data.result.name;
-					charInfo.family.birthOrder.desc = t108.data.result.descrip;
-					charInfo.family.birthOrder.roll = t108.data.roll;
+					charInfo.birth.order.name = t108.data.result.name;
+					charInfo.birth.order.desc = t108.data.result.descrip;
+					charInfo.birth.order.roll = t108.data.roll;
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -197,13 +217,20 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 
 			  roll() {
 				var defObj = $q.defer();
-				req.params = { table: '108', lowRoll: daTa.t108.lowRoll, highRoll: daTa.t108.highRoll};
-				$http(req).then(function(t108){
-					charInfo.legitimacy.name = t105.data.result.name;
-					charInfo.legitimacy.desc = t105.data.result.descrip;
-					charInfo.legitimacy.roll = t105.data.roll;
-					defObj.resolve();
-				});
+				var tob = ShdFnc.dRoll("1d12");
+				var pth = ShdFnc.ordinalSuffix(tob);
+				var tobh = ShdFnc.dRoll("1d12");
+				var tobm = ShdFnc.dRoll("1d59");
+				var tobmp = sprintf("%02s", tobm);
+				var tobAPm = ShdFnc.dRoll("1d2");
+				var apm = "PM";
+				if(tobAPm === "1"){ 
+					apm = "AM"; 
+				}
+				charInfo.birth.time = "Born in the "+pth+" month, at "+tobh+":"+tobmp+apm;
+
+				
+				
 				return defObj.promise;
 			  },
 
@@ -216,7 +243,13 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			var table110 = {
 
 			  roll() {
-				return ;
+				var defObj = $q.defer();
+				req.params = { table: '110', lowRoll: daTa.t110.lowRoll, highRoll: daTa.t110.highRoll};
+				ShdFnc.tDive(req,true).then(function(t110){
+					charInfo.biMod = t110.data.result.biMod;
+					defObj.resolve();
+				});
+				return defObj.promise;
 			  },
 
 			  build() {
@@ -228,7 +261,12 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			var table111 = {
 
 			  roll() {
-				return ;
+				var defObj = $q.defer();
+				req.params = { table: '111', lowRoll: daTa.t111.lowRoll, highRoll: daTa.t111.highRoll};
+				ShdFnc.tDive(req,true).then(function(t110){
+					defObj.resolve();
+				});
+				return defObj.promise;
 			  },
 
 			  build() {
@@ -240,7 +278,12 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			var table112 = {
 
 			  roll() {
-				return ;
+				var defObj = $q.defer();
+				req.params = { table: '112', lowRoll: daTa.t112.lowRoll, highRoll: daTa.t112.highRoll,mod: daTa.t112.modifier};
+				ShdFnc.tDive(req,true).then(function(t112){
+					defObj.resolve();
+				});
+				return defObj.promise;
 			  },
 
 			  build() {
@@ -251,8 +294,13 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			//Unusual Birth Circumstances
 			var table113 = {
 
-			  roll() {
-				return ;
+			  roll(index) {
+				var defObj = $q.defer();
+				req.params = { table: '113', lowRoll: daTa.t113.lowRoll, highRoll: daTa.t113.highRoll};
+				ShdFnc.tDive(req,true,index).then(function(t113){
+					defObj.resolve();
+				});
+				return defObj.promise;
 			  },
 
 			  build() {

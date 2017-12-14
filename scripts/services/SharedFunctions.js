@@ -61,6 +61,21 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			return defObj.promise;
 		}
 
+		function ordinal_suffix_of(i) {
+			var j = i % 10,
+				k = i % 100;
+			if (j == 1 && k != 11) {
+				return i + "st";
+			}
+			if (j == 2 && k != 12) {
+				return i + "nd";
+			}
+			if (j == 3 && k != 13) {
+				return i + "rd";
+			}
+			return i + "th";
+		}
+
 		function RollDice(dice) {
 
 //			var dex = dice.split('d');
@@ -137,9 +152,118 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						FunctionLoop(data.tbl, obj, deferred);
 					} else {
 						obj.push({name:data.name,desc:data.descrip,roll:response.data.roll});
-						deferred.resolve();
+						deferred.resolve(response);
 					}
 				});	
+			});
+
+			return deferred.promise;
+		}
+
+		function TableDive(req,extend,index,deferred){
+			if(!deferred) {
+				//if the deferred promise does not exist, define it.
+				deferred = $q.defer();
+			}
+			// if the index does not exist, define it.
+			var index = index?index:0;
+			// if the extend variable does not exist, define it.
+			var extend = extend?extend:false;
+
+			HttpReq(req).then(function(response){
+				var data = response.data.result;
+				var obj = daTa['t'+response.config.params.table].obj;
+				if(!data.name){
+					console.log('stop');
+				}
+				// if the object passed was an array, push the entries to the array
+				if(Array.isArray(obj)){
+					if(obj[index] && extend){
+						obj[index].name = obj[index].name+' - '+data.name;
+						obj[index].roll = obj[index].roll+', '+response.data.roll;
+						obj[index].desc = data.descrip;
+					} else {
+						obj[index] = {name: data.name,roll:response.data.roll,desc:data.descrip};
+					}
+					// if the response contains a table additional processing is required.
+					if (data.tbl) {
+						var tArray = new Array();
+						// when multiple tables are present, split the tables into an array
+						var tables = data.tbl.split(',');
+						tables.forEach(function(el){
+							// if the table indicates it should be repeated
+							if(el.includes('[')){
+								var regex = /(?:.*?)\[(.*?)\]/gi;
+								var iChk = regex.exec(el);
+								var count = 0;
+								//if the repeater is a dice roll roll the dice otherwise set count to indicated number
+								if(iChk[1].includes('d')){
+									count = ShdFnc.dRoll(iChk[1]);
+								} else {
+									count = parseInt(iChk[1]);
+								}
+								//add the table to the array list the number of times indicated
+								for (var i=0;i<count;i++){
+										tArray.push(el);
+								}
+							} else {
+								tArray.push(el);
+							}
+						});
+						// Re-run the function for each table entry
+						tArray.forEach(function(el){
+							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
+							TableDive(request, extend, index, deferred);
+						});
+					} else {
+						deferred.resolve(response);
+					}
+				} else {
+					if(extend && obj.name){
+						obj.name = obj.name+' - '+data.name;
+						obj.roll = obj.roll+', '+response.data.roll;
+						obj.desc = data.descrip;
+						obj.tbl = data.tbl;
+					} else {
+						obj.name = data.name;
+						obj.roll = response.data.roll;
+						obj.desc = data.descrip;
+						obj.tbl = data.tbl;
+					}
+					// if the response contains a table additional processing is required.
+					if (data.tbl) {
+						var tArray = new Array();
+						// when multiple tables are present, split the tables into an array
+						var tables = data.tbl.split(',');
+						tables.forEach(function(el){
+							// if the table indicates it should be repeated
+							if(el.includes('[')){
+								var regex = /(?:.*?)\[(.*?)\]/gi;
+								var iChk = regex.exec(el);
+								var count = 0;
+								//if the repeater is a dice roll roll the dice otherwise set count to indicated number
+								if(iChk[1].includes('d')){
+									count = ShdFnc.dRoll(iChk[1]);
+								} else {
+									count = parseInt(iChk[1]);
+								}
+								//add the table to the array list the number of times indicated
+								for (var i=0;i<count;i++){
+										tArray.push(el);
+								}
+							} else {
+								tArray.push(el);
+							}
+						});
+						// Re-run the function for each table entry
+						tArray.forEach(function(el){
+							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
+							TableDive(request, extend, index, deferred);
+						});
+					} else {
+						deferred.resolve(response);
+					}
+				}
 			});
 
 			return deferred.promise;
@@ -188,6 +312,8 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			fLoop:FunctionLoop,
 			dRoll:RollDice,
 			getJob:JobSelect,
-			getModJob:JobMod
+			getModJob:JobMod,
+			ordinalSuffix:ordinal_suffix_of,
+			tDive:TableDive
 		};
 	}]);

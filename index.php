@@ -39,6 +39,8 @@
 	<script src="scripts/jquery-ui.1.12.1.min.js" type="text/javascript"></script>
     
 	<script src="scripts/angular.1.6.6.min.js" type="text/javascript"></script>
+	<script src="scripts/sprintf.min.js" type="text/javascript"></script>
+	<script src="scripts/angular-sprintf.min.js" type="text/javascript"></script>
 	<script src="scripts/ui-bootstrap.2.5.0.min.js" type="text/javascript"></script>
 	<script src="scripts/ui-bootstrap-tpls.2.5.0.min.js" type="text/javascript"></script>
 
@@ -86,7 +88,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Basic Info</div>
             <div class="panel-body">
-				<race-info></race-info>	
+				<race-info></race-info>
 				<culture-info></culture-info>
 				<survival-info></survival-info>
 				<legitimacy-info></legitimacy-info>
@@ -115,14 +117,7 @@
 //     $birthOrder = t108();
 // echo $birthOrder['result']['descrip'];
 // }
-// $tob = droll("1d12");
-// $pth = ordinal_suffix($tob["roll"]);
-// $tobh = droll("1d12");
-// $tobm = droll("1d60");
-// $tobmp = sprintf("%02s", $tobm['roll']);
-// $tobAPm = droll("1d2");
-// if($tobAPm["roll"] == "1"){ $apm = "AM"; } else { $apm = "PM"; }
-// echo "<br />Born in the ".$tob["roll"].$pth." month, at ".$tobh["roll"].":".$tobmp." ".$apm."<br />";
+
 // echo "<b>Birth Place:</b> ";
 // $birthPlace = t110($LegitMod);
 // if($GLOBALS['set111']==true){
@@ -134,6 +129,7 @@
 
 		</div>
 		<parent-info></parent-info>
+		<birth-info></birth-info>
         <div class="panel panel-primary">
             <div class="panel-heading">Significant Events of Childhood</div>
             <div class="panel-body">
@@ -303,6 +299,15 @@
 <script type="text/javascript" src="components/culture-info/culture.js"></script>
 <script type="text/javascript" src="components/survival-info/survival.js"></script>
 <script type="text/javascript" src="components/legitimacy-info/legitimacy.js"></script>
+
+<!-- Birth related files -->
+<script type="text/javascript" src="components/birth-info/birth.js"></script>
+<script type="text/javascript" src="components/birth-info/birth-time/time.js"></script>
+<script type="text/javascript" src="components/birth-info/birth-place/place.js"></script>
+<script type="text/javascript" src="components/birth-info/birth-order/order.js"></script>
+<script type="text/javascript" src="components/birth-info/birth-events/events.js"></script>
+
+<!-- Parent Related Files -->
 <script type="text/javascript" src="components/parent-info/parent.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
 <script type="text/javascript" src="components/parent-info/parent-jobs/jobs.js"></script>
