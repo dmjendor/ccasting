@@ -181,7 +181,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 					if(obj[index] && extend){
 						obj[index].name = obj[index].name+' - '+data.name;
 						obj[index].roll = obj[index].roll+', '+response.data.roll;
-						obj[index].desc = data.descrip;
+						obj[index].desc = obj[index].desc+' - '+data.descrip;
 					} else {
 						obj[index] = {name: data.name,roll:response.data.roll,desc:data.descrip};
 					}
@@ -193,27 +193,32 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						tables.forEach(function(el){
 							// if the table indicates it should be repeated
 							if(el.includes('[')){
-								var regex = /(?:.*?)\[(.*?)\]/gi;
+								var regex = /(.*?)\[(.*?)\]/gi;
 								var iChk = regex.exec(el);
 								var count = 0;
 								//if the repeater is a dice roll roll the dice otherwise set count to indicated number
 								if(iChk[1].includes('d')){
-									count = ShdFnc.dRoll(iChk[1]);
+									count = ShdFnc.dRoll(iChk[2]);
 								} else {
-									count = parseInt(iChk[1]);
+									count = parseInt(iChk[2]);
 								}
 								//add the table to the array list the number of times indicated
 								for (var i=0;i<count;i++){
-										tArray.push(el);
+										tArray.push(iChk[1]);
 								}
 							} else {
 								tArray.push(el);
 							}
 						});
+
 						// Re-run the function for each table entry
 						tArray.forEach(function(el){
+							//check the whether the table being used increments results or replaces them
+							if(daTa['t'+el].increment){
+								index++;
+							}
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
-							TableDive(request, extend, index, deferred);
+							TableDive(request, extend, (index-1), deferred);
 						});
 					} else {
 						deferred.resolve(response);
@@ -222,7 +227,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 					if(extend && obj.name){
 						obj.name = obj.name+' - '+data.name;
 						obj.roll = obj.roll+', '+response.data.roll;
-						obj.desc = data.descrip;
+						obj.desc = obj.desc+' - '+data.descrip;
 						obj.tbl = data.tbl;
 					} else {
 						obj.name = data.name;
@@ -238,18 +243,18 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						tables.forEach(function(el){
 							// if the table indicates it should be repeated
 							if(el.includes('[')){
-								var regex = /(?:.*?)\[(.*?)\]/gi;
+								var regex = /(.*?)\[(.*?)\]/gi;
 								var iChk = regex.exec(el);
 								var count = 0;
 								//if the repeater is a dice roll roll the dice otherwise set count to indicated number
 								if(iChk[1].includes('d')){
-									count = ShdFnc.dRoll(iChk[1]);
+									count = ShdFnc.dRoll(iChk[2]);
 								} else {
-									count = parseInt(iChk[1]);
+									count = parseInt(iChk[2]);
 								}
 								//add the table to the array list the number of times indicated
 								for (var i=0;i<count;i++){
-										tArray.push(el);
+										tArray.push(iChk[1]);
 								}
 							} else {
 								tArray.push(el);
@@ -257,8 +262,13 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						});
 						// Re-run the function for each table entry
 						tArray.forEach(function(el){
+							console.log(el)
+							//check the whether the table being used increments results or replaces them
+							if(daTa['t'+el].increment){
+								index++;
+							}
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
-							TableDive(request, extend, index, deferred);
+							TableDive(request, extend, (index-1), deferred);
 						});
 					} else {
 						deferred.resolve(response);

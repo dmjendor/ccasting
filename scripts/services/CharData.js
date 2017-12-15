@@ -50,6 +50,14 @@ window.angular.module('castingApp.services.CharData', [])
 
 				}
 			},
+			childhood:{
+				apprenticeship:[],
+				events:[],
+			},
+			adulthood:{
+				jobs:[],
+				events:[]
+			},
 			legitimacy: {
 				name: null,
 				desc: null,
@@ -57,14 +65,16 @@ window.angular.module('castingApp.services.CharData', [])
 				tbl: null,
 				lRoll: 0
 			},
-			traits: {
-				lightCount: 0,
-				darkCount: 0,
-				neutralCount: 0,
-				lightSide: [],
-				darkSide: [],
-				neutral: [],
-				exotic: []
+			attitude:{
+				traits: {
+					lightCount: 0,
+					darkCount: 0,
+					neutralCount: 0,
+					lightSide: [],
+					darkSide: [],
+					neutral: [],
+					exotic: []
+				}
 			},
 			race: {
 				name: null,
@@ -124,20 +134,44 @@ window.angular.module('castingApp.services.CharData', [])
 				}
 			},
 			military: {
-					rank: {
-						name: null,
-						number: 0,
-						roll: 0	
-					},
-					skills: {
-					},
-					serviceOf: {
-						name: null,
-						number: 0,
-						roll: 0
-					},
-					events: []
-				}
+				rank: {
+					name: null,
+					number: 0,
+					roll: 0	
+				},
+				skills: {
+				},
+				serviceOf: {
+					name: null,
+					number: 0,
+					roll: 0
+				},
+				events: []
+			},
+			special:{
+				blessings:[],
+				curses:[],
+				psychic:[],
+				tragedies:[],
+				wonderful:[],
+				pets:[],
+				hobbies:[],
+				enslaved: [],
+				imprisoned:[],
+				religious:[],
+				love:[],
+				service:[],
+				exotic:[],
+				death:[],
+
+
+			},
+			criminal: {
+				underworld:[]
+			}
+
+
+
 			
 		};
 
@@ -456,6 +490,7 @@ window.angular.module('castingApp.services.CharData', [])
 			initParent: ClearParent,
 			initParentUnderworld: ClearParentUnderworld,
 			initFamily: ClearFamily,
+			initBirth: ClearBirth,
 			initAll: ClearAll
 		}
 	}]);

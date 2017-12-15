@@ -280,7 +280,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '112', lowRoll: daTa.t112.lowRoll, highRoll: daTa.t112.highRoll,mod: daTa.t112.modifier};
-				ShdFnc.tDive(req,true).then(function(t112){
+				ShdFnc.tDive(req,false).then(function(t112){
 					defObj.resolve();
 				});
 				return defObj.promise;
