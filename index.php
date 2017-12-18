@@ -276,43 +276,49 @@
 </div>
 <script type="text/javascript" src="scripts/main-app.js"></script>
 
+<!-- Services -->
 <script type="text/javascript" src="scripts/services/CharData.js"></script>
 <script type="text/javascript" src="scripts/services/ResourceNotification.js"></script>
 <script type="text/javascript" src="scripts/services/SharedFunctions.js"></script>
-
 <script type="text/javascript" src="scripts/services/FunctionGroup.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup1.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup2.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup3.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup4.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup5.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup6.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup7.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup8.js"></script>
-<script type="text/javascript" src="scripts/services/SubFunctionGroup9.js"></script>
-
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup1.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup2.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup3.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup4.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup5.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup6.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup7.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup8.js"></script>
+	<script type="text/javascript" src="scripts/services/SubFunctionGroup9.js"></script>
 <script type="text/javascript" src="scripts/services/SharedData.js"></script>
+<script type="text/javascript" src="scripts/services/RecursionHelper.js"></script>
 
+
+<!-- Directives -->
+<script type="text/javascript" src="scripts/directives/tableDive.js"></script>
+
+<!-- Controllers -->
 <script type="text/javascript" src="scripts/controllers/base-controller.js"></script>
 
-<script type="text/javascript" src="components/race-info/race.js"></script>
-<script type="text/javascript" src="components/culture-info/culture.js"></script>
-<script type="text/javascript" src="components/survival-info/survival.js"></script>
-<script type="text/javascript" src="components/legitimacy-info/legitimacy.js"></script>
+<!-- Components -->
+	<script type="text/javascript" src="components/race-info/race.js"></script>
+	<script type="text/javascript" src="components/culture-info/culture.js"></script>
+	<script type="text/javascript" src="components/survival-info/survival.js"></script>
+	<script type="text/javascript" src="components/legitimacy-info/legitimacy.js"></script>
 
-<!-- Birth related files -->
-<script type="text/javascript" src="components/birth-info/birth.js"></script>
-<script type="text/javascript" src="components/birth-info/birth-time/time.js"></script>
-<script type="text/javascript" src="components/birth-info/birth-place/place.js"></script>
-<script type="text/javascript" src="components/birth-info/birth-order/order.js"></script>
-<script type="text/javascript" src="components/birth-info/birth-events/events.js"></script>
+	<!-- Birth related files -->
+	<script type="text/javascript" src="components/birth-info/birth.js"></script>
+	<script type="text/javascript" src="components/birth-info/birth-time/time.js"></script>
+	<script type="text/javascript" src="components/birth-info/birth-place/place.js"></script>
+	<script type="text/javascript" src="components/birth-info/birth-order/order.js"></script>
+	<script type="text/javascript" src="components/birth-info/birth-events/events.js"></script>
 
-<!-- Parent Related Files -->
-<script type="text/javascript" src="components/parent-info/parent.js"></script>
-<script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
-<script type="text/javascript" src="components/parent-info/parent-jobs/jobs.js"></script>
-<script type="text/javascript" src="components/parent-info/parent-titles/titles.js"></script>
-<script type="text/javascript" src="components/parent-info/parent-notes/notes.js"></script>
+	<!-- Parent Related Files -->
+	<script type="text/javascript" src="components/parent-info/parent.js"></script>
+	<script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
+	<script type="text/javascript" src="components/parent-info/parent-jobs/jobs.js"></script>
+	<script type="text/javascript" src="components/parent-info/parent-titles/titles.js"></script>
+	<script type="text/javascript" src="components/parent-info/parent-notes/notes.js"></script>
 
 </body>
 <?php $pdo = null; ?>

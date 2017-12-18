@@ -245,7 +245,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '110', lowRoll: daTa.t110.lowRoll, highRoll: daTa.t110.highRoll};
-				ShdFnc.tDive(req,true).then(function(t110){
+				ShdFnc.tDive(req,charInfo.birth.place,true).then(function(t110){
 					charInfo.biMod = t110.data.result.biMod;
 					defObj.resolve();
 				});
@@ -263,7 +263,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '111', lowRoll: daTa.t111.lowRoll, highRoll: daTa.t111.highRoll};
-				ShdFnc.tDive(req,true).then(function(t110){
+				ShdFnc.tDive(req,charInfo.birth.place,true).then(function(t110){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -280,7 +280,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '112', lowRoll: daTa.t112.lowRoll, highRoll: daTa.t112.highRoll,mod: daTa.t112.modifier};
-				ShdFnc.tDive(req,false).then(function(t112){
+				ShdFnc.tDive(req,charInfo.birth.events.items,false).then(function(t112){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -297,7 +297,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll(index) {
 				var defObj = $q.defer();
 				req.params = { table: '113', lowRoll: daTa.t113.lowRoll, highRoll: daTa.t113.highRoll};
-				ShdFnc.tDive(req,true,index).then(function(t113){
+				ShdFnc.tDive(req,charInfo.birth.events.items,false,index).then(function(t113){
 					defObj.resolve();
 				});
 				return defObj.promise;

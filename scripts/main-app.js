@@ -7,11 +7,11 @@ window.$ = jQuery.noConflict();
 window.castingApp = angular.module('castingApp', [
 //	'ngRoute'
 	'sprintf',
+	'RecursionHelper',
 	'castingApp.services',
 	'castingApp.controllers',
 	'castingApp.components',
-
-//  'castingApp.directives',
+	'castingApp.directives',
 //  'castingApp.filters',
 //  'castingApp.models'
 
@@ -54,9 +54,9 @@ window.angular.module('castingApp.controllers', [
 ], null);
 
 //castingApp.directives module definition and its dependencies
-//window.angular.module('castingApp.directives', [
-//  'castingApp.directives.appLoad',
-//], null);
+window.angular.module('castingApp.directives', [
+  'castingApp.directives.tableDive',
+], null);
 
 //castingApp.filters module definition and its dependencies
 //window.angular.module('castingApp.filters', [

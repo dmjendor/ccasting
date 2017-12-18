@@ -163,7 +163,10 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											if(daTa['t'+tbl].modifier){
 												req.params.mod = daTa['t'+tbl].modifier;
 											}
-											jobLoop(req,$scope.charInfo.parent.jobs.head).then(function(){
+											//jobLoop(req,$scope.charInfo.parent.jobs.head).then(function(){
+											//	defObj.resolve();
+											//});
+											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head,true).then(function(){
 												defObj.resolve();
 											});
 //											$scope.ShdFnc.httpRequest(req).then(function(response){

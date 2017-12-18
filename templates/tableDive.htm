@@ -1,0 +1,17 @@
+<div>
+	<ul class='list-group' >
+		<li class="list-group-item" ng-repeat="r in parent" ng-include="'tree_item_renderer.html'">
+		
+		</li>
+	</ul>
+
+
+	<script type="text/ng-template"  id="tree_item_renderer.html">
+		{{r.name}}
+		<button ng-click="add(r)">Add node</button>
+		<button ng-click="delete(r)" ng-show="r.items.length > 0">Delete Item</button>
+		<ul>
+			<li ng-repeat="r in r.items" ng-include="'tree_item_renderer.html'"></li>
+		</ul>
+	</script>
+</div>

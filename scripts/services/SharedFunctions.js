@@ -160,7 +160,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			return deferred.promise;
 		}
 
-		function TableDive(req,extend,index,deferred){
+		function TableDive(req,obj,extend,index,deferred){
 			if(!deferred) {
 				//if the deferred promise does not exist, define it.
 				deferred = $q.defer();
@@ -172,10 +172,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 
 			HttpReq(req).then(function(response){
 				var data = response.data.result;
-				var obj = daTa['t'+response.config.params.table].obj;
-				if(!data.name){
-					console.log('stop');
-				}
+//				var obj = daTa['t'+response.config.params.table].obj;
 				// if the object passed was an array, push the entries to the array
 				if(Array.isArray(obj)){
 					if(obj[index] && extend){
@@ -183,7 +180,13 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						obj[index].roll = obj[index].roll+', '+response.data.roll;
 						obj[index].desc = obj[index].desc+' - '+data.descrip;
 					} else {
-						obj[index] = {name: data.name,roll:response.data.roll,desc:data.descrip};
+						obj[index] = {
+							name: data.name?data.name:'',
+							desc:data.descrip?data.descrip:'',
+							roll:response.data.roll,
+							tbl: data.tbl?data.tbl:null,
+							items:[]
+						};
 					}
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
@@ -213,12 +216,18 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 
 						// Re-run the function for each table entry
 						tArray.forEach(function(el){
+							obj[index] = {items:[]}; // add blank object for each index
 							//check the whether the table being used increments results or replaces them
 							if(daTa['t'+el].increment){
 								index++;
+							} else {
+								index = 1;
 							}
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
-							TableDive(request, extend, (index-1), deferred);
+							if(daTa['t'+el].modifier){
+								request.params.mod = daTa['t'+el].modifier;
+							}
+							TableDive(request, obj[index-1].items, extend, (index-1), deferred);
 						});
 					} else {
 						deferred.resolve(response);
@@ -230,10 +239,11 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						obj.desc = obj.desc+' - '+data.descrip;
 						obj.tbl = data.tbl;
 					} else {
-						obj.name = data.name;
+						obj.name = data.name?data.name:'';
+						obj.desc = data.descrip?data.descrip:'';
 						obj.roll = response.data.roll;
-						obj.desc = data.descrip;
-						obj.tbl = data.tbl;
+						obj.tbl = data.tbl?data.tbl:null;
+						obj.items = [];
 					}
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
@@ -266,9 +276,14 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 							//check the whether the table being used increments results or replaces them
 							if(daTa['t'+el].increment){
 								index++;
+							} else {
+								index = 1;
 							}
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
-							TableDive(request, extend, (index-1), deferred);
+							if(daTa['t'+el].modifier){
+								request.params.mod = daTa['t'+el].modifier;
+							}
+							TableDive(request, obj, extend, (index-1), deferred);
 						});
 					} else {
 						deferred.resolve(response);
