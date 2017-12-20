@@ -6,8 +6,8 @@ window.angular.module('castingApp.directives.tableDive', [])
         template: 
 			'<ul  class="list-group">' + 
                 '<li class="list-group-item" ng-repeat="child in parent.items">' + 
-					'<span class="badge" ng-show="charInfo.showRolls">{{child.roll}}</span> {{child.name}} - {{child.desc}}</li>' +
-                    '<div tree-dive parent="child"></tree>' +
+					'<span class="badge" ng-show="charInfo.showRolls">{{child.roll}}</span> {{child.name}} - {{child.desc}}' +
+                    '<div ng-if="child.items" table-dive parent="child"></div>' +
                 '</li>' +
             '</ul>',
         compile: function(element) {

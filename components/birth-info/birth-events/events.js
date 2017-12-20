@@ -14,9 +14,12 @@ window.angular.module('castingApp.components.birth.events', [])
 						$scope.charInfo = CharData.Character;
 						$scope.ShdFnc = SharedFunctions
 						var daTa = SharedData.tables[0];
+						$scope.getBirthEvents = function(){
+							$scope.charInfo.birth.events = CharData.initBirthEvents();
+							Master.Sub1.Table112.roll();
+						}
 
 						$scope.getBirthEvent = function(index){
-							$scope.charInfo.birth.events = CharData.initBirthEvents();
 							Master.Sub1.Table112.roll(index);
 						}
 

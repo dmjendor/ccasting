@@ -1,8 +1,10 @@
 window.angular.module('castingApp.services.SharedFunctions', [])
-	.factory('SharedFunctions', ['$q','$http','SharedData', function($q,$http,SharedData) {
+	.factory('SharedFunctions', ['$q','$http','SharedData','CharData', 
+	function($q,$http,SharedData,CharData) {
 		'use strict';
 
 		var daTa = SharedData.tables[0];
+		
 
 		function array_search (needle, haystack, argStrict) { // eslint-disable-line camelcase
 		  var defObj = $q.defer();
@@ -83,6 +85,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 //			return Math.floor((Math.random() * dTop) + 1)
 			const regex = /(\d*)(?:D)(\d*)([+*-])*((?:\d+|\([A-Z]*\)))*(?:\+(D\d*))?/gi;
 			var diceArr = regex.exec(dice)
+			console.log(diceArr)
 			var top = parseInt(diceArr[1])*parseInt(diceArr[2]);
 			var bottom = parseInt(diceArr[1]);
 			var mod = parseInt(diceArr[4]);
@@ -160,34 +163,27 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			return deferred.promise;
 		}
 
+
+		function TableDive2(req,obj,extend,index){
+
+
+
+		}
+
 		function TableDive(req,obj,extend,index,deferred){
 			if(!deferred) {
 				//if the deferred promise does not exist, define it.
 				deferred = $q.defer();
 			}
-			// if the index does not exist, define it.
-			var index = index?index:0;
 			// if the extend variable does not exist, define it.
 			var extend = extend?extend:false;
 
 			HttpReq(req).then(function(response){
 				var data = response.data.result;
-//				var obj = daTa['t'+response.config.params.table].obj;
-				// if the object passed was an array, push the entries to the array
-				if(Array.isArray(obj)){
-					if(obj[index] && extend){
-						obj[index].name = obj[index].name+' - '+data.name;
-						obj[index].roll = obj[index].roll+', '+response.data.roll;
-						obj[index].desc = obj[index].desc+' - '+data.descrip;
-					} else {
-						obj[index] = {
-							name: data.name?data.name:'',
-							desc:data.descrip?data.descrip:'',
-							roll:response.data.roll,
-							tbl: data.tbl?data.tbl:null,
-							items:[]
-						};
-					}
+				index = index?index:0;
+				insertData(obj,index,response,extend).then(function(){
+					// reset index after data insert
+					index = -1;
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
 						var tArray = new Array();
@@ -213,85 +209,86 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 								tArray.push(el);
 							}
 						});
+						// Re-run the function for each table entry
+						tArray.forEach(function(el){
+							var chainObj = $q.when();
+							//check the whether the table being used increments results or replaces them
+							index = index+1;
+							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
 
-						// Re-run the function for each table entry
-						tArray.forEach(function(el){
-							obj[index] = {items:[]}; // add blank object for each index
-							//check the whether the table being used increments results or replaces them
-							if(daTa['t'+el].increment){
-								index++;
-							} else {
-								index = 1;
-							}
-							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
 							if(daTa['t'+el].modifier){
-								request.params.mod = daTa['t'+el].modifier;
+								request.params.mod = eval(daTa['t'+el].modifier);
 							}
-							TableDive(request, obj[index-1].items, extend, (index-1), deferred);
+							if(Array.isArray(obj)){
+								TableDive(request, obj[0].items, extend, index, deferred);
+							} else {
+								TableDive(request, obj.items, extend, index, deferred);
+							}
 						});
 					} else {
 						deferred.resolve(response);
 					}
-				} else {
-					if(extend && obj.name){
-						obj.name = obj.name+' - '+data.name;
-						obj.roll = obj.roll+', '+response.data.roll;
-						obj.desc = obj.desc+' - '+data.descrip;
-						obj.tbl = data.tbl;
-					} else {
-						obj.name = data.name?data.name:'';
-						obj.desc = data.descrip?data.descrip:'';
-						obj.roll = response.data.roll;
-						obj.tbl = data.tbl?data.tbl:null;
-						obj.items = [];
-					}
-					// if the response contains a table additional processing is required.
-					if (data.tbl) {
-						var tArray = new Array();
-						// when multiple tables are present, split the tables into an array
-						var tables = data.tbl.split(',');
-						tables.forEach(function(el){
-							// if the table indicates it should be repeated
-							if(el.includes('[')){
-								var regex = /(.*?)\[(.*?)\]/gi;
-								var iChk = regex.exec(el);
-								var count = 0;
-								//if the repeater is a dice roll roll the dice otherwise set count to indicated number
-								if(iChk[1].includes('d')){
-									count = ShdFnc.dRoll(iChk[2]);
-								} else {
-									count = parseInt(iChk[2]);
-								}
-								//add the table to the array list the number of times indicated
-								for (var i=0;i<count;i++){
-										tArray.push(iChk[1]);
-								}
-							} else {
-								tArray.push(el);
-							}
-						});
-						// Re-run the function for each table entry
-						tArray.forEach(function(el){
-							console.log(el)
-							//check the whether the table being used increments results or replaces them
-							if(daTa['t'+el].increment){
-								index++;
-							} else {
-								index = 1;
-							}
-							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
-							if(daTa['t'+el].modifier){
-								request.params.mod = daTa['t'+el].modifier;
-							}
-							TableDive(request, obj, extend, (index-1), deferred);
-						});
-					} else {
-						deferred.resolve(response);
-					}
-				}
+				});
 			});
 
 			return deferred.promise;
+		}
+
+		function insertData(obj,index,response,extend){
+			var defObj = $q.defer();
+			var data = response.data.result;
+			if(Array.isArray(obj)){ // need to resolve why 2nd layer children go to obj 0
+				obj.push({
+					 name: data.name,
+					 desc:data.descrip,
+					 roll:response.data.roll,
+					 tbl: data.tbl,
+					 items:[]
+				 });
+			} else {
+				obj.items.push({
+					 name: data.name,
+					 desc:data.descrip,
+					 roll:response.data.roll,
+					 tbl: data.tbl,
+					 items:[]
+				 });
+			}
+			defObj.resolve();
+// if the object passed was an array, push the entries to the array
+// if(Array.isArray(obj)){
+//     if(obj[index] && extend){
+//         obj[index].name = obj[index].name+' - '+data.name;
+//         obj[index].roll = obj[index].roll+', '+response.data.roll;
+//         obj[index].desc = obj[index].desc+' - '+data.descrip;
+//         defObj.resolve();
+//     } else {
+//         obj.items.push = ({
+//             name: data.name?data.name:null,
+//             desc:data.descrip?data.descrip:null,
+//             roll:response.data.roll,
+//             tbl: data.tbl?data.tbl:null,
+//             items:[]
+//         });
+//         defObj.resolve();
+//     }
+// } else {
+//     if(extend && obj.name){
+//         obj.name = obj.name+' - '+data.name;
+//         obj.roll = obj.roll+', '+response.data.roll;
+//         obj.desc = obj.desc+' - '+data.descrip;
+//         obj.tbl = data.tbl;
+//         defObj.resolve();
+//     } else {
+//         obj.name = data.name?data.name:null;
+//         obj.desc = data.descrip?data.descrip:nul;
+//         obj.roll = response.data.roll;
+//         obj.tbl = data.tbl?data.tbl:null;
+//         obj.items = [];
+//         defObj.resolve();
+//     }
+// }
+			return defObj.promise;
 		}
 
 		var cultureArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];

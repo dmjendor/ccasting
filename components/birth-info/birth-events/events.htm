@@ -3,15 +3,14 @@
 		<div class="col-xs-1">
 			<button class="btn btn-success btn-sm" ng-click="getBirthEvents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
 		</div>
-		<div class="col-xs-11"><span class="badge" ng-show="charInfo.showRolls">{{charInfo.parent.roll}}</span>
-			<b>Events that occured at birth:</b>
+		<div class="col-xs-11">
+			<b>Events:</b><span class="badge" ng-show="charInfo.showRolls">{{charInfo.birth.events.roll}}</span>{{charInfo.birth.events.desc}}
 		</div>
 	</div>
 
 
 	<div class="row" ng-if="charInfo.birth.events.items.length>0">
 		<div class="col-xs-12">
-		<div class="col-xs-12">{{charInfo.birth.events.items}}
 			<div table-dive parent="charInfo.birth.events"></div>		
 		</div>
 	</div>

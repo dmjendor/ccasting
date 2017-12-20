@@ -230,6 +230,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											$scope.charInfo.parent.underworld.count++;
 										} else {
 											req.params.table = el;
+											console.log('job:'+el)
 											req.params.lowRoll = daTa['t'+el].lowRoll;
 											req.params.highRoll = daTa['t'+el].highRoll;
 											jobLoop(req, obj, index, deferred);
