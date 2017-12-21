@@ -1,8 +1,15 @@
-<div class="row" ng-show="charInfo.birth.place.name">
-	<div class="col-xs-1">
-		<button class="btn btn-success btn-sm" ng-click="getBirthPlace()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+<div>
+	<div class="row">
+		<div class="col-xs-1">
+			<button class="btn btn-success btn-sm" ng-click="getBirthPlace()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+		</div>
+		<div class="col-xs-11">
+			<b>Place:</b>
+		</div>
 	</div>
-	<div class="col-xs-11">
-		<strong>Place:</strong> {{charInfo.birth.place.name}}</span>
+	<div class="row" ng-if="charInfo.birth.place.items.length>0">
+		<div class="col-xs-12">
+			<div table-dive parent="charInfo.birth.place"></div>		
+		</div>
 	</div>
-</div>		
+</div>

@@ -15,7 +15,7 @@ window.angular.module('castingApp.components.birth.events', [])
 						$scope.ShdFnc = SharedFunctions
 						var daTa = SharedData.tables[0];
 						$scope.getBirthEvents = function(){
-							$scope.charInfo.birth.events = CharData.initBirthEvents();
+							$scope.charInfo.birth.events = CharData.initItemsList();
 							Master.Sub1.Table112.roll();
 						}
 

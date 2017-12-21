@@ -170,7 +170,8 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 
 		}
 
-		function TableDive(req,obj,extend,index,deferred){
+		// Function designed to handle diving into nested tables
+		function TableDive(req,obj,extend,index,deferred,parent){
 			if(!deferred) {
 				//if the deferred promise does not exist, define it.
 				deferred = $q.defer();
@@ -178,14 +179,17 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			// if the extend variable does not exist, define it.
 			var extend = extend?extend:false;
 
+			var parent = parent?parent:0;
+
 			HttpReq(req).then(function(response){
 				var data = response.data.result;
 				index = index?index:0;
-				insertData(obj,index,response,extend).then(function(){
+				insertData(obj,index,response,extend,parent).then(function(){
 					// reset index after data insert
-					index = -1;
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
+						parent = index;
+						index = -1;
 						var tArray = new Array();
 						// when multiple tables are present, split the tables into an array
 						var tables = data.tbl.split(',');
@@ -220,9 +224,9 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 								request.params.mod = eval(daTa['t'+el].modifier);
 							}
 							if(Array.isArray(obj)){
-								TableDive(request, obj[0].items, extend, index, deferred);
+								TableDive(request, obj[parent].items, extend, index, deferred,parent);
 							} else {
-								TableDive(request, obj.items, extend, index, deferred);
+								TableDive(request, obj.items, extend, index, deferred,parent);
 							}
 						});
 					} else {
@@ -233,16 +237,18 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 
 			return deferred.promise;
 		}
-
-		function insertData(obj,index,response,extend){
+		
+		// Add data retrieved from nested tables, into the associated objects
+		function insertData(obj,index,response,extend,parent){
 			var defObj = $q.defer();
 			var data = response.data.result;
-			if(Array.isArray(obj)){ // need to resolve why 2nd layer children go to obj 0
+			if(Array.isArray(obj)){
 				obj.push({
 					 name: data.name,
 					 desc:data.descrip,
 					 roll:response.data.roll,
 					 tbl: data.tbl,
+					 parent: parent,
 					 items:[]
 				 });
 			} else {
@@ -251,43 +257,12 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 					 desc:data.descrip,
 					 roll:response.data.roll,
 					 tbl: data.tbl,
+					 parent: parent,
 					 items:[]
 				 });
 			}
 			defObj.resolve();
-// if the object passed was an array, push the entries to the array
-// if(Array.isArray(obj)){
-//     if(obj[index] && extend){
-//         obj[index].name = obj[index].name+' - '+data.name;
-//         obj[index].roll = obj[index].roll+', '+response.data.roll;
-//         obj[index].desc = obj[index].desc+' - '+data.descrip;
-//         defObj.resolve();
-//     } else {
-//         obj.items.push = ({
-//             name: data.name?data.name:null,
-//             desc:data.descrip?data.descrip:null,
-//             roll:response.data.roll,
-//             tbl: data.tbl?data.tbl:null,
-//             items:[]
-//         });
-//         defObj.resolve();
-//     }
-// } else {
-//     if(extend && obj.name){
-//         obj.name = obj.name+' - '+data.name;
-//         obj.roll = obj.roll+', '+response.data.roll;
-//         obj.desc = obj.desc+' - '+data.descrip;
-//         obj.tbl = data.tbl;
-//         defObj.resolve();
-//     } else {
-//         obj.name = data.name?data.name:null;
-//         obj.desc = data.descrip?data.descrip:nul;
-//         obj.roll = response.data.roll;
-//         obj.tbl = data.tbl?data.tbl:null;
-//         obj.items = [];
-//         defObj.resolve();
-//     }
-// }
+
 			return defObj.promise;
 		}
 

@@ -11,7 +11,7 @@ window.angular.module('castingApp.components.birth', [])
                     controller: ['$scope', '$q', 'CharData', 'SharedData', 'SharedFunctions', 'FunctionGroup', function ($scope, $q, CharData, SharedData, ShdFnc, Master) {
 
 						$scope.charInfo = CharData.Character;
-						
+						$scope.birthCollapsed = false;
 						var daTa = SharedData.tables[0];
 
 						$scope.getBirth = function(){

@@ -36,10 +36,6 @@ window.angular.module('castingApp.services.CharData', [])
                     tbl: null
                 },
                 place: {
-                    name: null,
-                    desc: null,
-                    roll: 0,
-                    tbl: null,
                     items:[]
                 },
                 events: {
@@ -261,10 +257,6 @@ window.angular.module('castingApp.services.CharData', [])
                         tbl: null
                     },
                     place: {
-                        name: null,
-                        desc: null,
-                        roll: 0,
-                        tbl: null,
                         items: []
                     },
                     events: {
@@ -636,10 +628,6 @@ window.angular.module('castingApp.services.CharData', [])
 					tbl: null
 				},
 				place: {
-					name: null,
-					desc: null,
-					roll: 0,
-					tbl: null,
 					items:[]
 				},
 				events: {
@@ -648,7 +636,7 @@ window.angular.module('castingApp.services.CharData', [])
 			}
 		}
 
-		function ClearBirthEvents(){
+		function ClearItemsList(){
 			return {
 				items: []
 			}
@@ -667,7 +655,7 @@ window.angular.module('castingApp.services.CharData', [])
 			initParentUnderworld: ClearParentUnderworld,
 			initFamily: ClearFamily,
 			initBirth: ClearBirth,
-			initBirthEvents: ClearBirthEvents,
+			initItemsList: ClearItemsList,
 			initAll: ClearAll
 		}
 	}]);

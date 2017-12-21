@@ -1,17 +1,6 @@
-<div>
-	<ul class='list-group' >
-		<li class="list-group-item" ng-repeat="r in parent track by $index" ng-include="'tree_item_renderer.html'">
-		
-		</li>
-	</ul>
-
-
-	<script type="text/ng-template"  id="tree_item_renderer.html">
-		{{r.name}}{{r.desc}}
-		<button ng-click="add(r)">Add node</button>
-		<button ng-click="delete(r)" ng-show="r.items.length > 0">Delete Item</button>
-		<ul class='list-group' >
-			<li class="list-group-item" ng-repeat="r in r.items track by $index" ng-include="'tree_item_renderer.html'"></li>
-		</ul>
-	</script>
-</div>
+<ul  class="list-group">
+	<li class="list-group-item" ng-repeat="child in parent.items">
+		<span class="badge" ng-show="charInfo.showRolls">{{child.roll}}</span> {{child.name}} - {{child.desc}}
+		<div ng-if="child.items.length>0" table-dive parent="child"></div>
+	</li>
+</ul>

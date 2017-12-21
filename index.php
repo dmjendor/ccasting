@@ -86,8 +86,18 @@
 <div id="container-fluid">
     <div class="col-xs-6">
         <div class="panel panel-primary">
-            <div class="panel-heading">Basic Info</div>
-            <div class="panel-body">
+            <div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-1">
+						<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+					</div>
+					<div class="col-xs-9">Basic Information</div>
+					<div class="col-xs-1 text-right">
+						<button class="btn btn-success btn-sm" ng-click="basicCollapsed = !basicCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!basicCollapsed, 'glyphicon-plus':basicCollapsed}" aria-hidden="true"></span></button>
+					</div>
+				</div>
+			</div>
+            <div class="panel-body" uib-collapse="basicCollapsed">
 				<race-info></race-info>
 				<culture-info></culture-info>
 				<survival-info></survival-info>
@@ -131,8 +141,18 @@
 		<parent-info></parent-info>
 		<birth-info></birth-info>
         <div class="panel panel-primary">
-            <div class="panel-heading">Significant Events of Childhood</div>
-            <div class="panel-body">
+            <div class="panel-heading">
+				<div class="row">
+					<div class="col-xs-1">
+						<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+					</div>
+					<div class="col-xs-9">Significant Events of Childhood</div>
+					<div class="col-xs-1 text-right">
+						<button class="btn btn-success btn-sm" ng-click="childCollapsed = !childCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!childCollapsed, 'glyphicon-plus':childCollapsed}" aria-hidden="true"></span></button>
+					</div>
+				</div>
+			</div>
+            <div class="panel-body" uib-collapse="childCollapsed">
 				<?php
 					//$childR = droll("1d3");
 					// $ages = array();
@@ -161,8 +181,18 @@
             </div>
 
 			<div class="panel panel-primary">
-				<div class="panel-heading">Significant Events of Adolescence</div>
-				<div class="panel-body">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-1">
+							<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+						</div>
+						<div class="col-xs-9">Significant Events of Adolescence</div>
+						<div class="col-xs-1 text-right">
+							<button class="btn btn-success btn-sm" ng-click="adolescenceCollapsed = !adolescenceCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!adolescenceCollapsed, 'glyphicon-plus':adolescenceCollapsed}" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body" uib-collapse="adolescenceCollapsed">
 				<?php
 					// $adolesR = droll("1d3");
 					// $ages2 = array();
@@ -187,8 +217,18 @@
 				</div>
 			</div>
 			<div class="panel panel-primary" ng-if="charInfo.military.rank">
-				<div class="panel-heading">Your Military Service</div>
-				<div class="panel-body">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-1">
+							<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+						</div>
+						<div class="col-xs-9">Your Military Service</div>
+						<div class="col-xs-1 text-right">
+							<button class="btn btn-success btn-sm" ng-click="militaryCollapsed = !militaryCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!militaryCollapsed, 'glyphicon-plus':militaryCollapsed}" aria-hidden="true"></span></button>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body" uib-collapse="militaryCollapsed">
 
 				<?php 
 					//$muster = musterOut($mRank);

@@ -1,6 +1,19 @@
 <div class="panel panel-primary">
-	<div class="panel-heading"><button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button> Parents & NPCs</div>
-	<div class="panel-body">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getParents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-9">Parents & NPCs</div>
+			<div class="col-xs-1 text-right">
+				<button class="btn btn-success btn-sm" ng-click="parentCollapsed = !childCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!childCollapsed, 'glyphicon-plus':childCollapsed}" aria-hidden="true"></span></button>
+			</div>
+		</div>	
+	
+	
+	
+	 </div>
+	<div class="panel-body" uib-collapse="parentCollapsed">
 		<parent-status></parent-status>
 		<parent-titles></parent-titles>
 		<parent-jobs></parent-jobs>

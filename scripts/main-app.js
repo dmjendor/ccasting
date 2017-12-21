@@ -7,6 +7,7 @@ window.$ = jQuery.noConflict();
 window.castingApp = angular.module('castingApp', [
 //	'ngRoute'
 	'sprintf',
+	'ui.bootstrap',
 	'RecursionHelper',
 	'castingApp.services',
 	'castingApp.controllers',

@@ -1,6 +1,16 @@
 <div class="panel panel-primary">
-	<div class="panel-heading"><button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button> Birth Information</div>
-	<div class="panel-body">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-9">Birth Information</div>
+			<div class="col-xs-1 text-right">
+				<button class="btn btn-success btn-sm" ng-click="birthCollapsed = !birthCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!birthCollapsed, 'glyphicon-plus':birthCollapsed}" aria-hidden="true"></span></button>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="birthInfo" uib-collapse="birthCollapsed">
 		<birth-time></birth-time>
 		<birth-place></birth-place>
 		<birth-order></birth-order>

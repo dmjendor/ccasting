@@ -3,13 +3,7 @@ window.angular.module('castingApp.directives.tableDive', [])
     return {
         restrict: "A",
         scope: {parent: '='},
-        template: 
-			'<ul  class="list-group">' + 
-                '<li class="list-group-item" ng-repeat="child in parent.items">' + 
-					'<span class="badge" ng-show="charInfo.showRolls">{{child.roll}}</span> {{child.name}} - {{child.desc}}' +
-                    '<div ng-if="child.items" table-dive parent="child"></div>' +
-                '</li>' +
-            '</ul>',
+        templateUrl: 'templates/tableDive.htm', 
         compile: function(element) {
             return RecursionHelper.compile(element, function(scope, iElement, iAttrs, controller, transcludeFn){
                 // Define your normal link function here.
