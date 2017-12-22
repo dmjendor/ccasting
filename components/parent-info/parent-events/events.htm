@@ -1,0 +1,15 @@
+<div ng-show="charInfo.parent.roll">
+		<div class="row">
+			<div class="col-xs-1">
+				<button class="btn btn-success btn-sm" ng-click="getEvents()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
+			</div>
+			<div class="col-xs-11">
+				<b>Noteworthy Items for Parents:</b>
+			</div>
+		</div>
+		<div class="row" ng-if="charInfo.parent.events.items.length>0">
+			<div class="col-xs-12">
+				<div table-dive parent="charInfo.parent.events"></div>		
+			</div>
+		</div>
+</div>		

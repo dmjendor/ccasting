@@ -140,45 +140,7 @@
 		</div>
 		<parent-info></parent-info>
 		<birth-info></birth-info>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-				<div class="row">
-					<div class="col-xs-1">
-						<button class="btn btn-success btn-sm" ng-click="getBirth()"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></button>
-					</div>
-					<div class="col-xs-9">Significant Events of Childhood</div>
-					<div class="col-xs-1 text-right">
-						<button class="btn btn-success btn-sm" ng-click="childCollapsed = !childCollapsed"><span class="glyphicon" ng-class="{'glyphicon-minus':!childCollapsed, 'glyphicon-plus':childCollapsed}" aria-hidden="true"></span></button>
-					</div>
-				</div>
-			</div>
-            <div class="panel-body" uib-collapse="childCollapsed">
-				<?php
-					//$childR = droll("1d3");
-					// $ages = array();
-					// $ageArray = array();
-					//
-					// echo "<ul class='list-group'>";
-					//
-					// for($i=0;$i <= $childR['final']; $i++){
-					//     array_push($ageArray,getAge('child'));
-					// }
-					//
-					// foreach ($ageArray as $age) {
-					//     $ages[] = $age['final'];
-					// }
-					// asort($ages);
-					//
-					// foreach ($ages as $age){
-					//     echo "<li class='list-group-item'><b class='text-primary'>Age ".$age.": </b>";
-					// t215();
-					// }
-					//
-					//
-					// echo "</ul>";               
-                ?>
-				</div>
-            </div>
+        <child-events></child-events>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -358,7 +320,10 @@
 	<script type="text/javascript" src="components/parent-info/parent-status/status.js"></script>
 	<script type="text/javascript" src="components/parent-info/parent-jobs/jobs.js"></script>
 	<script type="text/javascript" src="components/parent-info/parent-titles/titles.js"></script>
-	<script type="text/javascript" src="components/parent-info/parent-notes/notes.js"></script>
+	<script type="text/javascript" src="components/parent-info/parent-events/events.js"></script>
+
+	<!-- Childhood Events Related Files -->
+	<script type="text/javascript" src="components/child-events/child.js"></script>
 
 </body>
 <?php $pdo = null; ?>

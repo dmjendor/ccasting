@@ -56,7 +56,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 										if(daTa['t'+tbl].modifier){
 											req.params.mod = daTa['t'+tbl].modifier;
 										}
-										jobLoop(req,$scope.charInfo.parent.jobs.head).then(function(){
+										$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head.items,false).then(function(){
 											$scope.ShdFnc.getJob($scope.charInfo.culture.level).then(function(tbl2){
 												req2.params.table = tbl2;
 												req2.params.lowRoll = daTa['t'+tbl2].lowRoll;
@@ -64,7 +64,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 												if(daTa['t'+tbl].modifier){
 													req2.params.mod = daTa['t'+tbl].modifier;
 												}
-												jobLoop(req,$scope.charInfo.parent.jobs.head,1).then(function(){
+												$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head.items,false,1).then(function(){
 													defObj.resolve();
 												});
 											});
@@ -80,7 +80,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											if(daTa['t'+tbl].modifier){
 												req.params.mod = daTa['t'+tbl].modifier;
 											}
-											jobLoop(req,$scope.charInfo.parent.jobs.parent2).then(function(){
+											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.parent2.items,false).then(function(){
 												defObj.resolve();
 											});
 										});
@@ -94,7 +94,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											if(daTa['t'+tbl].modifier){
 												req.params.mod = daTa['t'+tbl].modifier;
 											}
-											jobLoop(req,$scope.charInfo.parent.jobs.parent1).then(function(){
+											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.parent1.items,false).then(function(){	
 												$scope.ShdFnc.getJob($scope.charInfo.culture.level).then(function(tbl2){
 													req2.params.table = tbl2;
 													req2.params.lowRoll = daTa['t'+tbl2].lowRoll;
@@ -102,9 +102,10 @@ window.angular.module('castingApp.components.parent.jobs', [])
 													if(daTa['t'+tbl].modifier){
 														req2.params.mod = daTa['t'+tbl].modifier;
 													}
-													jobLoop(req,$scope.charInfo.parent.jobs.parent2).then(function(){
+													$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.parent2.items,false).then(function(){
 														defObj.resolve();
 													});
+
 												});
 											});
 										});
@@ -131,7 +132,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 												advType += ' - '+occRank.name;
 												advDesc +- ', '+occRank.descrip;
 												advRolls += ','+response.data.roll;
-												$scope.charInfo.parent.jobs.head.push({name:advType,desc: advDesc,roll:advRolls});
+												$scope.charInfo.parent.jobs.head.items.push({name:advType,desc: advDesc,roll:advRolls});
 												defObj.resolve();
 											});
 										});										
@@ -150,9 +151,10 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											req.params.highRoll = daTa['t'+table].highRoll;
 											delete req.params.id;
 											delete req.params.mod;
-											jobLoop(req,$scope.charInfo.parent.jobs.head).then(function(){
+											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head.items,false).then(function(){
 												defObj.resolve();
 											});
+
 										});
 										break;
 									default:
@@ -166,7 +168,7 @@ window.angular.module('castingApp.components.parent.jobs', [])
 											//jobLoop(req,$scope.charInfo.parent.jobs.head).then(function(){
 											//	defObj.resolve();
 											//});
-											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head,true).then(function(){
+											$scope.ShdFnc.tDive(req,$scope.charInfo.parent.jobs.head.items,false).then(function(){
 												defObj.resolve();
 											});
 //											$scope.ShdFnc.httpRequest(req).then(function(response){

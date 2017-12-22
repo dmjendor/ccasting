@@ -3,6 +3,21 @@ window.angular.module('castingApp.services.SharedData', [])
         'use strict';
 
         var AllTables = [{
+			't5' : {
+				'lowRoll': 1,
+                'highRoll': 1,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+
+			},
+			't8' : {
+				'lowRoll': 1,
+                'highRoll': 18,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
             't101' : {
                 'lowRoll': 1,
                 'highRoll': 20,
@@ -969,6 +984,13 @@ window.angular.module('castingApp.services.SharedData', [])
                 'obj': null,
                 'increment': true
             },
+			't543a1': {
+			   'lowRoll': 1,
+                'highRoll': 3,
+                'modifier': null,
+				'obj': '',
+                'increment': true
+			},
             't543b':{
                 'lowRoll': 1,
                 'highRoll': 8,
@@ -1384,7 +1406,7 @@ window.angular.module('castingApp.services.SharedData', [])
             },
             't866':{
                 'lowRoll': 1,
-                'highRoll': 20,
+                'highRoll': 10,
                 'modifier': null,
                 'obj': null,
                 'increment': true

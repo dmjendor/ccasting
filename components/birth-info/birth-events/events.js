@@ -19,8 +19,8 @@ window.angular.module('castingApp.components.birth.events', [])
 							Master.Sub1.Table112.roll();
 						}
 
-						$scope.getBirthEvent = function(index){
-							Master.Sub1.Table112.roll(index);
+						$scope.getBirthEvent = function(obj){
+							Master.Sub1.Table112.roll(obj);
 						}
 
                      }]

@@ -141,8 +141,7 @@ window.angular.module('castingApp.services.CharData', [])
                         items: []
                     }
                 },
-                noteWorthy: {
-                    count: 0,
+                events: {
                     items: []
                 },
                 underworld: {
@@ -361,12 +360,10 @@ window.angular.module('castingApp.services.CharData', [])
                             items: []
                         }
                     },
-                    noteWorthy: {
-                        count: 0,
+                    events: {
                         items: []
                     },
                     underworld: {
-                        count: 0,
                         events: {
                             items: []
                         }
@@ -487,12 +484,10 @@ window.angular.module('castingApp.services.CharData', [])
 						items: []
 					}
 				},
-				noteWorthy: {
-					count: 0,
+				events: {
 					items: []
 				},
 				underworld: {
-					count: 0,
 					events: {
 						items: []
 					}
@@ -594,15 +589,6 @@ window.angular.module('castingApp.services.CharData', [])
 			}
 		}
 
-		function ClearParentUnderworld(){
-			return {
-				count: 0,
-				events: {
-					items: []
-				}
-			}
-		}
-
 		function ClearFamily(){
 			return {
 				name: null,
@@ -652,7 +638,6 @@ window.angular.module('castingApp.services.CharData', [])
 			initLegitimacy: ClearLegitimacy,
 			initJobs: ClearJobs,
 			initParent: ClearParent,
-			initParentUnderworld: ClearParentUnderworld,
 			initFamily: ClearFamily,
 			initBirth: ClearBirth,
 			initItemsList: ClearItemsList,

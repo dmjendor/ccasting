@@ -79,13 +79,10 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 		}
 
 		function RollDice(dice) {
-
-//			var dex = dice.split('d');
-//			var dTop = dex[1]*dex[0];
-//			return Math.floor((Math.random() * dTop) + 1)
+			
 			const regex = /(\d*)(?:D)(\d*)([+*-])*((?:\d+|\([A-Z]*\)))*(?:\+(D\d*))?/gi;
 			var diceArr = regex.exec(dice)
-			console.log(diceArr)
+			console.log(dice,diceArr)
 			var top = parseInt(diceArr[1])*parseInt(diceArr[2]);
 			var bottom = parseInt(diceArr[1]);
 			var mod = parseInt(diceArr[4]);
@@ -215,9 +212,30 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 						});
 						// Re-run the function for each table entry
 						tArray.forEach(function(el){
-							var chainObj = $q.when();
+							if(el.includes('427')) {// Hobbies
+								console.log(el,'Hobbies');
+							} else if(el === '535a'){
+								switch(CharData.Character.culture.level){
+									case 'Primitive':
+										el = '535a1';
+										break;
+									case 'Nomad':
+									case 'Barbarian':
+										el = '535a2';
+										break;
+									case 'Civilized':
+									case 'Civilized-Decadant':
+										if(CharData.Character.parent.status.level.includes('Noble')){
+											el = '535a4';
+										} else {
+											el = '535a3';
+										}
+										break;
+								}
+							}
 							//check the whether the table being used increments results or replaces them
 							index = index+1;
+							console.log(el)
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
 
 							if(daTa['t'+el].modifier){

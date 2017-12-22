@@ -1,41 +1,49 @@
 'use strict';
-window.angular.module('castingApp.components.parent.notes', [])
-        .directive('parentNotes', [
+window.angular.module('castingApp.components.parent.events', [])
+        .directive('parentEvents', [
             function () {
                 return{
                     restrict: 'E',
                     scope: true,
                     replace: true,
-                    templateUrl: 'components/parent-info/parent-notes/notes.htm',
+                    templateUrl: 'components/parent-info/parent-events/events.htm',
                     link: function ($scope, elem, attrs) {},
-                    controller: ['$scope', '$q', 'CharData', 'SharedFunctions', 'SharedData', function ($scope, $q, CharData, SharedFunctions, SharedData) {
+                    controller: ['$scope','$q','FunctionGroup', 'CharData', 'SharedFunctions', 'SharedData', 
+						function ($scope, $q, Master, CharData, SharedFunctions, SharedData) {
 
 						$scope.charInfo = CharData.Character;
 						$scope.ShdFnc = SharedFunctions
 						var daTa = SharedData.tables[0];
 
-
-						$scope.getNotes = function(){
-							var defObj = $q.defer();
-							$scope.charInfo.parent.noteWorthy.items = [];
-							var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
-							$scope.charInfo.parent.noteWorthy.count = Math.floor(Math.random() * 3)+1;
-							for(var i=0;i<$scope.charInfo.parent.noteWorthy.count;i++){
-								req.params.table = '114b';
-								req.params.lowRoll = daTa.t114b.lowRoll;
-								req.params.highRoll = daTa.t114b.highRoll;
-								noteLoop(req,$scope.charInfo.parent.noteWorthy.items,i).then(function(){
-									if(i===$scope.charInfo.parent.noteWorthy.count){
-										defObj.resolve();
-									}
-								});
-
+						$scope.getEvents = function(){
+							var count = Math.floor(Math.random() * 3)+1;
+							$scope.charInfo.parent.events = CharData.initItemsList();
+							for(var i=0;i<count;i++){
+								Master.Sub1.Table114b.roll();
 							}
-
-							
-
-							return defObj.promise;
 						}
+
+						//$scope.getNotes = function(){
+						//	var defObj = $q.defer();
+						//	$scope.charInfo.parent.noteWorthy.items = [];
+					//		var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
+					//		
+					//		for(var i=0;i<$scope.charInfo.parent.noteWorthy.count;i++){
+					//			req.params.table = '114b';
+					//			req.params.lowRoll = daTa.t114b.lowRoll;
+					//			req.params.highRoll = daTa.t114b.highRoll;
+					//			noteLoop(req,$scope.charInfo.parent.noteWorthy.items,i).then(function(){
+					//				if(i===$scope.charInfo.parent.noteWorthy.count){
+					//					defObj.resolve();
+					//				}
+					//			});
+//
+//							}
+//
+//							
+//
+//							return defObj.promise;
+//						}
 
 						function noteLoop(req,obj,index,deferred){
 							if(!deferred) {
@@ -130,7 +138,7 @@ window.angular.module('castingApp.components.parent.notes', [])
 						}
 
 						if($scope.charInfo.generateFull){
-							$scope.getNotes();
+							$scope.getEvents();
 						}
 
                      }]

@@ -86,11 +86,12 @@ window.angular.module('castingApp.components', [
 	'castingApp.components.birth.place',
 	'castingApp.components.birth.order',
 	'castingApp.components.birth.events',
+	'castingApp.components.childEvents',
 
 	'castingApp.components.parent.status',
 	'castingApp.components.parent.titles',
 	'castingApp.components.parent.jobs',
-	'castingApp.components.parent.notes'
+	'castingApp.components.parent.events'
 
 //  'castingApp.components.bioModal_ctrl',
 ], null);
