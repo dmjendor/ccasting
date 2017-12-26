@@ -245,7 +245,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '110', lowRoll: daTa.t110.lowRoll, highRoll: daTa.t110.highRoll};
-				ShdFnc.tDive(req,charInfo.birth.place,true).then(function(t110){
+				ShdFnc.tDive(req,charInfo.birth.place).then(function(t110){
 					charInfo.biMod = t110.data.result.biMod;
 					defObj.resolve();
 				});
@@ -263,7 +263,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '111', lowRoll: daTa.t111.lowRoll, highRoll: daTa.t111.highRoll};
-				ShdFnc.tDive(req,charInfo.birth.place,true).then(function(t110){
+				ShdFnc.tDive(req,charInfo.birth.place).then(function(t110){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -280,7 +280,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '112', lowRoll: daTa.t112.lowRoll, highRoll: daTa.t112.highRoll,mod: eval(daTa.t112.modifier)};
-				ShdFnc.tDive(req,charInfo.birth.events.items,false).then(function(t112){
+				ShdFnc.tDive(req,charInfo.birth.events).then(function(t112){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -297,7 +297,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll(index) {
 				var defObj = $q.defer();
 				req.params = { table: '113', lowRoll: daTa.t113.lowRoll, highRoll: daTa.t113.highRoll};
-				ShdFnc.tDive(req,charInfo.birth.events.items,false,index).then(function(t113){
+				ShdFnc.tDive(req,charInfo.birth.events,index).then(function(t113){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -314,7 +314,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  roll(index) {
 				var defObj = $q.defer();
 				req.params = { table: '114a', lowRoll: daTa.t114a.lowRoll, highRoll: daTa.t114a.highRoll};
-				ShdFnc.tDive(req,charInfo.parent.events.items,false,index).then(function(t114a){
+				ShdFnc.tDive(req,charInfo.parent.events,index).then(function(t114a){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -325,11 +325,25 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			  }
 			}
 
+			var table5 = {
+				roll() {
+				var defObj = $q.defer();
+				req.params = { table: '5', lowRoll: daTa.t5.lowRoll, highRoll: daTa.t5.highRoll};
+				ShdFnc.tDive(req,charInfo.parent.events).then(function(t5){
+					charInfo.parent.events.items = ShdFnc.getItems(charInfo.parent.events.items,0);
+					defObj.resolve();
+				});
+				return defObj.promise;
+			  },
+			  build() {
+				return ;
+			  }
+			}
 			var table114b = {
 			  roll() {
 				var defObj = $q.defer();
 				req.params = { table: '114b', lowRoll: daTa.t114b.lowRoll, highRoll: daTa.t114b.highRoll};
-				ShdFnc.tDive(req,charInfo.parent.events.items,false).then(function(t113){
+				ShdFnc.tDive(req,charInfo.parent.events).then(function(t113){
 					defObj.resolve();
 				});
 				return defObj.promise;
@@ -340,6 +354,7 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			}
 
 		return {
+			Table5:table5,
 			Table101:table101,
 			Table102:table102,
 			Table103:table103,

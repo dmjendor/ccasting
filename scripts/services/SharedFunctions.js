@@ -161,14 +161,14 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 		}
 
 
-		function TableDive2(req,obj,extend,index){
+		function TableDive2(req,obj,index,parent,deferred){
 
 
 
 		}
 
 		// Function designed to handle diving into nested tables
-		function TableDive(req,obj,extend,index,deferred,parent){
+		function TableDive(req,obj,index,parent,deferred){
 			if(!deferred) {
 				//if the deferred promise does not exist, define it.
 				deferred = $q.defer();
@@ -176,17 +176,15 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			// if the extend variable does not exist, define it.
 			var extend = extend?extend:false;
 
-			var parent = parent?parent:0;
-
 			HttpReq(req).then(function(response){
 				var data = response.data.result;
 				index = index?index:0;
-				insertData(obj,index,response,extend,parent).then(function(){
+				parent = parent?parent:null;
+
+				insertData(obj,index,parent,response).then(function(){
 					// reset index after data insert
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
-						parent = index;
-						index = -1;
 						var tArray = new Array();
 						// when multiple tables are present, split the tables into an array
 						var tables = data.tbl.split(',');
@@ -233,19 +231,16 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 										break;
 								}
 							}
-							//check the whether the table being used increments results or replaces them
-							index = index+1;
+							obj.count = ++obj.count;
+							parent = index;
+							index = obj.count;
 							console.log(el)
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
 
 							if(daTa['t'+el].modifier){
 								request.params.mod = eval(daTa['t'+el].modifier);
 							}
-							if(Array.isArray(obj)){
-								TableDive(request, obj[parent].items, extend, index, deferred,parent);
-							} else {
-								TableDive(request, obj.items, extend, index, deferred,parent);
-							}
+							TableDive(request, obj,index,parent,deferred);
 						});
 					} else {
 						deferred.resolve(response);
@@ -257,11 +252,12 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 		}
 		
 		// Add data retrieved from nested tables, into the associated objects
-		function insertData(obj,index,response,extend,parent){
+		function insertData(obj,index,parent,response){
 			var defObj = $q.defer();
 			var data = response.data.result;
 			if(Array.isArray(obj)){
 				obj.push({
+					 id: index,
 					 name: data.name,
 					 desc:data.descrip,
 					 roll:response.data.roll,
@@ -271,6 +267,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 				 });
 			} else {
 				obj.items.push({
+					 id: index,
 					 name: data.name,
 					 desc:data.descrip,
 					 roll:response.data.roll,
@@ -282,6 +279,21 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			defObj.resolve();
 
 			return defObj.promise;
+		}
+
+		function getNestedItems(arr, parent) {
+			var out = []
+			for(var i in arr.items) {
+				if(arr[i].parent == parent) {
+					var items = getNestedItems(arr, arr[i].id)
+
+					if(items.length) {
+						arr[i].items = items
+					}
+					out.push(arr[i])
+				}
+			}
+			return out
 		}
 
 		var cultureArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];
@@ -329,6 +341,7 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			getJob:JobSelect,
 			getModJob:JobMod,
 			ordinalSuffix:ordinal_suffix_of,
-			tDive:TableDive
+			tDive:TableDive,
+			getItems: getNestedItems
 		};
 	}]);

@@ -16,11 +16,11 @@ window.angular.module('castingApp.components.parent.events', [])
 						var daTa = SharedData.tables[0];
 
 						$scope.getEvents = function(){
-							var count = Math.floor(Math.random() * 3)+1;
+							
 							$scope.charInfo.parent.events = CharData.initItemsList();
-							for(var i=0;i<count;i++){
-								Master.Sub1.Table114b.roll();
-							}
+							//for(var i=0;i<count;i++){
+								Master.Sub1.Table5.roll();
+							//}
 						}
 
 						//$scope.getNotes = function(){

@@ -142,6 +142,7 @@ window.angular.module('castingApp.services.CharData', [])
                     }
                 },
                 events: {
+					count:  0,
                     items: []
                 },
                 underworld: {
@@ -361,6 +362,7 @@ window.angular.module('castingApp.services.CharData', [])
                         }
                     },
                     events: {
+						count:  0,
                         items: []
                     },
                     underworld: {
@@ -485,10 +487,12 @@ window.angular.module('castingApp.services.CharData', [])
 					}
 				},
 				events: {
+					count: 0,
 					items: []
 				},
 				underworld: {
 					events: {
+						count: 0,
 						items: []
 					}
 				}
@@ -624,6 +628,7 @@ window.angular.module('castingApp.services.CharData', [])
 
 		function ClearItemsList(){
 			return {
+				count:  0,
 				items: []
 			}
 		}

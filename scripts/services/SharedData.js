@@ -5,11 +5,10 @@ window.angular.module('castingApp.services.SharedData', [])
         var AllTables = [{
 			't5' : {
 				'lowRoll': 1,
-                'highRoll': 1,
+                'highRoll': 10,
                 'modifier': null,
 				'obj': null,
                 'increment': true
-
 			},
 			't8' : {
 				'lowRoll': 1,
