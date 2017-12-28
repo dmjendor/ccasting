@@ -295,6 +295,8 @@
 <script type="text/javascript" src="scripts/services/SharedData.js"></script>
 <script type="text/javascript" src="scripts/services/RecursionHelper.js"></script>
 
+<script type="text/javascript" src="scripts/decorators/qImproved.js"></script>
+
 
 <!-- Directives -->
 <script type="text/javascript" src="scripts/directives/tableDive.js"></script>

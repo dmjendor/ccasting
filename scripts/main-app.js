@@ -13,6 +13,7 @@ window.castingApp = angular.module('castingApp', [
 	'castingApp.controllers',
 	'castingApp.components',
 	'castingApp.directives',
+	'castingApp.decorators'
 //  'castingApp.filters',
 //  'castingApp.models'
 
@@ -58,6 +59,12 @@ window.angular.module('castingApp.controllers', [
 window.angular.module('castingApp.directives', [
   'castingApp.directives.tableDive',
 ], null);
+
+//castingApp.decorators module definition and its dependencies
+window.angular.module('castingApp.decorators', [
+  'qImproved',
+], null);
+
 
 //castingApp.filters module definition and its dependencies
 //window.angular.module('castingApp.filters', [

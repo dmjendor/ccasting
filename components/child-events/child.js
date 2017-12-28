@@ -8,17 +8,26 @@ window.angular.module('castingApp.components.childEvents', [])
                     replace: true,
                     templateUrl: 'components/child-events/child.htm',
                     link: function ($scope, elem, attrs) {},
-                    controller: ['$scope', '$q', 'CharData', 'SharedFunctions', 'SharedData', function ($scope, $q, CharData, SharedFunctions, SharedData) {
+                    controller: ['$scope','$q','FunctionGroup', 'CharData', 'SharedFunctions', 'SharedData', 
+						function ($scope, $q, Master, CharData, SharedFunctions, SharedData) {
 
 						$scope.charInfo = CharData.Character;
 						$scope.ShdFnc = SharedFunctions
 						var daTa = SharedData.tables[0];
 
+						$scope.getChildEvents = function(){
+							
+							$scope.charInfo.childhood.events = CharData.initItemsList();
+							//for(var i=0;i<count;i++){
+								Master.Sub2.Table216a.roll();
+							//}
+						}
 
-						var req = {	method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
-						var req2 = { method: 'GET', url: 'getData.php', params: { table: '' , lowRoll: 1, highRoll: 1 } };
 
-					
+						if($scope.charInfo.generateFull){
+							$scope.getChildEvents();
+						}
+
 
                      }]
                 };

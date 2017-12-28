@@ -179,12 +179,12 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			HttpReq(req).then(function(response){
 				var data = response.data.result;
 				index = index?index:0;
-				parent = parent?parent:null;
-
+				parent = parent?parent:0;
 				insertData(obj,index,parent,response).then(function(){
-					// reset index after data insert
+
 					// if the response contains a table additional processing is required.
 					if (data.tbl) {
+						parent = index; // If there is a table, set the parent to the current index
 						var tArray = new Array();
 						// when multiple tables are present, split the tables into an array
 						var tables = data.tbl.split(',');
@@ -208,8 +208,10 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 								tArray.push(el);
 							}
 						});
+						var currIdx=0; // set current index to zero
 						// Re-run the function for each table entry
 						tArray.forEach(function(el){
+							currIdx = currIdx++; // increment teh current index for each child of current parent
 							if(el.includes('427')) {// Hobbies
 								console.log(el,'Hobbies');
 							} else if(el === '535a'){
@@ -231,21 +233,23 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 										break;
 								}
 							}
-							obj.count = ++obj.count;
-							parent = index;
-							index = obj.count;
+
+							index = ++obj.count; // increment the index by the total number of objects
 							console.log(el)
 							var request = {	method: 'GET', url: 'getData.php', params: { table: el , lowRoll: daTa['t'+el].lowRoll, highRoll: daTa['t'+el].highRoll } };
 
 							if(daTa['t'+el].modifier){
 								request.params.mod = eval(daTa['t'+el].modifier);
 							}
-							TableDive(request, obj,index,parent,deferred);
+
+							TableDive(request,obj,index,parent,deferred);
 						});
 					} else {
 						deferred.resolve(response);
 					}
 				});
+			},function(data){
+					ResourceNotificationService.showError('Error','Error Message'+data)
 			});
 
 			return deferred.promise;
@@ -281,20 +285,6 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			return defObj.promise;
 		}
 
-		function getNestedItems(arr, parent) {
-			var out = []
-			for(var i in arr.items) {
-				if(arr[i].parent == parent) {
-					var items = getNestedItems(arr, arr[i].id)
-
-					if(items.length) {
-						arr[i].items = items
-					}
-					out.push(arr[i])
-				}
-			}
-			return out
-		}
 
 		var cultureArray = ["Unused","Primitive","Nomad","Barbarian","Civilized","Civilized-Decadent"];
 		var cultureTableArray = ["420a","420a","421a","422a","423a", "423a","423a","423a"];
@@ -341,7 +331,6 @@ window.angular.module('castingApp.services.SharedFunctions', [])
 			getJob:JobSelect,
 			getModJob:JobMod,
 			ordinalSuffix:ordinal_suffix_of,
-			tDive:TableDive,
-			getItems: getNestedItems
+			tDive:TableDive
 		};
 	}]);

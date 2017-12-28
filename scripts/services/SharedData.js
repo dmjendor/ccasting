@@ -3,14 +3,49 @@ window.angular.module('castingApp.services.SharedData', [])
         'use strict';
 
         var AllTables = [{
-			't5' : {
+			'parent_events' : {
 				'lowRoll': 1,
                 'highRoll': 10,
                 'modifier': null,
 				'obj': null,
                 'increment': true
 			},
-			't8' : {
+			'childhood_events' : {
+				'lowRoll': 1,
+                'highRoll': 10,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
+			'adolescence_events' : {
+				'lowRoll': 1,
+                'highRoll': 10,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
+			'adult_events' : {
+				'lowRoll': 1,
+                'highRoll': 10,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
+			'gender' : {
+				'lowRoll': 1,
+                'highRoll': 10,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
+			'age' : {
+				'lowRoll': 1,
+                'highRoll': 10,
+                'modifier': null,
+				'obj': null,
+                'increment': true
+			},
+			'motivations' : {
 				'lowRoll': 1,
                 'highRoll': 18,
                 'modifier': null,

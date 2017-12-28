@@ -328,9 +328,8 @@ window.angular.module('castingApp.services.SubFunctionGroup1', [])
 			var table5 = {
 				roll() {
 				var defObj = $q.defer();
-				req.params = { table: '5', lowRoll: daTa.t5.lowRoll, highRoll: daTa.t5.highRoll};
+				req.params = { table: 'PARENT_EVENTS', lowRoll: daTa.parent_events.lowRoll, highRoll: daTa.parent_events.highRoll};
 				ShdFnc.tDive(req,charInfo.parent.events).then(function(t5){
-					charInfo.parent.events.items = ShdFnc.getItems(charInfo.parent.events.items,0);
 					defObj.resolve();
 				});
 				return defObj.promise;
